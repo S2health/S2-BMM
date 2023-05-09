@@ -1,0 +1,605 @@
+-- 
+-- 	component:   Graphite Canonical Model BMM
+-- 	description: Graphite Canonical Model component formal expression. This file is an ODIN serialisation of
+--                   the BMM object meta-model classes found at 
+--                   https://www.openEHR.org/releases/LANG/latest/p_bmm.html
+-- 	keywords:    reference model, meta-model, archetypes
+-- 	author:      Thomas Beale <thomas.beale@graphitehealth.io>
+-- 	support:     https://graphite.atlassian.net/issues/
+-- 	copyright:   Copyright (c) 2023- Graphite Health <https://www.graphitehealth.io>
+-- 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+--
+
+------------------------------------------------------
+-- BMM version on which these schemas are based.
+-- Current BMM version can be found as the top version in the specification:
+--     https://www.graphite.org/releases/LANG/latest/bmm_persistence.html#_amendment_record
+--
+------------------------------------------------------
+bmm_version = <"2.3">
+
+------------------------------------------------------
+-- schema identification
+-- (schema_id computed as <rm_publisher>_<schema_name>_<rm_release>)
+------------------------------------------------------
+rm_publisher = <"graphite">
+schema_name = <"rm_data_types">
+rm_release = <"0.6.0">
+
+------------------------------------------------------
+-- schema documentation
+------------------------------------------------------
+schema_revision = <"0.6.0.1">
+schema_lifecycle_state = <"stable">
+schema_description = <"openEHR Release 0.6.0 reference model Data types">
+schema_author = <"Thomas Beale <thomas.beale@graphite.org>">
+
+------------------------------------------------------
+-- inclusions
+------------------------------------------------------
+includes = <
+	["1"] = <
+		id = <"graphite_base_0.6.0">
+	>
+>
+
+------------------------------------------------------
+-- packages
+------------------------------------------------------
+
+packages = <
+	["io.graphite.gcm.data_types"] = <
+		name = <"io.graphite.gcm.data_types">
+		classes = <"Data_value", "Dv_boolean", "Dv_identifier", "Dv_timing">
+		packages = <
+			["text"] = <
+				name = <"text">
+				classes = <"Dv_text", "Text_format_types", "Term_mapping", "Dv_coded_text", "Dv_plain_text">
+			>
+			["quantity"] = <
+				name = <"quantity">
+				classes = <
+					"Dv_range", "Reference_range", "Dv_ordered", "Dv_quantified", "Dv_quantity", 
+					"Dv_ratio", "Ratio_kind", "Dv_quantified", "Dv_count", "Dv_ordinal", "Measured",
+					"Comparison_operator", "Dv_temporal", "Dv_date", "Date_time", "Dv_time", "Duration"
+				>
+			>
+			["encapsulated"] = <
+				name = <"encapsulated">
+				classes = <"Dv_encapsulated", "Dv_multimedia", "Dv_parsable">
+			>
+			["uri"] = <
+				name = <"uri">
+				classes = <"Dv_uri", "Dv_ehr_uri">
+			>
+		>
+	>
+>
+
+------------------------------------------------------
+-- classes
+------------------------------------------------------
+
+class_definitions = <
+
+	------------------------------------------------------------
+	--------------------- gcm.data_types ------------------------
+	------------------------------------------------------------
+
+	["Data_value"] = <
+		name = <"Data_value">
+		ancestors = <"Any">
+		is_abstract = <True>
+	>
+
+	["Dv_boolean"] = <
+		name = <"Dv_boolean">
+		ancestors = <"Data_value">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"Boolean">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Dv_identifier"] = <
+		name = <"Dv_identifier">
+		ancestors = <"Data_value">
+		properties = <
+			["issuer"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"issuer">
+				type = <"String">
+			>
+			["id"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"id">
+				type = <"String">
+				is_mandatory = <True>
+				is_im_runtime = <True>
+			>
+			["type"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"type">
+				type = <"String">
+			>
+			["assigner"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"assigner">
+				type = <"String">
+			>
+		>
+	>
+
+	["Dv_timing"] = <
+		name = <"Dv_timing">
+		ancestors = <"Data_value">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"Timing">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	--
+	--------------------- gcm.data_types.text ------------------
+	--
+
+	["Dv_text"] = <
+		name = <"Dv_text">
+		ancestors = <"Data_value">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"String">
+				is_mandatory = <True>
+			>
+			["language"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"language">
+				type = <"Terminology_code">
+				is_im_infrastructure = <True>
+			>
+			["encoding"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"encoding">
+				type = <"Terminology_code">
+				is_im_infrastructure = <True>
+			>
+			["formatting"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"formatting">
+				type = <"Text_format_types">
+				is_im_runtime = <True>
+			>
+			["mappings"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"mappings">
+				type_def = <
+					container_type = <"List">
+					type = <"Term_mapping">
+				>
+				cardinality = <|>=1|>
+				is_im_runtime = <True>
+			>
+		>
+	>
+
+	["Text_format_types"] = (P_BMM_ENUMERATION_INTEGER) <
+		name = <"Text_format_types">
+		ancestors = <"Integer">
+		item_names = <"plain", "plain_no_newlines", "markdown">
+	>
+
+	["Term_mapping"] = <
+		name = <"Term_mapping">
+		properties = <
+			["match"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"match">
+				type = <"Character">
+				is_mandatory = <True>
+			>
+			["purpose"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"purpose">
+				type = <"Terminology_term">
+			>
+			["target"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"target">
+				type = <"Terminology_term">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Dv_coded_text"] = <
+		name = <"Dv_coded_text">
+		ancestors = <"Dv_text">
+		properties = <
+			["concept"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"concept">
+				type = <"Terminology_code">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	--
+	--------------------- gcm.data_types.quantity ------------------
+	--
+
+	["Dv_range"] = <
+		name = <"Dv_range">
+		ancestors = <"Data_value">
+		generic_parameter_defs = <
+			["V"] = <
+				name = <"V">
+				conforms_to_type = <"Dv_ordered">
+			>
+		>
+		properties = <
+			["lower"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
+				name = <"lower">
+				type = <"V">
+			>
+			["upper"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
+				name = <"upper">
+				type = <"V">
+			>
+		>
+	>
+
+	["Reference_range"] = <
+		name = <"Reference_range">
+		ancestors = <"Any">
+		generic_parameter_defs = <
+			["V"] = <
+				name = <"V">
+				conforms_to_type = <"Dv_quantified">
+			>
+		>
+		properties = <
+			["range"] = (P_BMM_GENERIC_PROPERTY) <
+				name = <"range">
+				type_def = <
+					root_type = <"Dv_range">
+					generic_parameters = <"V">
+				>
+				is_mandatory = <True>
+			>
+			["meaning"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"meaning">
+				type = <"Terminology_term">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Dv_ordered"] = <
+		name = <"Dv_ordered">
+		is_abstract = <True>
+		ancestors = <"Data_value">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"Comparable">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Dv_quantified"] = <
+		name = <"Dv_quantified">
+		is_abstract = <True>
+		ancestors = <"Dv_ordered">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"Comparable_numeric">
+			>
+			["measured"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"measured">
+				type = <"Measured">
+			>
+		>
+	>
+
+	["Dv_ordinal"] = <
+		name = <"Dv_ordinal">
+		ancestors = <"Dv_ordered">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"Real">
+				is_mandatory = <True>
+			>
+			["symbol"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"symbol">
+				type = <"Terminology_term">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Measured"] = <
+		name = <"Measured">
+		ancestors = <"Any">
+		generic_parameter_defs = <
+			["V"] = <
+				name = <"V">
+				conforms_to_type = <"Dv_quantified">
+			>
+		>
+		properties = <
+			["accuracy"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
+				name = <"accuracy">
+				type = <"V">
+				is_im_runtime = <True>
+			>
+			["accuracy_is_percent"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"accuracy_is_percent">
+				type = <"Boolean">
+				is_im_runtime = <True>
+			>
+			["precision"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"precision">
+				type = <"Integer">
+				is_im_runtime = <True>
+			>
+			["value_status"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value_status">
+				type = <"Comparison_operator">
+			>
+			["normal_range"] = (P_BMM_GENERIC_PROPERTY) <
+				name = <"normal_range">
+				type_def = <
+					root_type = <"Dv_range">
+					generic_parameters = <"V">
+				>
+			>
+			["other_reference_ranges"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"other_reference_ranges">
+				type_def = <
+					container_type = <"List">
+					type_def = (P_BMM_GENERIC_TYPE) <
+						root_type = <"Reference_range">
+						generic_parameters = <"V">
+					>
+				>
+				cardinality = <|>=1|>
+			>
+		>
+	>
+
+	["Comparison_operator"] = (P_BMM_ENUMERATION_STRING) <
+		name = <"Comparison_operator">
+		ancestors = <"String">
+		item_names = <"<", "<=", ">", ">=", "=">
+	>
+
+	["Dv_quantity"] = <
+		name = <"Dv_quantity">
+		ancestors = <"Dv_quantified">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"Real">
+				is_mandatory = <True>
+			>
+			["units"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"units">
+				type = <"TerminologY_term">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Dv_count"] = <
+		name = <"Dv_count">
+		ancestors = <"Dv_quantified">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"Integer64">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Dv_ratio"] = <
+		name = <"Dv_ratio">
+		ancestors = <"Dv_quantified">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"Real">
+				is_mandatory = <True>
+			>
+			["numerator"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"numerator">
+				type = <"Quantity">
+				is_mandatory = <True>
+			>
+			["denominator"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"denominator">
+				type = <"Quantity">
+				is_mandatory = <True>
+			>
+			["type"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"type">
+				type = <"Ratio_kind">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Ratio_kind"] = (P_BMM_ENUMERATION_INTEGER) <
+		name = <"Ratio_kind">
+		ancestors = <"Integer">
+		item_names = <"rational_fraction", "ratio">
+	>
+
+	--
+	--------------------- gcm.data_types.quantity.date_time ------------------
+	--
+
+	["Dv_temporal"] = <
+		name = <"Dv_temporal">
+		is_abstract = <True>
+		ancestors = <"Dv_ordered">
+		generic_parameter_defs = <
+			["T"] = <
+				name = <"T">
+				conforms_to_type = <"Temporal">
+			>
+		>
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"String">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Dv_date"] = <
+		name = <"Dv_date">
+		ancestor_defs = <
+			["Dv_temporal<Date>"] = (P_BMM_GENERIC_TYPE) <
+			    root_type = <"Temporal">
+			    generic_paramaters = <"Date">
+			>
+		>
+	>
+
+	["Dv_time"] = <
+		name = <"Dv_time">
+		ancestor_defs = <
+			["Dv_temporal<Time>"] = (P_BMM_GENERIC_TYPE) <
+			    root_type = <"Temporal">
+			    generic_paramaters = <"Time">
+			>
+		>
+	>
+
+	["Dv_date_time"] = <
+		name = <"Dv_date_time">
+		ancestor_defs = <
+			["Dv_temporal<Date_time>"] = (P_BMM_GENERIC_TYPE) <
+			    root_type = <"Temporal">
+			    generic_paramaters = <"Date_time">
+			>
+		>
+	>
+
+	["Dv_duration"] = <
+		name = <"Dv_duration">
+		ancestor_defs = <
+			["Dv_temporal<Duration>"] = (P_BMM_GENERIC_TYPE) <
+			    root_type = <"Temporal">
+			    generic_paramaters = <"Duration">
+			>
+		>
+	>
+
+	--
+	--------------------- gcm.data_types.encapsulated ------------------
+	--
+
+	["Dv_encapsulated"] = <
+		name = <"Dv_encapsulated">
+		is_abstract = <True>
+		ancestors = <"Data_value">
+		properties = <
+			["encoding"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"encoding">
+				type = <"Terminology_code">
+				value_constraint = <"IANA::charsets">
+				is_im_runtime = <True>
+			>
+			["language"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"language">
+				type = <"Terminology_code">
+				value_constraint = <"ISO::639-2">
+				is_im_runtime = <True>
+			>
+		>
+	>
+
+	["Dv_multimedia"] = <
+		name = <"Dv_multimedia">
+		ancestors = <"Dv_encapsulated">
+		properties = <
+			["alternate_text"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"alternate_text">
+				type = <"String">
+			>
+			["uri"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"uri">
+				type = <"Uri">
+			>
+			["data"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"data">
+				type_def = <
+					container_type = <"Array">
+					type = <"Byte">
+				>
+				cardinality = <|>=0|>
+			>
+			["media_type"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"media_type">
+				type = <"Terminology_code">
+				value_constraint = <"IANA::media_types">
+				is_mandatory = <True>
+			>
+			["hash"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"hash">
+				type = <"String">
+				cardinality = <|>=0|>
+			>
+			["thumbnail"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"thumbnail">
+				type = <"Dv_multimedia">
+			>
+			["size"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"size">
+				type = <"Integer">
+				is_im_runtime = <True>
+			>
+		>
+	>
+
+	["Dv_parsable"] = <
+		name = <"Dv_parsable">
+		ancestors = <"Dv_encapsulated">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"String">
+				is_mandatory = <True>
+			>
+			["formalism"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"formalism">
+				type = <"String">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	--
+	--------------------- gcm.data_types.uri ------------------
+	--
+
+	["Dv_uri"] = <
+		name = <"Dv_uri">
+		ancestors = <"Data_value">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"String">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Dv_ehr_uri"] = <
+		name = <"Dv_ehr_uri">
+		ancestors = <"Dv_uri">
+	>
+
+>
