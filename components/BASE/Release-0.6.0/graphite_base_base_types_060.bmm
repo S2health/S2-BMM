@@ -34,8 +34,8 @@ schema_author = <"Thomas Beale <thomas.beale@graphite.org>">
 -- packages
 ------------------------------------------------------
 packages = <
-	["io.graphite.base.base_types"] = <
-		name = <"io.graphite.base.base_types">
+	["org.graphite.base.base_types"] = <
+		name = <"org.graphite.base.base_types">
 		packages = <
 			["definitions"] = <
 				name = <"definitions">
@@ -54,6 +54,15 @@ packages = <
 					  "Period_specifier", "Day_specifier", "Hour_specifier", 
 					  "Customary_time", "Clock_time", "Temporal_relation">
 			>
+			["archetyped"] = <
+				name = <"archetyped">
+				classes = <"Pathable", "Locatable", "Link", "Archetyped", "Feeder_audit", "Feeder_audit_details">
+			>
+			["reference"] = <
+				name = <"reference">
+				classes = <"Participation", "Party_proxy", "Party_identified", "Party_related", "Party_self">
+			>
+
 		>
 	>
 >
@@ -365,5 +374,273 @@ class_definitions = <
 		ancestors = <"Integer">
 		item_names = <"after", "before", "with">
 	>
+
+
+	--
+	--------------------- base.base_types.archetyped ------------------
+	--
+	["Pathable"] = <
+		name = <"Pathable">
+		is_abstract = <True>
+		ancestors = <"Any">
+	>
+
+	["Locatable"] = <
+		name = <"Locatable">
+		is_abstract = <True>
+		ancestors = <"Pathable">
+		properties = <
+			["uid"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"uid">
+				type = <"Uuid">
+				is_im_infrastructure = <True>
+			>
+			["archetype_node_id"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"archetype_node_id">
+				type = <"String">
+				is_mandatory = <True>
+				is_im_infrastructure = <True>
+			>
+			["name"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"name">
+				type = <"String">
+				is_mandatory = <True>
+			>
+			["archetype_details"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"archetype_details">
+				type = <"Archetyped">
+				is_im_infrastructure = <True>
+			>
+			["feeder_audit"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"feeder_audit">
+				type = <"Feeder_audit">
+				is_im_runtime = <True>
+			>
+			["links"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"links">
+				type_def = <
+					container_type = <"List">
+					type = <"Link">
+				>
+				cardinality = <|>=1|>
+			>
+		>
+	>
+
+	["Link"] = <
+		name = <"Link">
+		ancestors = <"Any">
+		properties = <
+			["meaning"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"meaning">
+				type = <"Terminology_term">
+				is_mandatory = <True>
+			>
+			["type"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"type">
+				type = <"Terminology_term">
+				is_mandatory = <True>
+			>
+			["target"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"target">
+				type = <"Uri">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Archetyped"] = <
+		name = <"Archetyped">
+		ancestors = <"Any">
+		properties = <
+			["archetype_id"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"archetype_id">
+				type = <"Archetype_id">
+				is_mandatory = <True>
+				is_im_infrastructure = <True>
+			>
+			["template_id"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"template_id">
+				type = <"Archetype_id">
+				is_im_infrastructure = <True>
+			>
+			["rm_version"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"rm_version">
+				type = <"String">
+				is_mandatory = <True>
+				is_im_infrastructure = <True>
+			>
+		>
+	>
+
+	["Feeder_audit"] = <
+		name = <"Feeder_audit">
+		ancestors = <"Any">
+		properties = <
+			["originating_system_item_ids"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"originating_system_item_ids">
+				type_def = <
+					container_type = <"List">
+					type = <"Rwe_id_ref">
+				>
+				cardinality = <|>=0|>
+				is_im_runtime = <True>
+			>
+			["feeder_system_item_ids"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"feeder_system_item_ids">
+				type_def = <
+					container_type = <"List">
+					type = <"Rwe_id_ref">
+				>
+				cardinality = <|>=0|>
+				is_im_runtime = <True>
+			>
+			["original_content"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"original_content">
+				type = <"DV_ENCAPSULATED">
+				is_im_runtime = <True>
+			>
+			["originating_system_audit"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"originating_system_audit">
+				type = <"Feeder_audit_details">
+				is_mandatory = <True>
+				is_im_runtime = <True>
+			>
+			["feeder_system_audit"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"feeder_system_audit">
+				type = <"Feeder_audit_details">
+				is_im_runtime = <True>
+			>
+		>
+	>
+
+	["Feeder_audit_details"] = <
+		name = <"Feeder_audit_details">
+		ancestors = <"Any">
+		properties = <
+			["system_id"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"system_id">
+				type = <"String">
+				is_mandatory = <True>
+				is_im_runtime = <True>
+			>
+			["location"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"location">
+				type = <"Party_identified">
+				is_im_runtime = <True>
+			>
+			["provider"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"provider">
+				type = <"Party_identified">
+				is_im_runtime = <True>
+			>
+			["subject"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"subject">
+				type = <"Party_proxy">
+				is_im_runtime = <True>
+			>
+			["time"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"time">
+				type = <"Date_time">
+				is_im_runtime = <True>
+			>
+			["version_id"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"version_id">
+				type = <"String">
+				is_im_runtime = <True>
+			>
+			["other_details"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"other_details">
+				type = <"Cluster">
+			>
+		>
+	>
+
+	--
+	--------------------- base.base_types.reference ------------------
+	--
+
+	["Participation"] = <
+		name = <"Participation">
+		ancestors = <"Any">
+		properties = <
+			["function"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"function">
+				type = <"String">
+				value_constraint = <"openEHR::participation_function">
+				is_mandatory = <True>
+			>
+			["time"] = (P_BMM_GENERIC_PROPERTY) <
+				name = <"time">
+				type_def = <
+					root_type = <"Interval">
+					generic_parameters = <"Date_time">
+				>
+				is_im_runtime = <True>
+			>
+			["mode"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"mode">
+				type = <"Terminology_term">
+				value_constraint = <"openEHR::participation_mode">
+			>
+			["performer"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"performer">
+				type = <"Party_proxy">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Party_proxy"] = <
+		name = <"Party_proxy">
+		is_abstract = <True>
+		ancestors = <"Any">
+		properties = <
+			["external_ref"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"external_ref">
+				type = <"Party_ref">
+				is_im_infrastructure = <True>
+			>
+		>
+	>
+
+	["Party_identified"] = <
+		name = <"Party_identified">
+		ancestors = <"Party_proxy">
+		properties = <
+			["name"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"name">
+				type = <"String">
+			>
+			["identifiers"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"identifiers">
+				type_def = <
+					container_type = <"List">
+					type = <"Rwe_id_ref">
+				>
+				cardinality = <|>=1|>
+				is_im_runtime = <True>
+			>
+		>
+	>
+
+	["Party_related"] = <
+		name = <"Party_related">
+		ancestors = <"Party_identified">
+		properties = <
+			["relationship"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"relationship">
+				type = <"Terminology_term">
+				value_constraint = <"openEHR::subject_relationship">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Party_self"] = <
+		name = <"Party_self">
+		ancestors = <"Party_proxy">
+	>
+
 
 >

@@ -23,7 +23,7 @@ bmm_version = <"2.3">
 -- (schema_id computed as <rm_publisher>_<schema_name>_<rm_release>)
 ------------------------------------------------------
 rm_publisher = <"graphite">
-schema_name = <"rm">
+schema_name = <"gcm">
 rm_release = <"0.6.0">
 
 ------------------------------------------------------

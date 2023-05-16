@@ -26,11 +26,11 @@ model_name = <"EHR">
 ------------------------------------------------------
 -- schema documentation
 ------------------------------------------------------
-schema_name = <"rm_ehr">
+schema_name = <"gcm_ehr">
 schema_revision = <"0.6.0.1">
 schema_lifecycle_state = <"stable">
 schema_description = <"openEHR Release 0.6.0 EHR schema">
-schema_author = <"Thomas Beale <thomas.beale@graphite.org>">
+schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 
 ------------------------------------------------------
 -- inclusions
@@ -46,12 +46,14 @@ includes = <
 ------------------------------------------------------
 
 packages = <
-	["io.graphite.gcm"] = <
-		name = <"io.graphite.gcm">
+	["org.graphite.gcm"] = <
+		name = <"org.graphite.gcm">
 		packages = <
 			["ehr"] = <
 				name = <"ehr">
-				classes = <"Ehr", "Ehr_access", "Ehr_status", "Access_control_settings">
+				classes = <"Ehr", "Ehr_access", "Ehr_status", "Access_control_settings", "Folder",
+					"Versioned_composition", "Versioned_folder", "Versioned_ehr_access", "Versioned_ehr_status"
+				>
 			>
 			["composition"] = <
 				name = <"composition">
@@ -265,6 +267,80 @@ class_definitions = <
 		>
 	>
 
+	------------------------------------------------------------
+	---------------------- gcm.ehr.directory -------------------
+	------------------------------------------------------------
+
+	["Folder"] = <
+		name = <"Folder">
+		ancestors = <"Locatable">
+		properties = <
+			["folders"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"folders">
+				type_def = <
+					container_type = <"List">
+					type = <"Folder">
+				>
+				cardinality = <|>=1|>
+			>
+			["items"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"items">
+				type_def = <
+					container_type = <"List">
+					type = <"Object_ref">
+				>
+				cardinality = <|>=0|>
+			>
+			["details"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"details">
+				type = <"Cluster">
+			>
+		>
+	>
+
+ 	["Versioned_ehr_access"] = <
+ 		name = <"Versioned_ehr_access">
+ 		ancestor_defs = <
+			["Versioned_object<Folder>"] = (P_BMM_GENERIC_TYPE) <
+				root_type = <"Versioned_object">
+				generic_parameters = <"Folder">
+			>
+		>
+ 	>
+ 
+ 	["Versioned_ehr_status"] = <
+ 		name = <"Versioned_ehr_status">
+ 		ancestor_defs = <
+			["Versioned_object<Folder>"] = (P_BMM_GENERIC_TYPE) <
+				root_type = <"Versioned_object">
+				generic_parameters = <"Folder">
+			>
+		>
+ 	>
+ 
+ 	["Versioned_composition"] = <
+ 		name = <"Versioned_composition">
+ 		ancestor_defs = <
+			["Versioned_object<Folder>"] = (P_BMM_GENERIC_TYPE) <
+				root_type = <"Versioned_object">
+				generic_parameters = <"Folder">
+			>
+		>
+ 	>
+ 
+ 	["Versioned_folder"] = <
+ 		name = <"Versioned_folder">
+ 		ancestor_defs = <
+			["Versioned_object<Folder>"] = (P_BMM_GENERIC_TYPE) <
+				root_type = <"Versioned_object">
+				generic_parameters = <"Folder">
+			>
+		>
+ 	>
+ 
+
+
+
 	--
 	--------------------- gcm.composition.content ------------------
 	--
@@ -377,16 +453,38 @@ class_definitions = <
 		name = <"Care_act_entry">
 		is_abstract = <True>
 		documentation = <"Entry type for billable and/or ordered acts">
-		ancestors = <"Entry">
+		ancestors = <"Care_entry">
 		properties = <
-			["method"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"method">
-				type = <"Cluster">
+			["order_tracking"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"order_tracking">
+				type = <"Order_tracking">
 			>
-			["guideline_id"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"guideline_id">
-				type = <"Uri">
+		>
+	>
+
+	["Order_tracking"] = <
+		name = <"Order_tracking">
+		ancestors = <"Any">
+		properties = <
+			["order_id"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"order_id">
+				type = <"String">
+				is_mandatory = <True>
 				is_im_runtime = <True>
+			>
+			["requestor_id"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"requestor_id">
+				type = <"String">
+				is_im_runtime = <True>
+			>
+			["filler_id"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"filler_id">
+				type = <"String">
+				is_im_runtime = <True>
+			>
+			["details"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"details">
+				type = <"Cluster">
 			>
 		>
 	>
@@ -494,21 +592,16 @@ class_definitions = <
 
 	["Order"] = <
 		name = <"Order">
-		ancestors = <"CARE_ENTRY">
+		ancestors = <"Care_act_entry">
 		properties = <
 			["narrative"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"narrative">
-				type = <"DV_TEXT">
+				type = <"Dv_text">
 				is_mandatory = <True>
 			>
 			["expiry_time"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"expiry_time">
 				type = <"Date_time">
-			>
-			["wf_definition"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"wf_definition">
-				type = <"DV_PARSABLE">
-				is_im_runtime = <True>
 			>
 			["activities"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"activities">
@@ -534,17 +627,12 @@ class_definitions = <
 				name = <"timing">
 				type = <"Timing">
 			>
-			["action_archetype_id"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"action_archetype_id">
-				type = <"String">
-				is_mandatory = <True>
-			>
 		>
 	>
 
-	["ACTION"] = <
-		name = <"ACTION">
-		ancestors = <"CARE_ENTRY">
+	["Action"] = <
+		name = <"Action">
+		ancestors = <"Care_act_entry">
 		properties = <
 			["time"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"time">
@@ -552,45 +640,26 @@ class_definitions = <
 				is_mandatory = <True>
 				is_im_runtime = <True>
 			>
+			["duration"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"duration">
+				type = <"Duration">
+				is_im_runtime = <True>
+			>
 			["description"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"description">
 				type = <"Cluster">
 				is_mandatory = <True>
 			>
-			["ism_transition"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"ism_transition">
+			["state_transition"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"state_transition">
 				type = <"State_transition">
-				is_mandatory = <True>
-			>
-			["instruction_details"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"instruction_details">
-				type = <"Order_DETAILS">
-			>
-		>
-	>
-
-	["Order_DETAILS"] = <
-		name = <"Order_DETAILS">
-		ancestors = <"PATHABLE">
-		properties = <
-			["instruction_id"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"instruction_id">
-				type = <"Locatable_REF">
-				is_mandatory = <True>
-				is_im_runtime = <True>
-			>
-			["activity_id"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"activity_id">
-				type = <"String">
-				is_mandatory = <True>
-				is_im_runtime = <True>
 			>
 		>
 	>
 
 	["State_transition"] = <
 		name = <"State_transition">
-		ancestors = <"Pathable">
+		ancestors = <"Locatable">
 		properties = <
 			["current_state"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"current_state">

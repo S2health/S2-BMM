@@ -23,7 +23,7 @@ bmm_version = <"2.3">
 -- (schema_id computed as <rm_publisher>_<schema_name>_<rm_release>)
 ------------------------------------------------------
 rm_publisher = <"graphite">
-schema_name = <"rm_data_types">
+schema_name = <"gcm_data_types">
 rm_release = <"0.6.0">
 
 ------------------------------------------------------
@@ -31,8 +31,8 @@ rm_release = <"0.6.0">
 ------------------------------------------------------
 schema_revision = <"0.6.0.1">
 schema_lifecycle_state = <"stable">
-schema_description = <"openEHR Release 0.6.0 reference model Data types">
-schema_author = <"Thomas Beale <thomas.beale@graphite.org>">
+schema_description = <"Graphite Release 0.6.0 canonical model Data types">
+schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 
 ------------------------------------------------------
 -- inclusions
@@ -48,8 +48,8 @@ includes = <
 ------------------------------------------------------
 
 packages = <
-	["io.graphite.gcm.data_types"] = <
-		name = <"io.graphite.gcm.data_types">
+	["org.graphite.gcm.data_types"] = <
+		name = <"org.graphite.gcm.data_types">
 		classes = <"Data_value", "Dv_boolean", "Dv_identifier", "Dv_timing">
 		packages = <
 			["text"] = <
@@ -61,7 +61,7 @@ packages = <
 				classes = <
 					"Dv_range", "Reference_range", "Dv_ordered", "Dv_quantified", "Dv_quantity", 
 					"Dv_ratio", "Ratio_kind", "Dv_quantified", "Dv_count", "Dv_ordinal", "Measured",
-					"Comparison_operator", "Dv_temporal", "Dv_date", "Date_time", "Dv_time", "Duration"
+					"Comparison_operator", "Dv_temporal", "Dv_date", "Dv_date_time", "Dv_time", "Dv_duration"
 				>
 			>
 			["encapsulated"] = <
@@ -108,23 +108,9 @@ class_definitions = <
 		name = <"Dv_identifier">
 		ancestors = <"Data_value">
 		properties = <
-			["issuer"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"issuer">
-				type = <"String">
-			>
-			["id"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"id">
-				type = <"String">
-				is_mandatory = <True>
-				is_im_runtime = <True>
-			>
-			["type"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"type">
-				type = <"String">
-			>
-			["assigner"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"assigner">
-				type = <"String">
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"Rwe_id_ref">
 			>
 		>
 	>
@@ -205,6 +191,11 @@ class_definitions = <
 				is_mandatory = <True>
 			>
 		>
+	>
+
+	["Dv_plain_text"] = <
+		name = <"Dv_plain_text">
+		ancestors = <"Dv_text">
 	>
 
 	["Dv_coded_text"] = <
@@ -506,17 +497,9 @@ class_definitions = <
 		is_abstract = <True>
 		ancestors = <"Data_value">
 		properties = <
-			["encoding"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"encoding">
-				type = <"Terminology_code">
-				value_constraint = <"IANA::charsets">
-				is_im_runtime = <True>
-			>
-			["language"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"language">
-				type = <"Terminology_code">
-				value_constraint = <"ISO::639-2">
-				is_im_runtime = <True>
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"Encapsulated">
 			>
 		>
 	>
@@ -525,41 +508,9 @@ class_definitions = <
 		name = <"Dv_multimedia">
 		ancestors = <"Dv_encapsulated">
 		properties = <
-			["alternate_text"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"alternate_text">
-				type = <"String">
-			>
-			["uri"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"uri">
-				type = <"Uri">
-			>
-			["data"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"data">
-				type_def = <
-					container_type = <"Array">
-					type = <"Byte">
-				>
-				cardinality = <|>=0|>
-			>
-			["media_type"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"media_type">
-				type = <"Terminology_code">
-				value_constraint = <"IANA::media_types">
-				is_mandatory = <True>
-			>
-			["hash"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"hash">
-				type = <"String">
-				cardinality = <|>=0|>
-			>
-			["thumbnail"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"thumbnail">
-				type = <"Dv_multimedia">
-			>
-			["size"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"size">
-				type = <"Integer">
-				is_im_runtime = <True>
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"Multimedia">
 			>
 		>
 	>
@@ -570,13 +521,7 @@ class_definitions = <
 		properties = <
 			["value"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"value">
-				type = <"String">
-				is_mandatory = <True>
-			>
-			["formalism"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"formalism">
-				type = <"String">
-				is_mandatory = <True>
+				type = <"Parsable">
 			>
 		>
 	>

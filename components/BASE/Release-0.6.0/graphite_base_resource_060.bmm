@@ -34,8 +34,8 @@ schema_author = <"Thomas Beale <thomas.beale@graphite.org>">
 -- packages
 ------------------------------------------------------
 packages = <
-	["io.graphite.base"] = <
-		name = <"io.graphite.base">
+	["org.graphite.base"] = <
+		name = <"org.graphite.base">
 		packages = <
 			["resource"] = <
 				name = <"resource">
