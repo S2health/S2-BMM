@@ -61,7 +61,8 @@ packages = <
 			>
 			["entry"] = <
 				name = <"entry">
-				classes = <"Entry", "Care_entry", "Admin_entry", "Observation_series", 
+				classes = <"Entry", "Care_entry", "Care_act_entry", "Admin_entry", 
+					"Observation", "Observation_series", "Lab_result", "Questionnaire_response", 
 					"Assertion", "Order", "Action", "Activity", "State_transition", "Order_tracking">
 			>
 		>
@@ -580,7 +581,7 @@ class_definitions = <
 
 	["Assertion"] = <
 		name = <"Assertion">
-		ancestors = <"CARE_ENTRY">
+		ancestors = <"Care_entry">
 		properties = <
 			["data"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"data">
@@ -678,7 +679,7 @@ class_definitions = <
 				name = <"reason">
 				type_def = <
 					container_type = <"List">
-					type = <"DV_TEXT">
+					type = <"Dv_text">
 				>
 				cardinality = <|>=0|>
 			>

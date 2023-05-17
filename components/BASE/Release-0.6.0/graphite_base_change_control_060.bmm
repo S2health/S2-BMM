@@ -82,7 +82,7 @@ class_definitions = <
 			>
 			["description"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"description">
-				type = <"DV_TEXT">
+				type = <"Terminology_term">
 			>
 			["committer"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"committer">

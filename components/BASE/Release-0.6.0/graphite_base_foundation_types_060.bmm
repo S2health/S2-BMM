@@ -39,7 +39,7 @@ packages = <
 		packages = <
 			["base_types"] = <
 				name = <"base_types">
-				classes = <"Any", "Ordered", "Numeric", "Comparable_numeric", "Octet", "Byte", "Boolean", "Integer", 
+				classes = <"Any", "Comparable", "Numeric", "Comparable_numeric", "Octet", "Byte", "Boolean", "Integer", 
 					"Integer64", "Real", "Double", "Character", "String", "Uri", "Terminology_code", "Terminology_term"
 				>
 			>
@@ -72,8 +72,8 @@ primitive_types = <
 		name = <"Any">
 		is_abstract = <True>
 	>
-	["Ordered"] = <
-		name = <"Ordered">
+	["Comparable"] = <
+		name = <"Comparable">
 		is_abstract = <True>
 		documentation = <"Ancestor of types with total order relation defined, i.e. '<' and '='.">
 		ancestors = <"Any">
@@ -88,15 +88,15 @@ primitive_types = <
 		name = <"Comparable_numeric">
 		is_abstract = <True>
 		documentation = <"Ancestor of ordered numeric types.">
-		ancestors = <"Numeric", "Ordered">
+		ancestors = <"Numeric", "Comparable">
 	>
 	["Byte"] = <
 		name = <"Byte">
-		ancestors = <"Ordered">
+		ancestors = <"Comparable">
 	>
 	["Octet"] = <
 		name = <"Octet">
-		ancestors = <"Ordered">
+		ancestors = <"Comparable">
 	>
 	["Boolean"] = <
 		name = <"Boolean">
@@ -120,11 +120,11 @@ primitive_types = <
 	>
 	["Character"] = <
 		name = <"Character">
-		ancestors = <"Ordered">
+		ancestors = <"Comparable">
 	>
 	["String"] = <
 		name = <"String">
-		ancestors = <"Ordered">
+		ancestors = <"Comparable">
 	>
 	["Uri"] = <
 		name = <"Uri">
@@ -133,7 +133,7 @@ primitive_types = <
 
 	["Temporal"] = <
 		name = <"Temporal">
-		ancestors = <"Ordered">
+		ancestors = <"Comparable">
 		is_abstract = <True>
 		documentation = <"Parent of ISO8601 types.">
 		properties = <
@@ -259,7 +259,7 @@ primitive_types = <
 		generic_parameter_defs = <
 			["T"] = <
 				name = <"T">
-				conforms_to_type = <"Ordered">
+				conforms_to_type = <"Comparable">
 			>
 		>
 		properties = <
@@ -329,12 +329,12 @@ primitive_types = <
 
 	["Hash"] = <
 		name = <"Hash">
-		documentation = <"Type defining Hash table / hash map structure, whose type parameters V and K represent a value type and an Ordered key type respectively.">
+		documentation = <"Type defining Hash table / hash map structure, whose type parameters V and K represent a value type and an Comparable key type respectively.">
 		ancestors = <"Container">
 		generic_parameter_defs = <
 			["K"] = <
 				name = <"K">
-				conforms_to_type = <"Ordered">
+				conforms_to_type = <"Comparable">
 			>
 			["V"] = <
 				name = <"V">

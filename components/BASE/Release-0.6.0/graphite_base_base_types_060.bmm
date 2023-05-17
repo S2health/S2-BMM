@@ -45,7 +45,8 @@ packages = <
 				name = <"identification">
 				classes = <"Object_ref", "Object_id", "Primitive_id", "Locatable_ref",
 					"Artifact_id", "Terminology_id", "Archetype_id", "Object_version_id", 
-					"Version_tree_id", "Internet_id", "Uuid", "Iso_oid"
+					"Version_tree_id", "Internet_id", "Uuid", "Iso_oid",
+					"Rwe_id_ref"
 				>
 			>
 			["timing"] = <
@@ -188,14 +189,38 @@ class_definitions = <
 		ancestors = <"Primitive_id">
 	>
 	
+	["Iso_oid"] = <
+		name = <"Iso_oid">
+		ancestors = <"Primitive_id">
+	>
+	
 	["Uuid"] = <
 		name = <"Uuid">
 		ancestors = <"Primitive_id">
 	>
 	
-	["Iso_oid"] = <
-		name = <"Iso_oid">
-		ancestors = <"Primitive_id">
+	["Rwe_id_ref"] = <
+		name = <"Rwe_id_ref">
+		ancestors = <"Any">
+		properties = <
+			["id"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"id">
+				type = <"String">
+				is_mandatory = <True>
+			>
+			["issuer"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"issuer">
+				type = <"String">
+			>
+			["assigner"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"assigner">
+				type = <"String">
+			>
+			["type"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"type">
+				type = <"String">
+			>
+		>
 	>
 	
 	--
@@ -497,7 +522,7 @@ class_definitions = <
 			>
 			["original_content"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"original_content">
-				type = <"DV_ENCAPSULATED">
+				type = <"Encapsulated">
 				is_im_runtime = <True>
 			>
 			["originating_system_audit"] = (P_BMM_SINGLE_PROPERTY) <
@@ -598,7 +623,7 @@ class_definitions = <
 		properties = <
 			["external_ref"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"external_ref">
-				type = <"Party_ref">
+				type = <"Object_ref">
 				is_im_infrastructure = <True>
 			>
 		>

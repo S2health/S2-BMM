@@ -283,9 +283,12 @@ class_definitions = <
 				name = <"value">
 				type = <"Comparable_numeric">
 			>
-			["measured"] = (P_BMM_SINGLE_PROPERTY) <
+			["measured"] = (P_BMM_GENERIC_PROPERTY) <
 				name = <"measured">
-				type = <"Measured">
+				type_def = <
+					root_type = <"Measured">
+					generic_parameters = <"Dv_quantified">
+				>
 			>
 		>
 	>
@@ -374,7 +377,7 @@ class_definitions = <
 			>
 			["units"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"units">
-				type = <"TerminologY_term">
+				type = <"Terminology_term">
 				is_mandatory = <True>
 			>
 		>
@@ -403,12 +406,12 @@ class_definitions = <
 			>
 			["numerator"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"numerator">
-				type = <"Quantity">
+				type = <"Dv_quantity">
 				is_mandatory = <True>
 			>
 			["denominator"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"denominator">
-				type = <"Quantity">
+				type = <"Dv_quantity">
 				is_mandatory = <True>
 			>
 			["type"] = (P_BMM_SINGLE_PROPERTY) <
@@ -452,8 +455,8 @@ class_definitions = <
 		name = <"Dv_date">
 		ancestor_defs = <
 			["Dv_temporal<Date>"] = (P_BMM_GENERIC_TYPE) <
-			    root_type = <"Temporal">
-			    generic_paramaters = <"Date">
+			    root_type = <"Dv_temporal">
+			    generic_parameters = <"Date">
 			>
 		>
 	>
@@ -462,8 +465,8 @@ class_definitions = <
 		name = <"Dv_time">
 		ancestor_defs = <
 			["Dv_temporal<Time>"] = (P_BMM_GENERIC_TYPE) <
-			    root_type = <"Temporal">
-			    generic_paramaters = <"Time">
+			    root_type = <"Dv_temporal">
+			    generic_parameters = <"Time">
 			>
 		>
 	>
@@ -472,8 +475,8 @@ class_definitions = <
 		name = <"Dv_date_time">
 		ancestor_defs = <
 			["Dv_temporal<Date_time>"] = (P_BMM_GENERIC_TYPE) <
-			    root_type = <"Temporal">
-			    generic_paramaters = <"Date_time">
+			    root_type = <"Dv_temporal">
+			    generic_parameters = <"Date_time">
 			>
 		>
 	>
@@ -482,8 +485,8 @@ class_definitions = <
 		name = <"Dv_duration">
 		ancestor_defs = <
 			["Dv_temporal<Duration>"] = (P_BMM_GENERIC_TYPE) <
-			    root_type = <"Temporal">
-			    generic_paramaters = <"Duration">
+			    root_type = <"Dv_temporal">
+			    generic_parameters = <"Duration">
 			>
 		>
 	>

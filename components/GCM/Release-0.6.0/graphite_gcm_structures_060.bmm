@@ -101,7 +101,7 @@ class_definitions = <
 			>
 			["null_reason"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"null_reason">
-				type = <"DV_TEXT">
+				type = <"Dv_text">
 			>
 		>
 	>
@@ -109,12 +109,6 @@ class_definitions = <
 	["History"] = <
 		name = <"History">
 		ancestors = <"Locatable">
-		generic_parameter_defs = <
-			["T"] = <
-				name = <"T">
-				conforms_to_type = <"Cluster">
-			>
-		>
 		properties = <
 			["origin"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"origin">
@@ -126,8 +120,8 @@ class_definitions = <
 				name = <"period">
 				type = <"Duration">
 			>
-			["duration"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"duration">
+			["total_duration"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"total_duration">
 				type = <"Duration">
 			>
 			["summary"] = (P_BMM_SINGLE_PROPERTY) <
@@ -138,10 +132,7 @@ class_definitions = <
 				name = <"events">
 				type_def = <
 					container_type = <"List">
-					type_def = (P_BMM_GENERIC_TYPE) <
-						root_type = <"Event">
-						generic_parameters = <"T">
-					>
+					type = <"Event">
 				>
 				cardinality = <|>=1|>
 			>
@@ -152,12 +143,6 @@ class_definitions = <
 		name = <"Event">
 		ancestors = <"Locatable">
 		is_abstract = <True>
-		generic_parameter_defs = <
-			["T"] = <
-				name = <"T">
-				conforms_to_type = <"Cluster">
-			>
-		>
 		properties = <
 			["time"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"time">
@@ -169,15 +154,10 @@ class_definitions = <
 				name = <"state">
 				type = <"Cluster">
 			>
-			["data"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
+			["data"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"data">
-				type = <"T">
+				type = <"Cluster">
 				is_mandatory = <True>
-			>
-			["offset"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"offset">
-				is_computed = <True>
-				type = <"Duration">
 			>
 		>
 	>
@@ -185,21 +165,11 @@ class_definitions = <
 	["Point_event"] = <
 		name = <"Point_event">
 		ancestors = <"Event">
-		generic_parameter_defs = <
-			["T"] = <
-				name = <"T">
-			>
-		>
 	>
 
 	["Interval_event"] = <
 		name = <"Interval_event">
 		ancestors = <"Event">
-		generic_parameter_defs = <
-			["T"] = <
-				name = <"T">
-			>
-		>
 		properties = <
 			["width"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"width">
