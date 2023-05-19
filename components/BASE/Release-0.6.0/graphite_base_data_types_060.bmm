@@ -76,7 +76,7 @@ packages = <
 			>
 			["uri"] = <
 				name = <"uri">
-				classes = <"Uri_value", "Ehr_uri_value">
+				classes = <"Uri_ref", "Ehr_uri_ref">
 			>
 		>
 	>
@@ -502,8 +502,8 @@ class_definitions = <
 	--------------------- base.data_types.uri ------------------
 	--
 
-	["Uri_value"] = <
-		name = <"Uri_value">
+	["Uri_ref"] = <
+		name = <"Uri_ref">
 		ancestors = <"Data_value">
 		properties = <
 			["value"] = (P_BMM_SINGLE_PROPERTY) <
@@ -514,9 +514,9 @@ class_definitions = <
 		>
 	>
 
-	["Ehr_uri_value"] = <
-		name = <"Ehr_uri_value">
-		ancestors = <"Uri_value">
+	["Ehr_uri_ref"] = <
+		name = <"Ehr_uri_ref">
+		ancestors = <"Uri_ref">
 	>
 
 	--
