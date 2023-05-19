@@ -39,7 +39,7 @@ schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"graphite_gcm_data_types_0.6.0">
+		id = <"graphite_base_0.6.0">
 	>
 >
 
@@ -101,7 +101,7 @@ class_definitions = <
 			>
 			["null_reason"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"null_reason">
-				type = <"Dv_text">
+				type = <"Text">
 			>
 		>
 	>

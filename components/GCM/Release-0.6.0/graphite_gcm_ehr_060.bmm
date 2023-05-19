@@ -597,7 +597,7 @@ class_definitions = <
 		properties = <
 			["narrative"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"narrative">
-				type = <"Dv_text">
+				type = <"Text">
 				is_mandatory = <True>
 			>
 			["expiry_time"] = (P_BMM_SINGLE_PROPERTY) <
@@ -679,7 +679,7 @@ class_definitions = <
 				name = <"reason">
 				type_def = <
 					container_type = <"List">
-					type = <"Dv_text">
+					type = <"Text">
 				>
 				cardinality = <|>=0|>
 			>

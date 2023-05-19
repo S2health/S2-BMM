@@ -98,7 +98,7 @@ class_definitions = <
 		properties = <
 			["attested_view"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"attested_view">
-				type = <"Dv_multimedia">
+				type = <"Multimedia">
 			>
 			["proof"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"proof">

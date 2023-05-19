@@ -41,9 +41,12 @@ includes = <
 		id = <"graphite_base_base_types_0.6.0">
 	>
 	["3"] = <
-		id = <"graphite_base_resource_0.6.0">
+		id = <"graphite_base_data_types_0.6.0">
 	>
 	["4"] = <
+		id = <"graphite_base_resource_0.6.0">
+	>
+	["5"] = <
 		id = <"graphite_base_change_control_0.6.0">
 	>
 >

@@ -55,10 +55,6 @@ packages = <
 				name = <"time">
 				classes = <"Temporal", "Date", "Time", "Date_time", "Duration">
 			>
-			["encapsulated"] = <
-				name = <"encapsulated">
-				classes = <"Encapsulated", "Multimedia", "Parsable">
-			>
 		>
 	>
 >
@@ -338,90 +334,6 @@ primitive_types = <
 			>
 			["V"] = <
 				name = <"V">
-			>
-		>
-	>
-
-	--
-	--------------------- base.foundation_types.encapsulated ------------------
-	--
-
-	["Encapsulated"] = <
-		name = <"Encapsulated">
-		is_abstract = <True>
-		ancestors = <"Data_value">
-		properties = <
-			["language"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"language">
-				type = <"Terminology_code">
-				value_constraint = <"ISO::639-2">
-				is_im_runtime = <True>
-			>
-		>
-	>
-
-	["Multimedia"] = <
-		name = <"Multimedia">
-		ancestors = <"Encapsulated">
-		properties = <
-			["alternate_text"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"alternate_text">
-				type = <"String">
-			>
-			["uri"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"uri">
-				type = <"Uri">
-			>
-			["data"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"data">
-				type_def = <
-					container_type = <"Array">
-					type = <"Byte">
-				>
-				cardinality = <|>=0|>
-			>
-			["media_type"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"media_type">
-				type = <"Terminology_code">
-				value_constraint = <"IANA::media_types">
-				is_mandatory = <True>
-			>
-			["hash"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"hash">
-				type = <"String">
-				cardinality = <|>=0|>
-			>
-			["thumbnail"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"thumbnail">
-				type = <"Multimedia">
-			>
-			["size"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"size">
-				type = <"Integer">
-				is_im_runtime = <True>
-			>
-		>
-	>
-
-	["Parsable"] = <
-		name = <"Parsable">
-		ancestors = <"Encapsulated">
-		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
-				type = <"String">
-				is_mandatory = <True>
-			>
-			["formalism"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"formalism">
-				type = <"String">
-				is_mandatory = <True>
-			>
-			["encoding"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"encoding">
-				type = <"Terminology_code">
-				value_constraint = <"IANA::charsets">
-				is_im_runtime = <True>
 			>
 		>
 	>
