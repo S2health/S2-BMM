@@ -544,15 +544,16 @@ class_definitions = <
 			["questionnaire_identifier"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"questionnaire_identifier">
 				is_mandatory = <True>
-				type = <"Date_time">
+				type = <"String">
 			>
 			["questionnaire_version"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"questionnaire_version">
-				type = <"Cluster">
+				type = <"String">
 			>
 			["questionnaire_title"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"questionnaire_title">
-				type = <"Cluster">
+				type = <"Terminology_term">
+				is_mandatory = <True>
 			>
 			["completion_status"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"completion_status">
