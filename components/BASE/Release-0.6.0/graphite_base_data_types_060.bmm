@@ -691,7 +691,7 @@ class_definitions = <
 			["language"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"language">
 				type = <"Terminology_code">
-				value_constraint = <"ISO::639-2">
+				-- value_constraint = <"ISO::639-2">
 				is_im_runtime = <True>
 			>
 		>
@@ -720,13 +720,12 @@ class_definitions = <
 			["media_type"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"media_type">
 				type = <"Terminology_code">
-				value_constraint = <"IANA::media_types">
+				-- value_constraint = <"IANA::media_types">
 				is_mandatory = <True>
 			>
 			["hash"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"hash">
 				type = <"String">
-				cardinality = <|>=0|>
 			>
 			["thumbnail"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"thumbnail">
@@ -757,7 +756,7 @@ class_definitions = <
 			["encoding"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"encoding">
 				type = <"Terminology_code">
-				value_constraint = <"IANA::charsets">
+				-- value_constraint = <"IANA::charsets">
 				is_im_runtime = <True>
 			>
 		>
