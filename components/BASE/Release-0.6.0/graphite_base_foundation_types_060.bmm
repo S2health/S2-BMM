@@ -165,23 +165,6 @@ primitive_types = <
 		ancestors = <"Temporal">
 	>
 
-	["Terminology_term"] = <
-		name = <"Terminology_term">
-		ancestors = <"Any">
-		properties = <
-			["text"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"text">
-				type = <"String">
-				is_mandatory = <True>
-			>
-			["concept"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"concept">
-				type = <"Terminology_code">
-				is_mandatory = <True>
-			>
-		>
-	>
-
 	["Terminology_code"] = <
 		name = <"Terminology_code">
 		ancestors = <"Any">
@@ -337,5 +320,23 @@ primitive_types = <
 			>
 		>
 	>
+>
 
+class_definitions = <
+	["Terminology_term"] = <
+		name = <"Terminology_term">
+		ancestors = <"Any">
+		properties = <
+			["text"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"text">
+				type = <"String">
+				is_mandatory = <True>
+			>
+			["concept"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"concept">
+				type = <"Terminology_code">
+				is_mandatory = <True>
+			>
+		>
+	>
 >
