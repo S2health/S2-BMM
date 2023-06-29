@@ -438,13 +438,19 @@ class_definitions = <
 		documentation = <"Abstract Entry subtype corresponding to any type of Entry in the clinical care cycle.">
 		ancestors = <"Entry">
 		properties = <
-			["qualifiers"] = (P_BMM_SINGLE_PROPERTY) <
+			["qualifiers"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"qualifiers">
-				type = <"Cluster">
+				type_def = <
+					container_type = <"List">
+					type = <"Cluster">
+				>
 			>
-			["guideline_id"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"guideline_id">
-				type = <"Uri">
+			["guideline_ids"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"guideline_ids">
+				type_def = <
+					container_type = <"List">
+					type = <"Uri">
+				>
 				is_im_runtime = <True>
 			>
 		>
@@ -521,17 +527,26 @@ class_definitions = <
 				is_mandatory = <True>
 				type = <"Date_time">
 			>
-			["specimen"] = (P_BMM_SINGLE_PROPERTY) <
+			["specimen"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"specimen">
-				type = <"Cluster">
+				type_def = <
+					container_type = <"List">
+					type = <"Cluster">
+				>
 			>
-			["laboratory"] = (P_BMM_SINGLE_PROPERTY) <
+			["laboratory"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"laboratory">
-				type = <"Cluster">
+				type_def = <
+					container_type = <"List">
+					type = <"Cluster">
+				>
 			>
-			["interpretation"] = (P_BMM_SINGLE_PROPERTY) <
+			["interpretation"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"interpretation">
-				type = <"Cluster">
+				type_def = <
+					container_type = <"List">
+					type = <"Cluster">
+				>
 			>
 		>
 	>
