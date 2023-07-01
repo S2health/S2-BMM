@@ -62,7 +62,7 @@ packages = <
 			["entry"] = <
 				name = <"entry">
 				classes = <"Entry", "Care_entry", "Care_act_entry", "Admin_entry", 
-					"Observation", "Observation_series", "Lab_result", "Questionnaire_response", 
+					"Observation", "Observation_series", "Questionnaire_response", 
 					"Assertion", "Order", "Action", "Activity", "State_transition", "Order_tracking">
 			>
 		>
