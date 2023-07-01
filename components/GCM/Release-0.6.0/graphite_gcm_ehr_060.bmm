@@ -424,10 +424,13 @@ class_definitions = <
 		name = <"Admin_entry">
 		ancestors = <"Entry">
 		properties = <
-			["data"] = (P_BMM_SINGLE_PROPERTY) <
+			["data"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"data">
-				type = <"Cluster">
-				is_mandatory = <True>
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
+				cardinality = <|>=1|>
 			>
 		>
 	>
@@ -442,7 +445,7 @@ class_definitions = <
 				name = <"qualifiers">
 				type_def = <
 					container_type = <"List">
-					type = <"Cluster">
+					type = <"Item">
 				>
 			>
 			["guideline_ids"] = (P_BMM_CONTAINER_PROPERTY) <
@@ -501,52 +504,31 @@ class_definitions = <
 		documentation = <"Entry subtype used to represent simple observation.">
 		ancestors = <"Care_act_entry">
 		properties = <
+			["observation_time"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"observation_time">
+				type = <"Date_time">
+				is_mandatory = <True>
+			>
 			["result_time"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"result_time">
-				is_mandatory = <True>
 				type = <"Date_time">
+				is_mandatory = <True>
 			>
-			["data"] = (P_BMM_SINGLE_PROPERTY) <
+			["data"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"data">
-				type = <"Cluster">
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
+				cardinality = <|>=1|>
 			>
-			["state"] = (P_BMM_SINGLE_PROPERTY) <
+			["state"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"state">
-				type = <"Cluster">
-			>
-		>
-	>
-
-	["Lab_result"] = <
-		name = <"Lab_result">
-		documentation = <"Entry subtype used to represent lab result.">
-		ancestors = <"Observation">
-		properties = <
-			["specimen_time"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"specimen_time">
-				is_mandatory = <True>
-				type = <"Date_time">
-			>
-			["specimen"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"specimen">
 				type_def = <
 					container_type = <"List">
-					type = <"Cluster">
+					type = <"Item">
 				>
-			>
-			["laboratory"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"laboratory">
-				type_def = <
-					container_type = <"List">
-					type = <"Cluster">
-				>
-			>
-			["interpretation"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"interpretation">
-				type_def = <
-					container_type = <"List">
-					type = <"Cluster">
-				>
+				cardinality = <|>=1|>
 			>
 		>
 	>
@@ -599,10 +581,13 @@ class_definitions = <
 		name = <"Assertion">
 		ancestors = <"Care_entry">
 		properties = <
-			["data"] = (P_BMM_SINGLE_PROPERTY) <
+			["data"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"data">
-				type = <"Cluster">
-				is_mandatory = <True>
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
+				cardinality = <|>=1|>
 			>
 		>
 	>
@@ -635,10 +620,13 @@ class_definitions = <
 		name = <"Activity">
 		ancestors = <"Locatable">
 		properties = <
-			["description"] = (P_BMM_SINGLE_PROPERTY) <
+			["description"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"description">
-				type = <"Cluster">
-				is_mandatory = <True>
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
+				cardinality = <|>=1|>
 			>
 			["timing"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"timing">
@@ -662,10 +650,13 @@ class_definitions = <
 				type = <"Duration">
 				is_im_runtime = <True>
 			>
-			["description"] = (P_BMM_SINGLE_PROPERTY) <
+			["description"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"description">
-				type = <"Cluster">
-				is_mandatory = <True>
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
+				cardinality = <|>=1|>
 			>
 			["state_transition"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"state_transition">

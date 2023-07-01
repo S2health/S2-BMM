@@ -150,14 +150,20 @@ class_definitions = <
 				is_mandatory = <True>
 				is_im_runtime = <True>
 			>
-			["state"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"state">
-				type = <"Cluster">
-			>
-			["data"] = (P_BMM_SINGLE_PROPERTY) <
+			["data"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"data">
-				type = <"Cluster">
-				is_mandatory = <True>
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
+				cardinality = <|>=1|>
+			>
+			["state"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"state">
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
 			>
 		>
 	>
