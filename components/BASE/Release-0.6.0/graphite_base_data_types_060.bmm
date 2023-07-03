@@ -311,7 +311,7 @@ class_definitions = <
 			>
 			["symbol"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"symbol">
-				type = <"Terminology_term">
+				type = <"Terminology_code">
 				is_mandatory = <True>
 			>
 		>

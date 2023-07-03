@@ -417,6 +417,10 @@ class_definitions = <
 				type = <"String">
 				is_im_runtime = <True>
 			>
+			["comment"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"comment">
+				type = <"Text">
+			>
 		>
 	>
 
@@ -508,11 +512,12 @@ class_definitions = <
 				name = <"observation_time">
 				type = <"Date_time">
 				is_mandatory = <True>
+				is_im_runtime = <True>
 			>
 			["result_time"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"result_time">
 				type = <"Date_time">
-				is_mandatory = <True>
+				is_im_runtime = <True>
 			>
 			["data"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"data">
