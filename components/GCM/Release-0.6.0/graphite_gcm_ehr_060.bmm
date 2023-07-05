@@ -62,7 +62,10 @@ packages = <
 			["entry"] = <
 				name = <"entry">
 				classes = <"Entry", "Care_entry", "Care_act_entry", "Admin_entry", 
-					"Observation", "Observation_series", "Questionnaire_response", 
+					"Observation", "Direct_Observation",
+					"Indirect_Observation", "Lab_result", "Interpreted_Observation",
+					"Questionnaire_response", "Score",
+					"Observation_series",
 					"Assertion", "Order", "Action", "Activity", "State_transition", "Order_tracking">
 			>
 		>
@@ -503,22 +506,11 @@ class_definitions = <
 		>
 	>
 
-	["Observation"] = <
-		name = <"Observation">
-		documentation = <"Entry subtype used to represent simple observation.">
+	["Observation_single"] = <
+		name = <"Observation_single">
+		documentation = <"Entry subtype used to represent single sample observation.">
 		ancestors = <"Care_act_entry">
 		properties = <
-			["observation_time"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"observation_time">
-				type = <"Date_time">
-				is_mandatory = <True>
-				is_im_runtime = <True>
-			>
-			["result_time"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"result_time">
-				type = <"Date_time">
-				is_im_runtime = <True>
-			>
 			["data"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"data">
 				type_def = <
@@ -533,9 +525,47 @@ class_definitions = <
 					container_type = <"List">
 					type = <"Item">
 				>
-				cardinality = <|>=1|>
+			>
+			["time"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"time">
+				type = <"Date_time">
+				is_mandatory = <True>
+				is_im_runtime = <True>
 			>
 		>
+	>
+
+	["Direct_observation"] = <
+		name = <"Direct_observation">
+		ancestors = <"Observation_single">
+	>
+
+	["Indirect_observation"] = <
+		name = <"Indirect_observation">
+		ancestors = <"Observation_single">
+		properties = <
+			["result_time"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"result_time">
+				type = <"Date_time">
+				is_im_runtime = <True>
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Lab_result"] = <
+		name = <"Lab_result">
+		ancestors = <"Indirect_observation">
+	>
+
+	["Interpreted_observation"] = <
+		name = <"Interpreted_observation">
+		ancestors = <"Indirect_observation">
+	>
+
+	["Score"] = <
+		name = <"Score">
+		ancestors = <"Observation_single">
 	>
 
 	["Questionnaire_response"] = <
@@ -569,15 +599,20 @@ class_definitions = <
 		documentation = <"Entry subtype used to represent observation information in time, as either a single or multiple samples.">
 		ancestors = <"Care_act_entry">
 		properties = <
-			["data"] = (P_BMM_SINGLE_PROPERTY) <
+			["data"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"data">
-				documentation = <"Data of the observation, in the form of a History of Events.">
-				is_mandatory = <True>
-				type = <"History">
+				type_def = <
+					container_type = <"List">
+					type = <"Event">
+				>
+				cardinality = <|>=1|>
 			>
-			["state"] = (P_BMM_SINGLE_PROPERTY) <
+			["state"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"state">
-				type = <"History">
+				type_def = <
+					container_type = <"List">
+					type = <"Event">
+				>
 			>
 		>
 	>
