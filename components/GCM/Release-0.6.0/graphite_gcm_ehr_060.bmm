@@ -62,8 +62,8 @@ packages = <
 			["entry"] = <
 				name = <"entry">
 				classes = <"Entry", "Care_entry", "Care_act_entry", "Admin_entry", 
-					"Observation", "Direct_Observation",
-					"Indirect_Observation", "Lab_result", "Interpreted_Observation",
+					"Observation_single", "Direct_observation",
+					"Indirect_observation", "Lab_result", "Interpreted_observation",
 					"Questionnaire_response", "Score",
 					"Observation_series",
 					"Assertion", "Order", "Action", "Activity", "State_transition", "Order_tracking">
@@ -571,7 +571,7 @@ class_definitions = <
 	["Questionnaire_response"] = <
 		name = <"Questionnaire_response">
 		documentation = <"Entry subtype used questionnaire responses">
-		ancestors = <"Observation">
+		ancestors = <"Observation_single">
 		properties = <
 			["questionnaire_identifier"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"questionnaire_identifier">
