@@ -62,11 +62,12 @@ packages = <
 			["entry"] = <
 				name = <"entry">
 				classes = <"Entry", "Care_entry", "Care_act_entry", "Admin_entry", 
-					"Observation_single", "Direct_observation",
-					"Indirect_observation", "Lab_result", "Interpreted_observation",
+					"Observation", "Direct_observation",
+					"Indirect_observation", "Lab_result", "Imaging",
 					"Questionnaire_response", "Score",
-					"Observation_series",
-					"Assertion", "Order", "Action", "Activity", "State_transition", "Order_tracking">
+					"Assessment",
+					"Order", "Action", "Activity", "State_transition", "Order_tracking"
+				>
 			>
 		>
 	>
@@ -232,7 +233,7 @@ class_definitions = <
 
 	["Event_context"] = <
 		name = <"Event_context">
-		ancestors = <"Pathable">
+		ancestors = <"Locatable">
 		properties = <
 			["health_care_facility"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"health_care_facility">
@@ -383,6 +384,12 @@ class_definitions = <
 		is_abstract = <True>
 		ancestors = <"Content_item">
 		properties = <
+			["time"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"time">
+				type = <"Date_time">
+				is_mandatory = <True>
+				is_im_runtime = <True>
+			>
 			["language"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"language">
 				type = <"Terminology_code">
@@ -506,8 +513,8 @@ class_definitions = <
 		>
 	>
 
-	["Observation_single"] = <
-		name = <"Observation_single">
+	["Observation"] = <
+		name = <"Observation">
 		documentation = <"Entry subtype used to represent single sample observation.">
 		ancestors = <"Care_act_entry">
 		properties = <
@@ -526,23 +533,37 @@ class_definitions = <
 					type = <"Item">
 				>
 			>
-			["time"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"time">
-				type = <"Date_time">
-				is_mandatory = <True>
-				is_im_runtime = <True>
-			>
 		>
 	>
 
 	["Direct_observation"] = <
 		name = <"Direct_observation">
-		ancestors = <"Observation_single">
+		ancestors = <"Observation">
+		properties = <
+			["total_duration"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"total_duration">
+				type = <"Duration">
+			>
+			["data_series"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"data_series">
+				type_def = <
+					container_type = <"List">
+					type = <"Event">
+				>
+			>
+			["state_series"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"state_series">
+				type_def = <
+					container_type = <"List">
+					type = <"Event">
+				>
+			>
+		>
 	>
 
 	["Indirect_observation"] = <
 		name = <"Indirect_observation">
-		ancestors = <"Observation_single">
+		ancestors = <"Observation">
 		properties = <
 			["result_time"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"result_time">
@@ -558,20 +579,20 @@ class_definitions = <
 		ancestors = <"Indirect_observation">
 	>
 
-	["Interpreted_observation"] = <
-		name = <"Interpreted_observation">
+	["Imaging"] = <
+		name = <"Imaging">
 		ancestors = <"Indirect_observation">
 	>
 
 	["Score"] = <
 		name = <"Score">
-		ancestors = <"Observation_single">
+		ancestors = <"Observation">
 	>
 
 	["Questionnaire_response"] = <
 		name = <"Questionnaire_response">
 		documentation = <"Entry subtype used questionnaire responses">
-		ancestors = <"Observation_single">
+		ancestors = <"Observation">
 		properties = <
 			["questionnaire_identifier"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"questionnaire_identifier">
@@ -594,31 +615,8 @@ class_definitions = <
 		>
 	>
 
-	["Observation_series"] = <
-		name = <"Observation_series">
-		documentation = <"Entry subtype used to represent observation information in time, as either a single or multiple samples.">
-		ancestors = <"Care_act_entry">
-		properties = <
-			["data"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"data">
-				type_def = <
-					container_type = <"List">
-					type = <"Event">
-				>
-				cardinality = <|>=1|>
-			>
-			["state"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"state">
-				type_def = <
-					container_type = <"List">
-					type = <"Event">
-				>
-			>
-		>
-	>
-
-	["Assertion"] = <
-		name = <"Assertion">
+	["Assessment"] = <
+		name = <"Assessment">
 		ancestors = <"Care_entry">
 		properties = <
 			["data"] = (P_BMM_CONTAINER_PROPERTY) <
@@ -628,6 +626,14 @@ class_definitions = <
 					type = <"Item">
 				>
 				cardinality = <|>=1|>
+			>
+			["probability"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"probability">
+				type = <"Real">
+			>
+			["certainty"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"certainty">
+				type = <"Terminology_code">
 			>
 		>
 	>

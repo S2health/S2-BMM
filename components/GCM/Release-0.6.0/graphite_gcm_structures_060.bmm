@@ -50,7 +50,7 @@ includes = <
 packages = <
 	["org.graphite.gcm.data_structures"] = <
 		name = <"org.graphite.gcm.data_structures">
-		classes = <"Item", "Cluster", "Element", "History", "Event", "Point_event", "Interval_event">
+		classes = <"Item", "Cluster", "Element", "Event", "Point_event", "Interval_event">
 	>
 >
 
@@ -118,10 +118,6 @@ class_definitions = <
 			>
 			["period"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"period">
-				type = <"Duration">
-			>
-			["total_duration"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"total_duration">
 				type = <"Duration">
 			>
 			["summary"] = (P_BMM_SINGLE_PROPERTY) <
