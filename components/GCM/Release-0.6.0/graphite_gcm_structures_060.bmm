@@ -106,35 +106,6 @@ class_definitions = <
 		>
 	>
 
-	["History"] = <
-		name = <"History">
-		ancestors = <"Locatable">
-		properties = <
-			["origin"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"origin">
-				type = <"Date_time">
-				is_mandatory = <True>
-				is_im_runtime = <True>
-			>
-			["period"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"period">
-				type = <"Duration">
-			>
-			["summary"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"summary">
-				type = <"Cluster">
-			>
-			["events"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"events">
-				type_def = <
-					container_type = <"List">
-					type = <"Event">
-				>
-				cardinality = <|>=1|>
-			>
-		>
-	>
-
 	["Event"] = <
 		name = <"Event">
 		ancestors = <"Locatable">
