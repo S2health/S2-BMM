@@ -107,6 +107,16 @@ class_definitions = <
 				type = <"Boolean">
 				is_mandatory = <True>
 			>
+			["true_term"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"true_term">
+				type = <"Terminology_term">
+				is_mandatory = <True>
+			>
+			["false_term"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"false_term">
+				type = <"Terminology_term">
+				is_mandatory = <True>
+			>
 		>
 	>
 
