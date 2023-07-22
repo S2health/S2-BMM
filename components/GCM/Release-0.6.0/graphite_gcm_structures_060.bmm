@@ -117,20 +117,13 @@ class_definitions = <
 				is_mandatory = <True>
 				is_im_runtime = <True>
 			>
-			["data"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"data">
+			["items"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"items">
 				type_def = <
 					container_type = <"List">
 					type = <"Item">
 				>
 				cardinality = <|>=1|>
-			>
-			["state"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"state">
-				type_def = <
-					container_type = <"List">
-					type = <"Item">
-				>
 			>
 		>
 	>
