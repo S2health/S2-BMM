@@ -1,6 +1,6 @@
 -- 
--- 	component:   Graphite Canonical Model BMM
--- 	description: Graphite Canonical Model component formal expression. This file is an ODIN serialisation of
+-- 	component:   Graphite Reference Model BMM
+-- 	description: Graphite Reference Model component formal expression. This file is an ODIN serialisation of
 --                   the BMM object meta-model classes found at 
 --                   https://www.openEHR.org/releases/LANG/latest/p_bmm.html
 -- 	keywords:    reference model, meta-model, archetypes
@@ -26,7 +26,7 @@ model_name = <"EHR">
 ------------------------------------------------------
 -- schema documentation
 ------------------------------------------------------
-schema_name = <"gcm_ehr">
+schema_name = <"grm_ehr">
 schema_revision = <"0.6.0.1">
 schema_lifecycle_state = <"stable">
 schema_description = <"openEHR Release 0.6.0 EHR schema">
@@ -37,7 +37,7 @@ schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"graphite_gcm_structures_0.6.0">
+		id = <"graphite_grm_structures_0.6.0">
 	>
 >
 
@@ -46,8 +46,8 @@ includes = <
 ------------------------------------------------------
 
 packages = <
-	["org.graphite.gcm"] = <
-		name = <"org.graphite.gcm">
+	["org.graphite.grm"] = <
+		name = <"org.graphite.grm">
 		packages = <
 			["ehr"] = <
 				name = <"ehr">
@@ -80,7 +80,7 @@ packages = <
 class_definitions = <
 
 	--
-	--------------------- gcm.ehr ------------------
+	--------------------- grm.ehr ------------------
 	--
 	["Ehr"] = <
 		name = <"Ehr">
@@ -186,7 +186,7 @@ class_definitions = <
 	>
 
 	--
-	--------------------- gcm.composition ------------------
+	--------------------- grm.composition ------------------
 	--
 
 	["Composition"] = <
@@ -273,7 +273,7 @@ class_definitions = <
 	>
 
 	------------------------------------------------------------
-	---------------------- gcm.ehr.directory -------------------
+	---------------------- grm.ehr.directory -------------------
 	------------------------------------------------------------
 
 	["Folder"] = <
@@ -347,7 +347,7 @@ class_definitions = <
 
 
 	--
-	--------------------- gcm.composition.content ------------------
+	--------------------- grm.composition.content ------------------
 	--
 
 	["Content_item"] = <
@@ -357,7 +357,7 @@ class_definitions = <
 	>
 
 	--
-	--------------- gcm.composition.content.navigation -------------
+	--------------- grm.composition.content.navigation -------------
 	--
 
 	["Section"] = <
@@ -376,7 +376,7 @@ class_definitions = <
 	>
 
 	--
-	--------------- gcm.composition.content.entry -------------
+	--------------- grm.composition.content.entry -------------
 	--
 
 	["Entry"] = <
