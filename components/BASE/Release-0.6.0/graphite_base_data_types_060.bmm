@@ -60,7 +60,7 @@ packages = <
 				name = <"quantity">
 				classes = <
 					"Range", "Reference_range", "Ordered", "Quantified", "Quantity", 
-					"Ratio", "Ratio_kind", "Quantified", "Count", "Ordinal", "Measured",
+					"Ratio", "Ratio_kind", "Quantified", "Count", "Coded_ordinal", "Measured",
 					"Comparison_operator", "Temporal_value", "Date_value", "Date_time_value", "Time_value", "Duration_value"
 				>
 			>
@@ -310,8 +310,8 @@ class_definitions = <
 		>
 	>
 
-	["Ordinal"] = <
-		name = <"Ordinal">
+	["Coded_ordinal"] = <
+		name = <"Coded_ordinal">
 		ancestors = <"Ordered">
 		properties = <
 			["value"] = (P_BMM_SINGLE_PROPERTY) <
@@ -319,8 +319,8 @@ class_definitions = <
 				type = <"Real">
 				is_mandatory = <True>
 			>
-			["symbol"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"symbol">
+			["concept"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"concept">
 				type = <"Terminology_code">
 				is_mandatory = <True>
 			>
