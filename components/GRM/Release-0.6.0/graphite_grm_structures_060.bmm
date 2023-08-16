@@ -147,10 +147,9 @@ class_definitions = <
 				type = <"Integer">
 				is_im_runtime = <True>
 			>
-			["math_function"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"math_function">
+			["sample_function"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"sample_function">
 				type = <"Terminology_term">
-				is_mandatory = <True>
 			>
 		>
 	>
