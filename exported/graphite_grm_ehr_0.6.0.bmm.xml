@@ -1,0 +1,2573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UNKNOWN_DOCUMENT_TYPE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <rm_publisher>graphite</rm_publisher>
+ <rm_release>0.6.0</rm_release>
+ <packages id="ORG.GRAPHITE.GRM">
+  <packages id="EHR">
+   <name>ehr</name>
+   <classes>Ehr</classes>
+   <classes>Ehr_access</classes>
+   <classes>Ehr_status</classes>
+   <classes>Access_control_settings</classes>
+   <classes>Folder</classes>
+   <classes>Versioned_composition</classes>
+   <classes>Versioned_folder</classes>
+   <classes>Versioned_ehr_access</classes>
+   <classes>Versioned_ehr_status</classes>
+  </packages>
+  <packages id="COMPOSITION">
+   <name>composition</name>
+   <classes>Composition</classes>
+   <classes>Event_context</classes>
+   <classes>Content_item</classes>
+   <classes>Section</classes>
+  </packages>
+  <packages id="ENTRY">
+   <name>entry</name>
+   <classes>Entry</classes>
+   <classes>Care_entry</classes>
+   <classes>Care_act_entry</classes>
+   <classes>Admin_entry</classes>
+   <classes>Observation</classes>
+   <classes>Direct_observation</classes>
+   <classes>Indirect_observation</classes>
+   <classes>Lab_result</classes>
+   <classes>Imaging</classes>
+   <classes>Questionnaire_response</classes>
+   <classes>Score</classes>
+   <classes>Assessment</classes>
+   <classes>Order</classes>
+   <classes>Action</classes>
+   <classes>Activity</classes>
+   <classes>State_transition</classes>
+   <classes>Order_tracking</classes>
+  </packages>
+  <packages id="DATA_STRUCTURES">
+   <name>data_structures</name>
+   <classes>Item</classes>
+   <classes>Cluster</classes>
+   <classes>Element</classes>
+   <classes>Event</classes>
+   <classes>Point_event</classes>
+   <classes>Interval_event</classes>
+  </packages>
+  <name>org.graphite.grm</name>
+ </packages>
+ <schema_name>grm_ehr</schema_name>
+ <schema_revision>0.6.0.1</schema_revision>
+ <schema_lifecycle_state>stable</schema_lifecycle_state>
+ <schema_author>Thomas Beale &lt;thomas.beale@graphitehealth.io&gt;</schema_author>
+ <schema_description>openEHR Release 0.6.0 EHR schema</schema_description>
+ <bmm_version>2.3</bmm_version>
+ <model_name>EHR</model_name>
+ <includes>
+  <id>graphite_grm_structures_0.6.0</id>
+ </includes>
+ <primitive_types id="Any">
+  <name>Any</name>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2795</uid>
+ </primitive_types>
+ <primitive_types id="Comparable">
+  <documentation>Ancestor of types with total order relation defined, i.e. &apos;&lt;&apos; and &apos;=&apos;.</documentation>
+  <name>Comparable</name>
+  <ancestors>Any</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2796</uid>
+ </primitive_types>
+ <primitive_types id="Numeric">
+  <documentation>Ancestor of numeric types.</documentation>
+  <name>Numeric</name>
+  <ancestors>Any</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2797</uid>
+ </primitive_types>
+ <primitive_types id="Comparable_numeric">
+  <documentation>Ancestor of ordered numeric types.</documentation>
+  <name>Comparable_numeric</name>
+  <ancestors>Numeric</ancestors>
+  <ancestors>Comparable</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2798</uid>
+ </primitive_types>
+ <primitive_types id="Byte">
+  <name>Byte</name>
+  <ancestors>Comparable</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2799</uid>
+ </primitive_types>
+ <primitive_types id="Octet">
+  <name>Octet</name>
+  <ancestors>Comparable</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2800</uid>
+ </primitive_types>
+ <primitive_types id="Boolean">
+  <name>Boolean</name>
+  <ancestors>Any</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2801</uid>
+ </primitive_types>
+ <primitive_types id="Integer">
+  <name>Integer</name>
+  <ancestors>Comparable_numeric</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2802</uid>
+ </primitive_types>
+ <primitive_types id="Integer64">
+  <name>Integer64</name>
+  <ancestors>Comparable_numeric</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2803</uid>
+ </primitive_types>
+ <primitive_types id="Real">
+  <name>Real</name>
+  <ancestors>Comparable_numeric</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2804</uid>
+ </primitive_types>
+ <primitive_types id="Double">
+  <name>Double</name>
+  <ancestors>Comparable_numeric</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2805</uid>
+ </primitive_types>
+ <primitive_types id="Character">
+  <name>Character</name>
+  <ancestors>Comparable</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2806</uid>
+ </primitive_types>
+ <primitive_types id="String">
+  <name>String</name>
+  <ancestors>Comparable</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2807</uid>
+ </primitive_types>
+ <primitive_types id="Uri">
+  <name>Uri</name>
+  <ancestors>String</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2808</uid>
+ </primitive_types>
+ <primitive_types id="Temporal">
+  <documentation>Parent of ISO8601 types.</documentation>
+  <name>Temporal</name>
+  <ancestors>Comparable</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2809</uid>
+ </primitive_types>
+ <primitive_types id="Date">
+  <documentation>Date type based on IS8601 representation.</documentation>
+  <name>Date</name>
+  <ancestors>Temporal</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2810</uid>
+ </primitive_types>
+ <primitive_types id="Time">
+  <documentation>Time type based on IS8601 representation.</documentation>
+  <name>Time</name>
+  <ancestors>Temporal</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2811</uid>
+ </primitive_types>
+ <primitive_types id="Date_time">
+  <documentation>Date Time type based on IS8601 representation.</documentation>
+  <name>Date_time</name>
+  <ancestors>Temporal</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2812</uid>
+ </primitive_types>
+ <primitive_types id="Duration">
+  <documentation>Duration type based on IS8601 representation.</documentation>
+  <name>Duration</name>
+  <ancestors>Temporal</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2813</uid>
+ </primitive_types>
+ <primitive_types id="Terminology_code">
+  <name>Terminology_code</name>
+  <ancestors>Any</ancestors>
+  <properties id="terminology_id">
+   <name>terminology_id</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="terminology_version">
+   <name>terminology_version</name>
+   <type>String</type>
+  </properties>
+  <properties id="code_string">
+   <name>code_string</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="uri">
+   <name>uri</name>
+   <type>Uri</type>
+  </properties>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2814</uid>
+ </primitive_types>
+ <primitive_types id="Container">
+  <name>Container</name>
+  <generic_parameter_defs id="V">
+   <name>V</name>
+  </generic_parameter_defs>
+  <ancestors>Any</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2815</uid>
+ </primitive_types>
+ <primitive_types id="List">
+  <name>List</name>
+  <generic_parameter_defs id="V">
+   <name>V</name>
+  </generic_parameter_defs>
+  <ancestors>Container</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2816</uid>
+ </primitive_types>
+ <primitive_types id="Array">
+  <name>Array</name>
+  <generic_parameter_defs id="V">
+   <name>V</name>
+  </generic_parameter_defs>
+  <ancestors>Container</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2817</uid>
+ </primitive_types>
+ <primitive_types id="Set">
+  <name>Set</name>
+  <generic_parameter_defs id="V">
+   <name>V</name>
+  </generic_parameter_defs>
+  <ancestors>Container</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2818</uid>
+ </primitive_types>
+ <primitive_types id="Interval">
+  <documentation>Type defining an interval of any ordered type.</documentation>
+  <name>Interval</name>
+  <generic_parameter_defs id="T">
+   <name>T</name>
+   <conforms_to_type>Comparable</conforms_to_type>
+  </generic_parameter_defs>
+  <ancestors>Any</ancestors>
+  <properties id="lower">
+   <name>lower</name>
+   <type>T</type>
+  </properties>
+  <properties id="upper">
+   <name>upper</name>
+   <type>T</type>
+  </properties>
+  <properties id="lower_unbounded">
+   <name>lower_unbounded</name>
+   <type>Boolean</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="upper_unbounded">
+   <name>upper_unbounded</name>
+   <type>Boolean</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="lower_included">
+   <name>lower_included</name>
+   <type>Boolean</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="upper_included">
+   <name>upper_included</name>
+   <type>Boolean</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2819</uid>
+ </primitive_types>
+ <primitive_types id="Cardinality">
+  <name>Cardinality</name>
+  <ancestors>Any</ancestors>
+  <properties id="is_ordered">
+   <name>is_ordered</name>
+   <type>Boolean</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="is_unique">
+   <name>is_unique</name>
+   <type>Boolean</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="interval">
+   <name>interval</name>
+   <type>Multiplicity_interval</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2820</uid>
+ </primitive_types>
+ <primitive_types id="Multiplicity_interval">
+  <name>Multiplicity_interval</name>
+  <ancestor_defs>
+   <root_type>Interval</root_type>
+   <generic_parameters>Integer</generic_parameters>
+  </ancestor_defs>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2821</uid>
+ </primitive_types>
+ <primitive_types id="Hash">
+  <documentation>Type defining Hash table / hash map structure, whose type parameters V and K represent a value type and an Comparable key type respectively.</documentation>
+  <name>Hash</name>
+  <generic_parameter_defs id="K">
+   <name>K</name>
+   <conforms_to_type>Comparable</conforms_to_type>
+  </generic_parameter_defs>
+  <generic_parameter_defs id="V">
+   <name>V</name>
+  </generic_parameter_defs>
+  <ancestors>Container</ancestors>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2822</uid>
+ </primitive_types>
+ <class_definitions id="Ehr">
+  <name>Ehr</name>
+  <properties id="system_id">
+   <name>system_id</name>
+   <type>Internet_id</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="ehr_id">
+   <name>ehr_id</name>
+   <type>Uuid</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="time_created">
+   <name>time_created</name>
+   <type>Date_time</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="ehr_access">
+   <name>ehr_access</name>
+   <type>Object_ref</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="ehr_status">
+   <name>ehr_status</name>
+   <type>Object_ref</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="directory">
+   <name>directory</name>
+   <type>Object_ref</type>
+  </properties>
+  <properties id="folders">
+   <name>folders</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Object_ref</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="compositions">
+   <name>compositions</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Object_ref</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="contributions">
+   <name>contributions</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Object_ref</type>
+    <container_type>List</container_type>
+   </type_def>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2829</uid>
+ </class_definitions>
+ <class_definitions id="Ehr_access">
+  <name>Ehr_access</name>
+  <ancestors>Locatable</ancestors>
+  <properties id="settings">
+   <name>settings</name>
+   <type>Access_control_settings</type>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2830</uid>
+ </class_definitions>
+ <class_definitions id="Access_control_settings">
+  <name>Access_control_settings</name>
+  <ancestors>Any</ancestors>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2831</uid>
+ </class_definitions>
+ <class_definitions id="Ehr_status">
+  <name>Ehr_status</name>
+  <ancestors>Locatable</ancestors>
+  <properties id="subject">
+   <name>subject</name>
+   <type>Party_self</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="is_queryable">
+   <name>is_queryable</name>
+   <type>Boolean</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="is_modifiable">
+   <name>is_modifiable</name>
+   <type>Boolean</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="other_details">
+   <name>other_details</name>
+   <type>Cluster</type>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2832</uid>
+ </class_definitions>
+ <class_definitions id="Composition">
+  <name>Composition</name>
+  <ancestors>Locatable</ancestors>
+  <properties id="language">
+   <name>language</name>
+   <type>Terminology_code</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="territory">
+   <name>territory</name>
+   <type>Terminology_code</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="category">
+   <name>category</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="composer">
+   <name>composer</name>
+   <type>Party_proxy</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="context">
+   <name>context</name>
+   <type>Event_context</type>
+  </properties>
+  <properties id="content">
+   <name>content</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Content_item</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2833</uid>
+ </class_definitions>
+ <class_definitions id="Event_context">
+  <name>Event_context</name>
+  <ancestors>Locatable</ancestors>
+  <properties id="health_care_facility">
+   <name>health_care_facility</name>
+   <type>Party_identified</type>
+  </properties>
+  <properties id="start_time">
+   <name>start_time</name>
+   <type>Date_time</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="end_time">
+   <name>end_time</name>
+   <type>Date_time</type>
+  </properties>
+  <properties id="participations">
+   <name>participations</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Participation</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="location">
+   <name>location</name>
+   <type>String</type>
+  </properties>
+  <properties id="setting">
+   <name>setting</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="other_context">
+   <name>other_context</name>
+   <type>Cluster</type>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2834</uid>
+ </class_definitions>
+ <class_definitions id="Folder">
+  <name>Folder</name>
+  <ancestors>Locatable</ancestors>
+  <properties id="folders">
+   <name>folders</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Folder</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="items">
+   <name>items</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Object_ref</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="details">
+   <name>details</name>
+   <type>Cluster</type>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2835</uid>
+ </class_definitions>
+ <class_definitions id="Versioned_ehr_access">
+  <name>Versioned_ehr_access</name>
+  <ancestor_defs>
+   <root_type>Versioned_object</root_type>
+   <generic_parameters>Folder</generic_parameters>
+  </ancestor_defs>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2836</uid>
+ </class_definitions>
+ <class_definitions id="Versioned_ehr_status">
+  <name>Versioned_ehr_status</name>
+  <ancestor_defs>
+   <root_type>Versioned_object</root_type>
+   <generic_parameters>Folder</generic_parameters>
+  </ancestor_defs>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2837</uid>
+ </class_definitions>
+ <class_definitions id="Versioned_composition">
+  <name>Versioned_composition</name>
+  <ancestor_defs>
+   <root_type>Versioned_object</root_type>
+   <generic_parameters>Folder</generic_parameters>
+  </ancestor_defs>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2838</uid>
+ </class_definitions>
+ <class_definitions id="Versioned_folder">
+  <name>Versioned_folder</name>
+  <ancestor_defs>
+   <root_type>Versioned_object</root_type>
+   <generic_parameters>Folder</generic_parameters>
+  </ancestor_defs>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2839</uid>
+ </class_definitions>
+ <class_definitions id="Content_item">
+  <name>Content_item</name>
+  <ancestors>Locatable</ancestors>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2840</uid>
+ </class_definitions>
+ <class_definitions id="Section">
+  <name>Section</name>
+  <ancestors>Content_item</ancestors>
+  <properties id="items">
+   <name>items</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Content_item</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2841</uid>
+ </class_definitions>
+ <class_definitions id="Entry">
+  <name>Entry</name>
+  <ancestors>Content_item</ancestors>
+  <properties id="time">
+   <name>time</name>
+   <type>Date_time</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="language">
+   <name>language</name>
+   <type>Terminology_code</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="subject">
+   <name>subject</name>
+   <type>Party_proxy</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="reporter">
+   <name>reporter</name>
+   <type>Party_proxy</type>
+  </properties>
+  <properties id="authorization_actions">
+   <name>authorization_actions</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Participation</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="other_participations">
+   <name>other_participations</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Participation</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="workflow_id">
+   <name>workflow_id</name>
+   <type>String</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="comment">
+   <name>comment</name>
+   <type>Text</type>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2842</uid>
+ </class_definitions>
+ <class_definitions id="Admin_entry">
+  <name>Admin_entry</name>
+  <ancestors>Entry</ancestors>
+  <properties id="data">
+   <name>data</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Item</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2843</uid>
+ </class_definitions>
+ <class_definitions id="Care_entry">
+  <documentation>Abstract Entry subtype corresponding to any type of Entry in the clinical care cycle.</documentation>
+  <name>Care_entry</name>
+  <ancestors>Entry</ancestors>
+  <properties id="qualifiers">
+   <name>qualifiers</name>
+   <type_def>
+    <type>Item</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="guideline_ids">
+   <name>guideline_ids</name>
+   <type_def>
+    <type>Uri</type>
+    <container_type>List</container_type>
+   </type_def>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2844</uid>
+ </class_definitions>
+ <class_definitions id="Care_act_entry">
+  <documentation>Entry type for billable and/or ordered acts</documentation>
+  <name>Care_act_entry</name>
+  <ancestors>Care_entry</ancestors>
+  <properties id="order_tracking">
+   <name>order_tracking</name>
+   <type>Order_tracking</type>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2845</uid>
+ </class_definitions>
+ <class_definitions id="Order_tracking">
+  <name>Order_tracking</name>
+  <ancestors>Any</ancestors>
+  <properties id="order_id">
+   <name>order_id</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="requestor_id">
+   <name>requestor_id</name>
+   <type>String</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="filler_id">
+   <name>filler_id</name>
+   <type>String</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="details">
+   <name>details</name>
+   <type>Cluster</type>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2846</uid>
+ </class_definitions>
+ <class_definitions id="Observation">
+  <documentation>Entry subtype used to represent single sample observation.</documentation>
+  <name>Observation</name>
+  <ancestors>Care_act_entry</ancestors>
+  <properties id="data">
+   <name>data</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Item</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="state">
+   <name>state</name>
+   <type_def>
+    <type>Item</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2847</uid>
+ </class_definitions>
+ <class_definitions id="Direct_observation">
+  <name>Direct_observation</name>
+  <ancestors>Observation</ancestors>
+  <properties id="total_duration">
+   <name>total_duration</name>
+   <type>Duration</type>
+  </properties>
+  <properties id="data_series">
+   <name>data_series</name>
+   <type_def>
+    <type>Event</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="state_series">
+   <name>state_series</name>
+   <type_def>
+    <type>Event</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2848</uid>
+ </class_definitions>
+ <class_definitions id="Indirect_observation">
+  <name>Indirect_observation</name>
+  <ancestors>Observation</ancestors>
+  <properties id="result_time">
+   <name>result_time</name>
+   <type>Date_time</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2849</uid>
+ </class_definitions>
+ <class_definitions id="Lab_result">
+  <name>Lab_result</name>
+  <ancestors>Indirect_observation</ancestors>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2850</uid>
+ </class_definitions>
+ <class_definitions id="Imaging">
+  <name>Imaging</name>
+  <ancestors>Indirect_observation</ancestors>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2851</uid>
+ </class_definitions>
+ <class_definitions id="Score">
+  <name>Score</name>
+  <ancestors>Observation</ancestors>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2852</uid>
+ </class_definitions>
+ <class_definitions id="Questionnaire_response">
+  <documentation>Entry subtype used questionnaire responses</documentation>
+  <name>Questionnaire_response</name>
+  <ancestors>Observation</ancestors>
+  <properties id="questionnaire_identifier">
+   <name>questionnaire_identifier</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="questionnaire_version">
+   <name>questionnaire_version</name>
+   <type>String</type>
+  </properties>
+  <properties id="questionnaire_title">
+   <name>questionnaire_title</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="completion_status">
+   <name>completion_status</name>
+   <type>Terminology_code</type>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2853</uid>
+ </class_definitions>
+ <class_definitions id="Assessment">
+  <name>Assessment</name>
+  <ancestors>Care_entry</ancestors>
+  <properties id="data">
+   <name>data</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Item</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="probability">
+   <name>probability</name>
+   <type>Real</type>
+  </properties>
+  <properties id="certainty">
+   <name>certainty</name>
+   <type>Terminology_code</type>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2854</uid>
+ </class_definitions>
+ <class_definitions id="Order">
+  <name>Order</name>
+  <ancestors>Care_act_entry</ancestors>
+  <properties id="narrative">
+   <name>narrative</name>
+   <type>Text</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="expiry_time">
+   <name>expiry_time</name>
+   <type>Date_time</type>
+  </properties>
+  <properties id="activities">
+   <name>activities</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Activity</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2855</uid>
+ </class_definitions>
+ <class_definitions id="Activity">
+  <name>Activity</name>
+  <ancestors>Locatable</ancestors>
+  <properties id="description">
+   <name>description</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Item</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="timing">
+   <name>timing</name>
+   <type>Timing</type>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2856</uid>
+ </class_definitions>
+ <class_definitions id="Action">
+  <name>Action</name>
+  <ancestors>Care_act_entry</ancestors>
+  <properties id="time">
+   <name>time</name>
+   <type>Date_time</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="duration">
+   <name>duration</name>
+   <type>Duration</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="description">
+   <name>description</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Item</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="state_transition">
+   <name>state_transition</name>
+   <type>State_transition</type>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2857</uid>
+ </class_definitions>
+ <class_definitions id="State_transition">
+  <name>State_transition</name>
+  <ancestors>Locatable</ancestors>
+  <properties id="current_state">
+   <name>current_state</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="transition">
+   <name>transition</name>
+   <type>Terminology_term</type>
+  </properties>
+  <properties id="careflow_step">
+   <name>careflow_step</name>
+   <type>Terminology_term</type>
+  </properties>
+  <properties id="reason">
+   <name>reason</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Text</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_grm_ehr_0.6.0</source_schema_id>
+  <uid>2858</uid>
+ </class_definitions>
+ <class_definitions id="Item">
+  <name>Item</name>
+  <ancestors>Locatable</ancestors>
+  <source_schema_id>graphite_grm_structures_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2859</uid>
+ </class_definitions>
+ <class_definitions id="Cluster">
+  <name>Cluster</name>
+  <ancestors>Item</ancestors>
+  <properties id="items">
+   <name>items</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Item</type>
+    <container_type>List</container_type>
+   </type_def>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_grm_structures_0.6.0</source_schema_id>
+  <uid>2860</uid>
+ </class_definitions>
+ <class_definitions id="Element">
+  <name>Element</name>
+  <ancestors>Item</ancestors>
+  <properties id="null_flavour">
+   <name>null_flavour</name>
+   <type>Terminology_term</type>
+  </properties>
+  <properties id="value">
+   <name>value</name>
+   <type>Data_value</type>
+  </properties>
+  <properties id="null_reason">
+   <name>null_reason</name>
+   <type>Text</type>
+  </properties>
+  <source_schema_id>graphite_grm_structures_0.6.0</source_schema_id>
+  <uid>2861</uid>
+ </class_definitions>
+ <class_definitions id="Event">
+  <name>Event</name>
+  <ancestors>Locatable</ancestors>
+  <properties id="time">
+   <name>time</name>
+   <type>Date_time</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="items">
+   <name>items</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Item</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_grm_structures_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2862</uid>
+ </class_definitions>
+ <class_definitions id="Point_event">
+  <name>Point_event</name>
+  <ancestors>Event</ancestors>
+  <source_schema_id>graphite_grm_structures_0.6.0</source_schema_id>
+  <uid>2863</uid>
+ </class_definitions>
+ <class_definitions id="Interval_event">
+  <name>Interval_event</name>
+  <ancestors>Event</ancestors>
+  <properties id="width">
+   <name>width</name>
+   <type>Duration</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="sample_count">
+   <name>sample_count</name>
+   <type>Integer</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="math_function">
+   <name>math_function</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_grm_structures_0.6.0</source_schema_id>
+  <uid>2864</uid>
+ </class_definitions>
+ <class_definitions id="Terminology_term">
+  <name>Terminology_term</name>
+  <ancestors>Any</ancestors>
+  <properties id="text">
+   <name>text</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="concept">
+   <name>concept</name>
+   <type>Terminology_code</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_foundation_types_0.6.0</source_schema_id>
+  <uid>2823</uid>
+ </class_definitions>
+ <class_definitions id="Object_ref">
+  <name>Object_ref</name>
+  <ancestors>Any</ancestors>
+  <properties id="id">
+   <name>id</name>
+   <type>Object_id</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="namespace">
+   <name>namespace</name>
+   <type>String</type>
+  </properties>
+  <properties id="type">
+   <name>type</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2724</uid>
+ </class_definitions>
+ <class_definitions id="Locatable_ref">
+  <name>Locatable_ref</name>
+  <ancestors>Object_ref</ancestors>
+  <properties id="id">
+   <name>id</name>
+   <type>Object_version_id</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="path">
+   <name>path</name>
+   <type>String</type>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2725</uid>
+ </class_definitions>
+ <class_definitions id="Object_id">
+  <name>Object_id</name>
+  <ancestors>Any</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2726</uid>
+ </class_definitions>
+ <class_definitions id="Artifact_id">
+  <name>Artifact_id</name>
+  <ancestors>Any</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2727</uid>
+ </class_definitions>
+ <class_definitions id="Terminology_id">
+  <name>Terminology_id</name>
+  <ancestors>Artifact_id</ancestors>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2728</uid>
+ </class_definitions>
+ <class_definitions id="Archetype_id">
+  <name>Archetype_id</name>
+  <ancestors>Artifact_id</ancestors>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2729</uid>
+ </class_definitions>
+ <class_definitions id="Object_version_id">
+  <name>Object_version_id</name>
+  <ancestors>Object_id</ancestors>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2730</uid>
+ </class_definitions>
+ <class_definitions id="Version_tree_id">
+  <name>Version_tree_id</name>
+  <ancestors>Any</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2731</uid>
+ </class_definitions>
+ <class_definitions id="Primitive_id">
+  <name>Primitive_id</name>
+  <ancestors>Any</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2732</uid>
+ </class_definitions>
+ <class_definitions id="Internet_id">
+  <name>Internet_id</name>
+  <ancestors>Primitive_id</ancestors>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2733</uid>
+ </class_definitions>
+ <class_definitions id="Iso_oid">
+  <name>Iso_oid</name>
+  <ancestors>Primitive_id</ancestors>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2734</uid>
+ </class_definitions>
+ <class_definitions id="Uuid">
+  <name>Uuid</name>
+  <ancestors>Primitive_id</ancestors>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2735</uid>
+ </class_definitions>
+ <class_definitions id="Validity_kind">
+  <name>Validity_kind</name>
+  <ancestors>String</ancestors>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <item_names>mandatory</item_names>
+  <item_names>optional</item_names>
+  <item_names>prohibited</item_names>
+  <uid>2736</uid>
+ </class_definitions>
+ <class_definitions id="Version_status">
+  <name>Version_status</name>
+  <ancestors>String</ancestors>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <item_names>alpha</item_names>
+  <item_names>beta</item_names>
+  <item_names>release_candidate</item_names>
+  <item_names>released</item_names>
+  <item_names>build</item_names>
+  <uid>2737</uid>
+ </class_definitions>
+ <class_definitions id="Pathable">
+  <name>Pathable</name>
+  <ancestors>Any</ancestors>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2738</uid>
+ </class_definitions>
+ <class_definitions id="Locatable">
+  <name>Locatable</name>
+  <ancestors>Pathable</ancestors>
+  <properties id="uid">
+   <name>uid</name>
+   <type>Uuid</type>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="archetype_node_id">
+   <name>archetype_node_id</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="name">
+   <name>name</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="archetype_details">
+   <name>archetype_details</name>
+   <type>Archetyped</type>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="feeder_audit">
+   <name>feeder_audit</name>
+   <type>Feeder_audit</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="links">
+   <name>links</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Link</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2739</uid>
+ </class_definitions>
+ <class_definitions id="Link">
+  <name>Link</name>
+  <ancestors>Any</ancestors>
+  <properties id="meaning">
+   <name>meaning</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="type">
+   <name>type</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="target">
+   <name>target</name>
+   <type>Uri</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2740</uid>
+ </class_definitions>
+ <class_definitions id="Archetyped">
+  <name>Archetyped</name>
+  <ancestors>Any</ancestors>
+  <properties id="archetype_id">
+   <name>archetype_id</name>
+   <type>Archetype_id</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="template_id">
+   <name>template_id</name>
+   <type>Archetype_id</type>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="rm_version">
+   <name>rm_version</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2741</uid>
+ </class_definitions>
+ <class_definitions id="Feeder_audit">
+  <name>Feeder_audit</name>
+  <ancestors>Any</ancestors>
+  <properties id="originating_system_item_ids">
+   <name>originating_system_item_ids</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Rwe_id_ref</type>
+    <container_type>List</container_type>
+   </type_def>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="feeder_system_item_ids">
+   <name>feeder_system_item_ids</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Rwe_id_ref</type>
+    <container_type>List</container_type>
+   </type_def>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="original_content">
+   <name>original_content</name>
+   <type>Encapsulated</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="originating_system_audit">
+   <name>originating_system_audit</name>
+   <type>Feeder_audit_details</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="feeder_system_audit">
+   <name>feeder_system_audit</name>
+   <type>Feeder_audit_details</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2742</uid>
+ </class_definitions>
+ <class_definitions id="Feeder_audit_details">
+  <name>Feeder_audit_details</name>
+  <ancestors>Any</ancestors>
+  <properties id="system_id">
+   <name>system_id</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="location">
+   <name>location</name>
+   <type>Party_identified</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="provider">
+   <name>provider</name>
+   <type>Party_identified</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="subject">
+   <name>subject</name>
+   <type>Party_proxy</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="time">
+   <name>time</name>
+   <type>Date_time</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="version_id">
+   <name>version_id</name>
+   <type>String</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="other_details">
+   <name>other_details</name>
+   <type>Cluster</type>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2743</uid>
+ </class_definitions>
+ <class_definitions id="Participation">
+  <name>Participation</name>
+  <ancestors>Any</ancestors>
+  <properties id="function">
+   <name>function</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="time">
+   <name>time</name>
+   <type_def>
+    <root_type>Interval</root_type>
+    <generic_parameters>Date_time</generic_parameters>
+   </type_def>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="mode">
+   <name>mode</name>
+   <type>Terminology_term</type>
+  </properties>
+  <properties id="performer">
+   <name>performer</name>
+   <type>Party_proxy</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2744</uid>
+ </class_definitions>
+ <class_definitions id="Party_proxy">
+  <name>Party_proxy</name>
+  <ancestors>Any</ancestors>
+  <properties id="external_ref">
+   <name>external_ref</name>
+   <type>Object_ref</type>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2745</uid>
+ </class_definitions>
+ <class_definitions id="Party_identified">
+  <name>Party_identified</name>
+  <ancestors>Party_proxy</ancestors>
+  <properties id="name">
+   <name>name</name>
+   <type>String</type>
+  </properties>
+  <properties id="identifiers">
+   <name>identifiers</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Rwe_id_ref</type>
+    <container_type>List</container_type>
+   </type_def>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2746</uid>
+ </class_definitions>
+ <class_definitions id="Party_related">
+  <name>Party_related</name>
+  <ancestors>Party_identified</ancestors>
+  <properties id="relationship">
+   <name>relationship</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2747</uid>
+ </class_definitions>
+ <class_definitions id="Party_self">
+  <name>Party_self</name>
+  <ancestors>Party_proxy</ancestors>
+  <source_schema_id>graphite_base_base_types_0.6.0</source_schema_id>
+  <uid>2748</uid>
+ </class_definitions>
+ <class_definitions id="Data_value">
+  <name>Data_value</name>
+  <ancestors>Any</ancestors>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2756</uid>
+ </class_definitions>
+ <class_definitions id="Boolean_value">
+  <name>Boolean_value</name>
+  <ancestors>Data_value</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>Boolean</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="true_term">
+   <name>true_term</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="false_term">
+   <name>false_term</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2757</uid>
+ </class_definitions>
+ <class_definitions id="Rwe_id_ref">
+  <name>Rwe_id_ref</name>
+  <ancestors>Data_value</ancestors>
+  <properties id="id">
+   <name>id</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="issuer">
+   <name>issuer</name>
+   <type>String</type>
+  </properties>
+  <properties id="assigner">
+   <name>assigner</name>
+   <type>String</type>
+  </properties>
+  <properties id="type">
+   <name>type</name>
+   <type>String</type>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2758</uid>
+ </class_definitions>
+ <class_definitions id="Text">
+  <name>Text</name>
+  <ancestors>Data_value</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="language">
+   <name>language</name>
+   <type>Terminology_code</type>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="encoding">
+   <name>encoding</name>
+   <type>Terminology_code</type>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="formatting">
+   <name>formatting</name>
+   <type>Text_format_types</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="mappings">
+   <name>mappings</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Term_mapping</type>
+    <container_type>List</container_type>
+   </type_def>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2759</uid>
+ </class_definitions>
+ <class_definitions id="Text_format_types">
+  <name>Text_format_types</name>
+  <ancestors>Integer</ancestors>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <item_names>plain</item_names>
+  <item_names>plain_no_newlines</item_names>
+  <item_names>markdown</item_names>
+  <uid>2760</uid>
+ </class_definitions>
+ <class_definitions id="Term_mapping">
+  <name>Term_mapping</name>
+  <properties id="match">
+   <name>match</name>
+   <type>Character</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="purpose">
+   <name>purpose</name>
+   <type>Terminology_term</type>
+  </properties>
+  <properties id="target">
+   <name>target</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2761</uid>
+ </class_definitions>
+ <class_definitions id="Plain_text">
+  <name>Plain_text</name>
+  <ancestors>Text</ancestors>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2762</uid>
+ </class_definitions>
+ <class_definitions id="Coded_text">
+  <name>Coded_text</name>
+  <ancestors>Text</ancestors>
+  <properties id="concept">
+   <name>concept</name>
+   <type>Terminology_code</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2763</uid>
+ </class_definitions>
+ <class_definitions id="Range">
+  <name>Range</name>
+  <generic_parameter_defs id="V">
+   <name>V</name>
+   <conforms_to_type>Ordered</conforms_to_type>
+  </generic_parameter_defs>
+  <ancestors>Data_value</ancestors>
+  <properties id="lower">
+   <name>lower</name>
+   <type>V</type>
+  </properties>
+  <properties id="upper">
+   <name>upper</name>
+   <type>V</type>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2764</uid>
+ </class_definitions>
+ <class_definitions id="Reference_range">
+  <name>Reference_range</name>
+  <generic_parameter_defs id="V">
+   <name>V</name>
+   <conforms_to_type>Quantified</conforms_to_type>
+  </generic_parameter_defs>
+  <ancestors>Any</ancestors>
+  <properties id="range">
+   <name>range</name>
+   <type_def>
+    <root_type>Range</root_type>
+    <generic_parameters>V</generic_parameters>
+   </type_def>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="meaning">
+   <name>meaning</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2765</uid>
+ </class_definitions>
+ <class_definitions id="Ordered">
+  <name>Ordered</name>
+  <ancestors>Data_value</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>Comparable</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2766</uid>
+ </class_definitions>
+ <class_definitions id="Quantified">
+  <name>Quantified</name>
+  <ancestors>Ordered</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>Comparable_numeric</type>
+  </properties>
+  <properties id="measured">
+   <name>measured</name>
+   <type_def>
+    <root_type>Measured</root_type>
+    <generic_parameters>Quantified</generic_parameters>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2767</uid>
+ </class_definitions>
+ <class_definitions id="Ordinal">
+  <name>Ordinal</name>
+  <ancestors>Ordered</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>Real</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="symbol">
+   <name>symbol</name>
+   <type>Terminology_code</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2768</uid>
+ </class_definitions>
+ <class_definitions id="Measured">
+  <name>Measured</name>
+  <generic_parameter_defs id="V">
+   <name>V</name>
+   <conforms_to_type>Quantified</conforms_to_type>
+  </generic_parameter_defs>
+  <ancestors>Any</ancestors>
+  <properties id="accuracy">
+   <name>accuracy</name>
+   <type>V</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="accuracy_is_percent">
+   <name>accuracy_is_percent</name>
+   <type>Boolean</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="precision">
+   <name>precision</name>
+   <type>Integer</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <properties id="value_status">
+   <name>value_status</name>
+   <type>Comparison_operator</type>
+  </properties>
+  <properties id="normal_range">
+   <name>normal_range</name>
+   <type_def>
+    <root_type>Range</root_type>
+    <generic_parameters>V</generic_parameters>
+   </type_def>
+  </properties>
+  <properties id="other_reference_ranges">
+   <name>other_reference_ranges</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type_def>
+     <root_type>Reference_range</root_type>
+     <generic_parameters>V</generic_parameters>
+    </type_def>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2769</uid>
+ </class_definitions>
+ <class_definitions id="Comparison_operator">
+  <name>Comparison_operator</name>
+  <ancestors>String</ancestors>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <item_names>&lt;</item_names>
+  <item_names>&lt;=</item_names>
+  <item_names>&gt;</item_names>
+  <item_names>&gt;=</item_names>
+  <item_names>=</item_names>
+  <uid>2770</uid>
+ </class_definitions>
+ <class_definitions id="Quantity">
+  <name>Quantity</name>
+  <ancestors>Quantified</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>Real</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="units">
+   <name>units</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2771</uid>
+ </class_definitions>
+ <class_definitions id="Count">
+  <name>Count</name>
+  <ancestors>Quantified</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>Integer64</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2772</uid>
+ </class_definitions>
+ <class_definitions id="Ratio">
+  <name>Ratio</name>
+  <ancestors>Quantified</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>Real</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="numerator">
+   <name>numerator</name>
+   <type>Quantity</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="denominator">
+   <name>denominator</name>
+   <type>Quantity</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="type">
+   <name>type</name>
+   <type>Ratio_kind</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2773</uid>
+ </class_definitions>
+ <class_definitions id="Ratio_kind">
+  <name>Ratio_kind</name>
+  <ancestors>Integer</ancestors>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <item_names>rational_fraction</item_names>
+  <item_names>ratio</item_names>
+  <uid>2774</uid>
+ </class_definitions>
+ <class_definitions id="Temporal_value">
+  <name>Temporal_value</name>
+  <generic_parameter_defs id="T">
+   <name>T</name>
+   <conforms_to_type>Temporal</conforms_to_type>
+  </generic_parameter_defs>
+  <ancestors>Ordered</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2775</uid>
+ </class_definitions>
+ <class_definitions id="Date_value">
+  <name>Date_value</name>
+  <ancestor_defs>
+   <root_type>Temporal_value</root_type>
+   <generic_parameters>Date</generic_parameters>
+  </ancestor_defs>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2776</uid>
+ </class_definitions>
+ <class_definitions id="Time_value">
+  <name>Time_value</name>
+  <ancestor_defs>
+   <root_type>Temporal_value</root_type>
+   <generic_parameters>Time</generic_parameters>
+  </ancestor_defs>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2777</uid>
+ </class_definitions>
+ <class_definitions id="Date_time_value">
+  <name>Date_time_value</name>
+  <ancestor_defs>
+   <root_type>Temporal_value</root_type>
+   <generic_parameters>Date_time</generic_parameters>
+  </ancestor_defs>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2778</uid>
+ </class_definitions>
+ <class_definitions id="Duration_value">
+  <name>Duration_value</name>
+  <ancestor_defs>
+   <root_type>Temporal_value</root_type>
+   <generic_parameters>Duration</generic_parameters>
+  </ancestor_defs>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2779</uid>
+ </class_definitions>
+ <class_definitions id="Uri_ref">
+  <name>Uri_ref</name>
+  <ancestors>Data_value</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2780</uid>
+ </class_definitions>
+ <class_definitions id="Ehr_uri_ref">
+  <name>Ehr_uri_ref</name>
+  <ancestors>Uri_ref</ancestors>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2781</uid>
+ </class_definitions>
+ <class_definitions id="Timing">
+  <name>Timing</name>
+  <ancestors>Data_value</ancestors>
+  <properties id="history">
+   <name>history</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Occurrence</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="pattern">
+   <name>pattern</name>
+   <type>Occurrence_pattern</type>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2782</uid>
+ </class_definitions>
+ <class_definitions id="Occurrence">
+  <name>Occurrence</name>
+  <ancestors>Any</ancestors>
+  <properties id="date">
+   <name>date</name>
+   <type>Date</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="time_of_day">
+   <name>time_of_day</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Hour_specifier</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2783</uid>
+ </class_definitions>
+ <class_definitions id="Occurrence_pattern">
+  <name>Occurrence_pattern</name>
+  <ancestors>Any</ancestors>
+  <properties id="times">
+   <name>times</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Time_specifier</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="total_count">
+   <name>total_count</name>
+   <type>Integer</type>
+  </properties>
+  <properties id="bounding_period">
+   <name>bounding_period</name>
+   <type_def>
+    <root_type>Interval</root_type>
+    <generic_parameters>Date</generic_parameters>
+   </type_def>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2784</uid>
+ </class_definitions>
+ <class_definitions id="Time_specifier">
+  <name>Time_specifier</name>
+  <ancestors>Any</ancestors>
+  <properties id="event_count">
+   <name>event_count</name>
+   <type>Integer</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2785</uid>
+ </class_definitions>
+ <class_definitions id="Period_specifier">
+  <name>Period_specifier</name>
+  <ancestors>Time_specifier</ancestors>
+  <properties id="period">
+   <name>period</name>
+   <type>Duration</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2786</uid>
+ </class_definitions>
+ <class_definitions id="Day_specifier">
+  <name>Day_specifier</name>
+  <ancestors>Time_specifier</ancestors>
+  <properties id="day">
+   <name>day</name>
+   <type>Terminology_term</type>
+  </properties>
+  <properties id="time_of_day">
+   <name>time_of_day</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Hour_specifier</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2787</uid>
+ </class_definitions>
+ <class_definitions id="Hour_specifier">
+  <name>Hour_specifier</name>
+  <ancestors>Any</ancestors>
+  <properties id="duration">
+   <name>duration</name>
+   <type>Duration</type>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2788</uid>
+ </class_definitions>
+ <class_definitions id="Customary_time">
+  <name>Customary_time</name>
+  <ancestors>Hour_specifier</ancestors>
+  <properties id="reference_event">
+   <name>reference_event</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="temporal_relation">
+   <name>temporal_relation</name>
+   <type>Temporal_relation</type>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2789</uid>
+ </class_definitions>
+ <class_definitions id="Clock_time">
+  <name>Clock_time</name>
+  <ancestors>Hour_specifier</ancestors>
+  <properties id="time">
+   <name>time</name>
+   <type>Time</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2790</uid>
+ </class_definitions>
+ <class_definitions id="Temporal_relation">
+  <name>Temporal_relation</name>
+  <ancestors>Integer</ancestors>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <item_names>after</item_names>
+  <item_names>before</item_names>
+  <item_names>with</item_names>
+  <uid>2791</uid>
+ </class_definitions>
+ <class_definitions id="Encapsulated">
+  <name>Encapsulated</name>
+  <ancestors>Data_value</ancestors>
+  <properties id="language">
+   <name>language</name>
+   <type>Terminology_code</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2792</uid>
+ </class_definitions>
+ <class_definitions id="Multimedia">
+  <name>Multimedia</name>
+  <ancestors>Encapsulated</ancestors>
+  <properties id="alternate_text">
+   <name>alternate_text</name>
+   <type>String</type>
+  </properties>
+  <properties id="uri">
+   <name>uri</name>
+   <type>Uri</type>
+  </properties>
+  <properties id="data">
+   <name>data</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Byte</type>
+    <container_type>Array</container_type>
+   </type_def>
+  </properties>
+  <properties id="media_type">
+   <name>media_type</name>
+   <type>Terminology_code</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="hash">
+   <name>hash</name>
+   <type>String</type>
+  </properties>
+  <properties id="thumbnail">
+   <name>thumbnail</name>
+   <type>Multimedia</type>
+  </properties>
+  <properties id="size">
+   <name>size</name>
+   <type>Integer</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2793</uid>
+ </class_definitions>
+ <class_definitions id="Parsable">
+  <name>Parsable</name>
+  <ancestors>Encapsulated</ancestors>
+  <properties id="value">
+   <name>value</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="formalism">
+   <name>formalism</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="encoding">
+   <name>encoding</name>
+   <type>Terminology_code</type>
+   <is_im_runtime>true</is_im_runtime>
+  </properties>
+  <source_schema_id>graphite_base_data_types_0.6.0</source_schema_id>
+  <uid>2794</uid>
+ </class_definitions>
+ <class_definitions id="Authored_resource">
+  <name>Authored_resource</name>
+  <ancestors>Any</ancestors>
+  <properties id="original_language">
+   <name>original_language</name>
+   <type>Terminology_code</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="is_controlled">
+   <name>is_controlled</name>
+   <type>Boolean</type>
+  </properties>
+  <properties id="translations">
+   <name>translations</name>
+   <type_def>
+    <root_type>Hash</root_type>
+    <generic_parameters>String</generic_parameters>
+    <generic_parameters>Translation_details</generic_parameters>
+   </type_def>
+  </properties>
+  <properties id="description">
+   <name>description</name>
+   <type>Resource_description</type>
+  </properties>
+  <properties id="annotations">
+   <name>annotations</name>
+   <type>Resource_annotations</type>
+  </properties>
+  <source_schema_id>graphite_base_resource_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2824</uid>
+ </class_definitions>
+ <class_definitions id="Translation_details">
+  <name>Translation_details</name>
+  <ancestors>Any</ancestors>
+  <properties id="language">
+   <name>language</name>
+   <type>Terminology_code</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="author">
+   <name>author</name>
+   <type_def>
+    <root_type>Hash</root_type>
+    <generic_parameters>String</generic_parameters>
+    <generic_parameters>String</generic_parameters>
+   </type_def>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="accreditation">
+   <name>accreditation</name>
+   <type>String</type>
+  </properties>
+  <properties id="version_last_translated">
+   <name>version_last_translated</name>
+   <type>String</type>
+  </properties>
+  <properties id="other_details">
+   <name>other_details</name>
+   <type_def>
+    <root_type>Hash</root_type>
+    <generic_parameters>String</generic_parameters>
+    <generic_parameters>String</generic_parameters>
+   </type_def>
+  </properties>
+  <properties id="other_contributors">
+   <name>other_contributors</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>String</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_base_resource_0.6.0</source_schema_id>
+  <uid>2825</uid>
+ </class_definitions>
+ <class_definitions id="Resource_description">
+  <name>Resource_description</name>
+  <ancestors>Any</ancestors>
+  <properties id="original_author">
+   <name>original_author</name>
+   <type_def>
+    <root_type>Hash</root_type>
+    <generic_parameters>String</generic_parameters>
+    <generic_parameters>String</generic_parameters>
+   </type_def>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="original_namespace">
+   <name>original_namespace</name>
+   <type>String</type>
+  </properties>
+  <properties id="other_contributors">
+   <name>other_contributors</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>String</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="custodian_namespace">
+   <name>custodian_namespace</name>
+   <type>String</type>
+  </properties>
+  <properties id="custodian_organisation">
+   <name>custodian_organisation</name>
+   <type>String</type>
+  </properties>
+  <properties id="copyright">
+   <name>copyright</name>
+   <type>String</type>
+  </properties>
+  <properties id="licence">
+   <name>licence</name>
+   <type>String</type>
+  </properties>
+  <properties id="lifecycle_state">
+   <name>lifecycle_state</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="resource_package_uri">
+   <name>resource_package_uri</name>
+   <type>String</type>
+  </properties>
+  <properties id="ip_acknowledgements">
+   <name>ip_acknowledgements</name>
+   <type_def>
+    <root_type>Hash</root_type>
+    <generic_parameters>String</generic_parameters>
+    <generic_parameters>String</generic_parameters>
+   </type_def>
+  </properties>
+  <properties id="references">
+   <name>references</name>
+   <type_def>
+    <root_type>Hash</root_type>
+    <generic_parameters>String</generic_parameters>
+    <generic_parameters>String</generic_parameters>
+   </type_def>
+  </properties>
+  <properties id="conversion_details">
+   <name>conversion_details</name>
+   <type_def>
+    <root_type>Hash</root_type>
+    <generic_parameters>String</generic_parameters>
+    <generic_parameters>String</generic_parameters>
+   </type_def>
+  </properties>
+  <properties id="other_details">
+   <name>other_details</name>
+   <type_def>
+    <root_type>Hash</root_type>
+    <generic_parameters>String</generic_parameters>
+    <generic_parameters>String</generic_parameters>
+   </type_def>
+  </properties>
+  <properties id="parent_resource">
+   <name>parent_resource</name>
+   <type>Authored_resource</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="details">
+   <name>details</name>
+   <type_def>
+    <root_type>Hash</root_type>
+    <generic_parameters>String</generic_parameters>
+    <generic_parameters>Resource_description_item</generic_parameters>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_base_resource_0.6.0</source_schema_id>
+  <uid>2826</uid>
+ </class_definitions>
+ <class_definitions id="Resource_description_item">
+  <name>Resource_description_item</name>
+  <ancestors>Any</ancestors>
+  <properties id="language">
+   <name>language</name>
+   <type>Terminology_code</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="purpose">
+   <name>purpose</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="keywords">
+   <name>keywords</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>String</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="use">
+   <name>use</name>
+   <type>String</type>
+  </properties>
+  <properties id="misuse">
+   <name>misuse</name>
+   <type>String</type>
+  </properties>
+  <properties id="original_resource_uri">
+   <name>original_resource_uri</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type_def>
+     <root_type>Hash</root_type>
+     <generic_parameters>String</generic_parameters>
+     <generic_parameters>String</generic_parameters>
+    </type_def>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="other_details">
+   <name>other_details</name>
+   <type_def>
+    <root_type>Hash</root_type>
+    <generic_parameters>String</generic_parameters>
+    <generic_parameters>String</generic_parameters>
+   </type_def>
+  </properties>
+  <source_schema_id>graphite_base_resource_0.6.0</source_schema_id>
+  <uid>2827</uid>
+ </class_definitions>
+ <class_definitions id="Resource_annotations">
+  <name>Resource_annotations</name>
+  <ancestors>Any</ancestors>
+  <properties id="documentation">
+   <name>documentation</name>
+   <type_def>
+    <root_type>Hash</root_type>
+    <generic_parameter_defs>
+     <type>String</type>
+    </generic_parameter_defs>
+    <generic_parameter_defs>
+     <root_type>Hash</root_type>
+     <generic_parameter_defs>
+      <type>String</type>
+     </generic_parameter_defs>
+     <generic_parameter_defs>
+      <root_type>Hash</root_type>
+      <generic_parameters>String</generic_parameters>
+      <generic_parameters>String</generic_parameters>
+     </generic_parameter_defs>
+    </generic_parameter_defs>
+   </type_def>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_resource_0.6.0</source_schema_id>
+  <uid>2828</uid>
+ </class_definitions>
+ <class_definitions id="Audit_details">
+  <name>Audit_details</name>
+  <ancestors>Any</ancestors>
+  <properties id="system_id">
+   <name>system_id</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="time_committed">
+   <name>time_committed</name>
+   <type>Date_time</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="change_type">
+   <name>change_type</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="description">
+   <name>description</name>
+   <type>Terminology_term</type>
+  </properties>
+  <properties id="committer">
+   <name>committer</name>
+   <type>Party_proxy</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_change_control_0.6.0</source_schema_id>
+  <uid>2749</uid>
+ </class_definitions>
+ <class_definitions id="Attestation">
+  <name>Attestation</name>
+  <ancestors>Audit_details</ancestors>
+  <properties id="attested_view">
+   <name>attested_view</name>
+   <type>Multimedia</type>
+  </properties>
+  <properties id="proof">
+   <name>proof</name>
+   <type>String</type>
+  </properties>
+  <properties id="items">
+   <name>items</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Uri</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="reason">
+   <name>reason</name>
+   <type>String</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="is_pending">
+   <name>is_pending</name>
+   <type>Boolean</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <source_schema_id>graphite_base_change_control_0.6.0</source_schema_id>
+  <uid>2750</uid>
+ </class_definitions>
+ <class_definitions id="Contribution">
+  <name>Contribution</name>
+  <ancestors>Any</ancestors>
+  <properties id="uid">
+   <name>uid</name>
+   <type>Uuid</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="audit">
+   <name>audit</name>
+   <type>Audit_details</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="versions">
+   <name>versions</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Object_ref</type>
+    <container_type>List</container_type>
+   </type_def>
+   <is_mandatory>true</is_mandatory>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <source_schema_id>graphite_base_change_control_0.6.0</source_schema_id>
+  <uid>2751</uid>
+ </class_definitions>
+ <class_definitions id="Versioned_object">
+  <name>Versioned_object</name>
+  <generic_parameter_defs id="T">
+   <name>T</name>
+  </generic_parameter_defs>
+  <ancestors>Any</ancestors>
+  <properties id="uid">
+   <name>uid</name>
+   <type>Uuid</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="owner_id">
+   <name>owner_id</name>
+   <type>Object_ref</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="time_created">
+   <name>time_created</name>
+   <type>Date_time</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <source_schema_id>graphite_base_change_control_0.6.0</source_schema_id>
+  <uid>2752</uid>
+ </class_definitions>
+ <class_definitions id="Version">
+  <name>Version</name>
+  <generic_parameter_defs id="T">
+   <name>T</name>
+  </generic_parameter_defs>
+  <ancestors>Any</ancestors>
+  <properties id="contribution">
+   <name>contribution</name>
+   <type>Object_ref</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="commit_audit">
+   <name>commit_audit</name>
+   <type>Audit_details</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="signature">
+   <name>signature</name>
+   <type>String</type>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <source_schema_id>graphite_base_change_control_0.6.0</source_schema_id>
+  <is_abstract>true</is_abstract>
+  <uid>2753</uid>
+ </class_definitions>
+ <class_definitions id="Original_version">
+  <name>Original_version</name>
+  <generic_parameter_defs id="T">
+   <name>T</name>
+  </generic_parameter_defs>
+  <ancestors>Version</ancestors>
+  <properties id="uid">
+   <name>uid</name>
+   <type>Object_version_id</type>
+   <is_mandatory>true</is_mandatory>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="preceding_version_uid">
+   <name>preceding_version_uid</name>
+   <type>Object_version_id</type>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="other_input_version_uids">
+   <name>other_input_version_uids</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Object_version_id</type>
+    <container_type>List</container_type>
+   </type_def>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <properties id="attestations">
+   <name>attestations</name>
+   <cardinality>
+   </cardinality>
+   <type_def>
+    <type>Attestation</type>
+    <container_type>List</container_type>
+   </type_def>
+  </properties>
+  <properties id="lifecycle_state">
+   <name>lifecycle_state</name>
+   <type>Terminology_term</type>
+   <is_mandatory>true</is_mandatory>
+  </properties>
+  <properties id="data">
+   <name>data</name>
+   <type>T</type>
+  </properties>
+  <source_schema_id>graphite_base_change_control_0.6.0</source_schema_id>
+  <uid>2754</uid>
+ </class_definitions>
+ <class_definitions id="Imported_version">
+  <name>Imported_version</name>
+  <generic_parameter_defs id="T">
+   <name>T</name>
+  </generic_parameter_defs>
+  <ancestors>Version</ancestors>
+  <properties id="item">
+   <name>item</name>
+   <type_def>
+    <root_type>Original_version</root_type>
+    <generic_parameters>T</generic_parameters>
+   </type_def>
+   <is_mandatory>true</is_mandatory>
+   <is_im_infrastructure>true</is_im_infrastructure>
+  </properties>
+  <source_schema_id>graphite_base_change_control_0.6.0</source_schema_id>
+  <uid>2755</uid>
+ </class_definitions>
+ <passed>true</passed>
+ <missed_class_count>0</missed_class_count>
+</UNKNOWN_DOCUMENT_TYPE>

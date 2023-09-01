@@ -1,0 +1,2818 @@
+{
+	"rm_publisher": "graphite",
+	"rm_release": "0.6.0",
+	"packages": {
+		"ORG.GRAPHITE.GRM": {
+			"packages": {
+				"EHR": {
+					"name": "ehr",
+					"classes": ["Ehr", "Ehr_access", "Ehr_status", "Access_control_settings", "Folder", "Versioned_composition", "Versioned_folder", "Versioned_ehr_access", "Versioned_ehr_status"]
+				},
+				"COMPOSITION": {
+					"name": "composition",
+					"classes": ["Composition", "Event_context", "Content_item", "Section"]
+				},
+				"ENTRY": {
+					"name": "entry",
+					"classes": ["Entry", "Care_entry", "Care_act_entry", "Admin_entry", "Observation", "Direct_observation", "Indirect_observation", "Lab_result", "Imaging", "Questionnaire_response", "Score", "Assessment", "Order", "Action", "Activity", "State_transition", "Order_tracking"]
+				},
+				"DATA_STRUCTURES": {
+					"name": "data_structures",
+					"classes": ["Item", "Cluster", "Element", "Event", "Point_event", "Interval_event"]
+				}
+			},
+			"name": "org.graphite.grm"
+		}
+	},
+	"schema_name": "grm_ehr",
+	"schema_revision": "0.6.0.1",
+	"schema_lifecycle_state": "stable",
+	"schema_author": "Thomas Beale <thomas.beale@graphitehealth.io>",
+	"schema_description": "openEHR Release 0.6.0 EHR schema",
+	"bmm_version": "2.3",
+	"model_name": "EHR",
+	"includes": [
+		{
+			"id": "graphite_grm_structures_0.6.0"
+		}
+	],
+	"primitive_types": {
+		"Any": {
+			"name": "Any",
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2795
+		},
+		"Comparable": {
+			"documentation": "Ancestor of types with total order relation defined, i.e. '<' and '='.",
+			"name": "Comparable",
+			"ancestors": ["Any"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2796
+		},
+		"Numeric": {
+			"documentation": "Ancestor of numeric types.",
+			"name": "Numeric",
+			"ancestors": ["Any"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2797
+		},
+		"Comparable_numeric": {
+			"documentation": "Ancestor of ordered numeric types.",
+			"name": "Comparable_numeric",
+			"ancestors": ["Numeric", "Comparable"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2798
+		},
+		"Byte": {
+			"name": "Byte",
+			"ancestors": ["Comparable"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2799
+		},
+		"Octet": {
+			"name": "Octet",
+			"ancestors": ["Comparable"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2800
+		},
+		"Boolean": {
+			"name": "Boolean",
+			"ancestors": ["Any"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2801
+		},
+		"Integer": {
+			"name": "Integer",
+			"ancestors": ["Comparable_numeric"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2802
+		},
+		"Integer64": {
+			"name": "Integer64",
+			"ancestors": ["Comparable_numeric"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2803
+		},
+		"Real": {
+			"name": "Real",
+			"ancestors": ["Comparable_numeric"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2804
+		},
+		"Double": {
+			"name": "Double",
+			"ancestors": ["Comparable_numeric"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2805
+		},
+		"Character": {
+			"name": "Character",
+			"ancestors": ["Comparable"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2806
+		},
+		"String": {
+			"name": "String",
+			"ancestors": ["Comparable"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2807
+		},
+		"Uri": {
+			"name": "Uri",
+			"ancestors": ["String"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2808
+		},
+		"Temporal": {
+			"documentation": "Parent of ISO8601 types.",
+			"name": "Temporal",
+			"ancestors": ["Comparable"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2809
+		},
+		"Date": {
+			"documentation": "Date type based on IS8601 representation.",
+			"name": "Date",
+			"ancestors": ["Temporal"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2810
+		},
+		"Time": {
+			"documentation": "Time type based on IS8601 representation.",
+			"name": "Time",
+			"ancestors": ["Temporal"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2811
+		},
+		"Date_time": {
+			"documentation": "Date Time type based on IS8601 representation.",
+			"name": "Date_time",
+			"ancestors": ["Temporal"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2812
+		},
+		"Duration": {
+			"documentation": "Duration type based on IS8601 representation.",
+			"name": "Duration",
+			"ancestors": ["Temporal"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2813
+		},
+		"Terminology_code": {
+			"name": "Terminology_code",
+			"ancestors": ["Any"],
+			"properties": {
+				"terminology_id": {
+					"name": "terminology_id",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"terminology_version": {
+					"name": "terminology_version",
+					"type": "String"
+				},
+				"code_string": {
+					"name": "code_string",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"uri": {
+					"name": "uri",
+					"type": "Uri"
+				}
+			},
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2814
+		},
+		"Container": {
+			"name": "Container",
+			"generic_parameter_defs": {
+				"V": {
+					"name": "V"
+				}
+			},
+			"ancestors": ["Any"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2815
+		},
+		"List": {
+			"name": "List",
+			"generic_parameter_defs": {
+				"V": {
+					"name": "V"
+				}
+			},
+			"ancestors": ["Container"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2816
+		},
+		"Array": {
+			"name": "Array",
+			"generic_parameter_defs": {
+				"V": {
+					"name": "V"
+				}
+			},
+			"ancestors": ["Container"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2817
+		},
+		"Set": {
+			"name": "Set",
+			"generic_parameter_defs": {
+				"V": {
+					"name": "V"
+				}
+			},
+			"ancestors": ["Container"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2818
+		},
+		"Interval": {
+			"documentation": "Type defining an interval of any ordered type.",
+			"name": "Interval",
+			"generic_parameter_defs": {
+				"T": {
+					"name": "T",
+					"conforms_to_type": "Comparable"
+				}
+			},
+			"ancestors": ["Any"],
+			"properties": {
+				"lower": {
+					"name": "lower",
+					"type": "T"
+				},
+				"upper": {
+					"name": "upper",
+					"type": "T"
+				},
+				"lower_unbounded": {
+					"name": "lower_unbounded",
+					"type": "Boolean",
+					"is_mandatory": true
+				},
+				"upper_unbounded": {
+					"name": "upper_unbounded",
+					"type": "Boolean",
+					"is_mandatory": true
+				},
+				"lower_included": {
+					"name": "lower_included",
+					"type": "Boolean",
+					"is_mandatory": true
+				},
+				"upper_included": {
+					"name": "upper_included",
+					"type": "Boolean",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2819
+		},
+		"Cardinality": {
+			"name": "Cardinality",
+			"ancestors": ["Any"],
+			"properties": {
+				"is_ordered": {
+					"name": "is_ordered",
+					"type": "Boolean",
+					"is_mandatory": true
+				},
+				"is_unique": {
+					"name": "is_unique",
+					"type": "Boolean",
+					"is_mandatory": true
+				},
+				"interval": {
+					"name": "interval",
+					"type": "Multiplicity_interval",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2820
+		},
+		"Multiplicity_interval": {
+			"name": "Multiplicity_interval",
+			"ancestor_defs": [
+				{
+					"root_type": "Interval",
+					"generic_parameters": ["Integer"]
+				}
+			],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2821
+		},
+		"Hash": {
+			"documentation": "Type defining Hash table / hash map structure, whose type parameters V and K represent a value type and an Comparable key type respectively.",
+			"name": "Hash",
+			"generic_parameter_defs": {
+				"K": {
+					"name": "K",
+					"conforms_to_type": "Comparable"
+				},
+				"V": {
+					"name": "V"
+				}
+			},
+			"ancestors": ["Container"],
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2822
+		}
+	},
+	"class_definitions": {
+		"Ehr": {
+			"name": "Ehr",
+			"properties": {
+				"system_id": {
+					"name": "system_id",
+					"type": "Internet_id",
+					"is_mandatory": true
+				},
+				"ehr_id": {
+					"name": "ehr_id",
+					"type": "Uuid",
+					"is_mandatory": true
+				},
+				"time_created": {
+					"name": "time_created",
+					"type": "Date_time",
+					"is_mandatory": true
+				},
+				"ehr_access": {
+					"name": "ehr_access",
+					"type": "Object_ref",
+					"is_mandatory": true
+				},
+				"ehr_status": {
+					"name": "ehr_status",
+					"type": "Object_ref",
+					"is_mandatory": true
+				},
+				"directory": {
+					"name": "directory",
+					"type": "Object_ref"
+				},
+				"folders": {
+					"name": "folders",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Object_ref",
+						"container_type": "List"
+					}
+				},
+				"compositions": {
+					"name": "compositions",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Object_ref",
+						"container_type": "List"
+					}
+				},
+				"contributions": {
+					"name": "contributions",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Object_ref",
+						"container_type": "List"
+					},
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2829
+		},
+		"Ehr_access": {
+			"name": "Ehr_access",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"settings": {
+					"name": "settings",
+					"type": "Access_control_settings"
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2830
+		},
+		"Access_control_settings": {
+			"name": "Access_control_settings",
+			"ancestors": ["Any"],
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"is_abstract": true,
+			"uid": 2831
+		},
+		"Ehr_status": {
+			"name": "Ehr_status",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"subject": {
+					"name": "subject",
+					"type": "Party_self",
+					"is_mandatory": true
+				},
+				"is_queryable": {
+					"name": "is_queryable",
+					"type": "Boolean",
+					"is_mandatory": true
+				},
+				"is_modifiable": {
+					"name": "is_modifiable",
+					"type": "Boolean",
+					"is_mandatory": true
+				},
+				"other_details": {
+					"name": "other_details",
+					"type": "Cluster"
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2832
+		},
+		"Composition": {
+			"name": "Composition",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"language": {
+					"name": "language",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				},
+				"territory": {
+					"name": "territory",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				},
+				"category": {
+					"name": "category",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"composer": {
+					"name": "composer",
+					"type": "Party_proxy",
+					"is_mandatory": true
+				},
+				"context": {
+					"name": "context",
+					"type": "Event_context"
+				},
+				"content": {
+					"name": "content",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Content_item",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2833
+		},
+		"Event_context": {
+			"name": "Event_context",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"health_care_facility": {
+					"name": "health_care_facility",
+					"type": "Party_identified"
+				},
+				"start_time": {
+					"name": "start_time",
+					"type": "Date_time",
+					"is_mandatory": true
+				},
+				"end_time": {
+					"name": "end_time",
+					"type": "Date_time"
+				},
+				"participations": {
+					"name": "participations",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Participation",
+						"container_type": "List"
+					}
+				},
+				"location": {
+					"name": "location",
+					"type": "String"
+				},
+				"setting": {
+					"name": "setting",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"other_context": {
+					"name": "other_context",
+					"type": "Cluster"
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2834
+		},
+		"Folder": {
+			"name": "Folder",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"folders": {
+					"name": "folders",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Folder",
+						"container_type": "List"
+					}
+				},
+				"items": {
+					"name": "items",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Object_ref",
+						"container_type": "List"
+					}
+				},
+				"details": {
+					"name": "details",
+					"type": "Cluster"
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2835
+		},
+		"Versioned_ehr_access": {
+			"name": "Versioned_ehr_access",
+			"ancestor_defs": [
+				{
+					"root_type": "Versioned_object",
+					"generic_parameters": ["Folder"]
+				}
+			],
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2836
+		},
+		"Versioned_ehr_status": {
+			"name": "Versioned_ehr_status",
+			"ancestor_defs": [
+				{
+					"root_type": "Versioned_object",
+					"generic_parameters": ["Folder"]
+				}
+			],
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2837
+		},
+		"Versioned_composition": {
+			"name": "Versioned_composition",
+			"ancestor_defs": [
+				{
+					"root_type": "Versioned_object",
+					"generic_parameters": ["Folder"]
+				}
+			],
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2838
+		},
+		"Versioned_folder": {
+			"name": "Versioned_folder",
+			"ancestor_defs": [
+				{
+					"root_type": "Versioned_object",
+					"generic_parameters": ["Folder"]
+				}
+			],
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2839
+		},
+		"Content_item": {
+			"name": "Content_item",
+			"ancestors": ["Locatable"],
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"is_abstract": true,
+			"uid": 2840
+		},
+		"Section": {
+			"name": "Section",
+			"ancestors": ["Content_item"],
+			"properties": {
+				"items": {
+					"name": "items",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Content_item",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2841
+		},
+		"Entry": {
+			"name": "Entry",
+			"ancestors": ["Content_item"],
+			"properties": {
+				"time": {
+					"name": "time",
+					"type": "Date_time",
+					"is_mandatory": true,
+					"is_im_runtime": true
+				},
+				"language": {
+					"name": "language",
+					"type": "Terminology_code",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"subject": {
+					"name": "subject",
+					"type": "Party_proxy",
+					"is_mandatory": true
+				},
+				"reporter": {
+					"name": "reporter",
+					"type": "Party_proxy"
+				},
+				"authorization_actions": {
+					"name": "authorization_actions",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Participation",
+						"container_type": "List"
+					}
+				},
+				"other_participations": {
+					"name": "other_participations",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Participation",
+						"container_type": "List"
+					}
+				},
+				"workflow_id": {
+					"name": "workflow_id",
+					"type": "String",
+					"is_im_runtime": true
+				},
+				"comment": {
+					"name": "comment",
+					"type": "Text"
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"is_abstract": true,
+			"uid": 2842
+		},
+		"Admin_entry": {
+			"name": "Admin_entry",
+			"ancestors": ["Entry"],
+			"properties": {
+				"data": {
+					"name": "data",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Item",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2843
+		},
+		"Care_entry": {
+			"documentation": "Abstract Entry subtype corresponding to any type of Entry in the clinical care cycle.",
+			"name": "Care_entry",
+			"ancestors": ["Entry"],
+			"properties": {
+				"qualifiers": {
+					"name": "qualifiers",
+					"type_def": {
+						"type": "Item",
+						"container_type": "List"
+					}
+				},
+				"guideline_ids": {
+					"name": "guideline_ids",
+					"type_def": {
+						"type": "Uri",
+						"container_type": "List"
+					},
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"is_abstract": true,
+			"uid": 2844
+		},
+		"Care_act_entry": {
+			"documentation": "Entry type for billable and/or ordered acts",
+			"name": "Care_act_entry",
+			"ancestors": ["Care_entry"],
+			"properties": {
+				"order_tracking": {
+					"name": "order_tracking",
+					"type": "Order_tracking"
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"is_abstract": true,
+			"uid": 2845
+		},
+		"Order_tracking": {
+			"name": "Order_tracking",
+			"ancestors": ["Any"],
+			"properties": {
+				"order_id": {
+					"name": "order_id",
+					"type": "String",
+					"is_mandatory": true,
+					"is_im_runtime": true
+				},
+				"requestor_id": {
+					"name": "requestor_id",
+					"type": "String",
+					"is_im_runtime": true
+				},
+				"filler_id": {
+					"name": "filler_id",
+					"type": "String",
+					"is_im_runtime": true
+				},
+				"details": {
+					"name": "details",
+					"type": "Cluster"
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2846
+		},
+		"Observation": {
+			"documentation": "Entry subtype used to represent single sample observation.",
+			"name": "Observation",
+			"ancestors": ["Care_act_entry"],
+			"properties": {
+				"data": {
+					"name": "data",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Item",
+						"container_type": "List"
+					}
+				},
+				"state": {
+					"name": "state",
+					"type_def": {
+						"type": "Item",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2847
+		},
+		"Direct_observation": {
+			"name": "Direct_observation",
+			"ancestors": ["Observation"],
+			"properties": {
+				"total_duration": {
+					"name": "total_duration",
+					"type": "Duration"
+				},
+				"data_series": {
+					"name": "data_series",
+					"type_def": {
+						"type": "Event",
+						"container_type": "List"
+					}
+				},
+				"state_series": {
+					"name": "state_series",
+					"type_def": {
+						"type": "Event",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2848
+		},
+		"Indirect_observation": {
+			"name": "Indirect_observation",
+			"ancestors": ["Observation"],
+			"properties": {
+				"result_time": {
+					"name": "result_time",
+					"type": "Date_time",
+					"is_mandatory": true,
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2849
+		},
+		"Lab_result": {
+			"name": "Lab_result",
+			"ancestors": ["Indirect_observation"],
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2850
+		},
+		"Imaging": {
+			"name": "Imaging",
+			"ancestors": ["Indirect_observation"],
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2851
+		},
+		"Score": {
+			"name": "Score",
+			"ancestors": ["Observation"],
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2852
+		},
+		"Questionnaire_response": {
+			"documentation": "Entry subtype used questionnaire responses",
+			"name": "Questionnaire_response",
+			"ancestors": ["Observation"],
+			"properties": {
+				"questionnaire_identifier": {
+					"name": "questionnaire_identifier",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"questionnaire_version": {
+					"name": "questionnaire_version",
+					"type": "String"
+				},
+				"questionnaire_title": {
+					"name": "questionnaire_title",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"completion_status": {
+					"name": "completion_status",
+					"type": "Terminology_code"
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2853
+		},
+		"Assessment": {
+			"name": "Assessment",
+			"ancestors": ["Care_entry"],
+			"properties": {
+				"data": {
+					"name": "data",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Item",
+						"container_type": "List"
+					}
+				},
+				"probability": {
+					"name": "probability",
+					"type": "Real"
+				},
+				"certainty": {
+					"name": "certainty",
+					"type": "Terminology_code"
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2854
+		},
+		"Order": {
+			"name": "Order",
+			"ancestors": ["Care_act_entry"],
+			"properties": {
+				"narrative": {
+					"name": "narrative",
+					"type": "Text",
+					"is_mandatory": true
+				},
+				"expiry_time": {
+					"name": "expiry_time",
+					"type": "Date_time"
+				},
+				"activities": {
+					"name": "activities",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Activity",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2855
+		},
+		"Activity": {
+			"name": "Activity",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"description": {
+					"name": "description",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Item",
+						"container_type": "List"
+					}
+				},
+				"timing": {
+					"name": "timing",
+					"type": "Timing"
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2856
+		},
+		"Action": {
+			"name": "Action",
+			"ancestors": ["Care_act_entry"],
+			"properties": {
+				"time": {
+					"name": "time",
+					"type": "Date_time",
+					"is_mandatory": true,
+					"is_im_runtime": true
+				},
+				"duration": {
+					"name": "duration",
+					"type": "Duration",
+					"is_im_runtime": true
+				},
+				"description": {
+					"name": "description",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Item",
+						"container_type": "List"
+					}
+				},
+				"state_transition": {
+					"name": "state_transition",
+					"type": "State_transition"
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2857
+		},
+		"State_transition": {
+			"name": "State_transition",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"current_state": {
+					"name": "current_state",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"transition": {
+					"name": "transition",
+					"type": "Terminology_term"
+				},
+				"careflow_step": {
+					"name": "careflow_step",
+					"type": "Terminology_term"
+				},
+				"reason": {
+					"name": "reason",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Text",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "graphite_grm_ehr_0.6.0",
+			"uid": 2858
+		},
+		"Item": {
+			"name": "Item",
+			"ancestors": ["Locatable"],
+			"source_schema_id": "graphite_grm_structures_0.6.0",
+			"is_abstract": true,
+			"uid": 2859
+		},
+		"Cluster": {
+			"name": "Cluster",
+			"ancestors": ["Item"],
+			"properties": {
+				"items": {
+					"name": "items",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Item",
+						"container_type": "List"
+					},
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_grm_structures_0.6.0",
+			"uid": 2860
+		},
+		"Element": {
+			"name": "Element",
+			"ancestors": ["Item"],
+			"properties": {
+				"null_flavour": {
+					"name": "null_flavour",
+					"type": "Terminology_term"
+				},
+				"value": {
+					"name": "value",
+					"type": "Data_value"
+				},
+				"null_reason": {
+					"name": "null_reason",
+					"type": "Text"
+				}
+			},
+			"source_schema_id": "graphite_grm_structures_0.6.0",
+			"uid": 2861
+		},
+		"Event": {
+			"name": "Event",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"time": {
+					"name": "time",
+					"type": "Date_time",
+					"is_mandatory": true,
+					"is_im_runtime": true
+				},
+				"items": {
+					"name": "items",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Item",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "graphite_grm_structures_0.6.0",
+			"is_abstract": true,
+			"uid": 2862
+		},
+		"Point_event": {
+			"name": "Point_event",
+			"ancestors": ["Event"],
+			"source_schema_id": "graphite_grm_structures_0.6.0",
+			"uid": 2863
+		},
+		"Interval_event": {
+			"name": "Interval_event",
+			"ancestors": ["Event"],
+			"properties": {
+				"width": {
+					"name": "width",
+					"type": "Duration",
+					"is_mandatory": true
+				},
+				"sample_count": {
+					"name": "sample_count",
+					"type": "Integer",
+					"is_im_runtime": true
+				},
+				"math_function": {
+					"name": "math_function",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_grm_structures_0.6.0",
+			"uid": 2864
+		},
+		"Terminology_term": {
+			"name": "Terminology_term",
+			"ancestors": ["Any"],
+			"properties": {
+				"text": {
+					"name": "text",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"concept": {
+					"name": "concept",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_foundation_types_0.6.0",
+			"uid": 2823
+		},
+		"Object_ref": {
+			"name": "Object_ref",
+			"ancestors": ["Any"],
+			"properties": {
+				"id": {
+					"name": "id",
+					"type": "Object_id",
+					"is_mandatory": true
+				},
+				"namespace": {
+					"name": "namespace",
+					"type": "String"
+				},
+				"type": {
+					"name": "type",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2724
+		},
+		"Locatable_ref": {
+			"name": "Locatable_ref",
+			"ancestors": ["Object_ref"],
+			"properties": {
+				"id": {
+					"name": "id",
+					"type": "Object_version_id",
+					"is_mandatory": true
+				},
+				"path": {
+					"name": "path",
+					"type": "String",
+					"is_im_infrastructure": true
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2725
+		},
+		"Object_id": {
+			"name": "Object_id",
+			"ancestors": ["Any"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2726
+		},
+		"Artifact_id": {
+			"name": "Artifact_id",
+			"ancestors": ["Any"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2727
+		},
+		"Terminology_id": {
+			"name": "Terminology_id",
+			"ancestors": ["Artifact_id"],
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2728
+		},
+		"Archetype_id": {
+			"name": "Archetype_id",
+			"ancestors": ["Artifact_id"],
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2729
+		},
+		"Object_version_id": {
+			"name": "Object_version_id",
+			"ancestors": ["Object_id"],
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2730
+		},
+		"Version_tree_id": {
+			"name": "Version_tree_id",
+			"ancestors": ["Any"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2731
+		},
+		"Primitive_id": {
+			"name": "Primitive_id",
+			"ancestors": ["Any"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2732
+		},
+		"Internet_id": {
+			"name": "Internet_id",
+			"ancestors": ["Primitive_id"],
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2733
+		},
+		"Iso_oid": {
+			"name": "Iso_oid",
+			"ancestors": ["Primitive_id"],
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2734
+		},
+		"Uuid": {
+			"name": "Uuid",
+			"ancestors": ["Primitive_id"],
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2735
+		},
+		"Validity_kind": {
+			"name": "Validity_kind",
+			"ancestors": ["String"],
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"item_names": ["mandatory", "optional", "prohibited"],
+			"uid": 2736
+		},
+		"Version_status": {
+			"name": "Version_status",
+			"ancestors": ["String"],
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"item_names": ["alpha", "beta", "release_candidate", "released", "build"],
+			"uid": 2737
+		},
+		"Pathable": {
+			"name": "Pathable",
+			"ancestors": ["Any"],
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2738
+		},
+		"Locatable": {
+			"name": "Locatable",
+			"ancestors": ["Pathable"],
+			"properties": {
+				"uid": {
+					"name": "uid",
+					"type": "Uuid",
+					"is_im_infrastructure": true
+				},
+				"archetype_node_id": {
+					"name": "archetype_node_id",
+					"type": "String",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"name": {
+					"name": "name",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"archetype_details": {
+					"name": "archetype_details",
+					"type": "Archetyped",
+					"is_im_infrastructure": true
+				},
+				"feeder_audit": {
+					"name": "feeder_audit",
+					"type": "Feeder_audit",
+					"is_im_runtime": true
+				},
+				"links": {
+					"name": "links",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Link",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2739
+		},
+		"Link": {
+			"name": "Link",
+			"ancestors": ["Any"],
+			"properties": {
+				"meaning": {
+					"name": "meaning",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"type": {
+					"name": "type",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"target": {
+					"name": "target",
+					"type": "Uri",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2740
+		},
+		"Archetyped": {
+			"name": "Archetyped",
+			"ancestors": ["Any"],
+			"properties": {
+				"archetype_id": {
+					"name": "archetype_id",
+					"type": "Archetype_id",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"template_id": {
+					"name": "template_id",
+					"type": "Archetype_id",
+					"is_im_infrastructure": true
+				},
+				"rm_version": {
+					"name": "rm_version",
+					"type": "String",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2741
+		},
+		"Feeder_audit": {
+			"name": "Feeder_audit",
+			"ancestors": ["Any"],
+			"properties": {
+				"originating_system_item_ids": {
+					"name": "originating_system_item_ids",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Rwe_id_ref",
+						"container_type": "List"
+					},
+					"is_im_runtime": true
+				},
+				"feeder_system_item_ids": {
+					"name": "feeder_system_item_ids",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Rwe_id_ref",
+						"container_type": "List"
+					},
+					"is_im_runtime": true
+				},
+				"original_content": {
+					"name": "original_content",
+					"type": "Encapsulated",
+					"is_im_runtime": true
+				},
+				"originating_system_audit": {
+					"name": "originating_system_audit",
+					"type": "Feeder_audit_details",
+					"is_mandatory": true,
+					"is_im_runtime": true
+				},
+				"feeder_system_audit": {
+					"name": "feeder_system_audit",
+					"type": "Feeder_audit_details",
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2742
+		},
+		"Feeder_audit_details": {
+			"name": "Feeder_audit_details",
+			"ancestors": ["Any"],
+			"properties": {
+				"system_id": {
+					"name": "system_id",
+					"type": "String",
+					"is_mandatory": true,
+					"is_im_runtime": true
+				},
+				"location": {
+					"name": "location",
+					"type": "Party_identified",
+					"is_im_runtime": true
+				},
+				"provider": {
+					"name": "provider",
+					"type": "Party_identified",
+					"is_im_runtime": true
+				},
+				"subject": {
+					"name": "subject",
+					"type": "Party_proxy",
+					"is_im_runtime": true
+				},
+				"time": {
+					"name": "time",
+					"type": "Date_time",
+					"is_im_runtime": true
+				},
+				"version_id": {
+					"name": "version_id",
+					"type": "String",
+					"is_im_runtime": true
+				},
+				"other_details": {
+					"name": "other_details",
+					"type": "Cluster"
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2743
+		},
+		"Participation": {
+			"name": "Participation",
+			"ancestors": ["Any"],
+			"properties": {
+				"function": {
+					"name": "function",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"time": {
+					"name": "time",
+					"type_def": {
+						"root_type": "Interval",
+						"generic_parameters": ["Date_time"]
+					},
+					"is_im_runtime": true
+				},
+				"mode": {
+					"name": "mode",
+					"type": "Terminology_term"
+				},
+				"performer": {
+					"name": "performer",
+					"type": "Party_proxy",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2744
+		},
+		"Party_proxy": {
+			"name": "Party_proxy",
+			"ancestors": ["Any"],
+			"properties": {
+				"external_ref": {
+					"name": "external_ref",
+					"type": "Object_ref",
+					"is_im_infrastructure": true
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2745
+		},
+		"Party_identified": {
+			"name": "Party_identified",
+			"ancestors": ["Party_proxy"],
+			"properties": {
+				"name": {
+					"name": "name",
+					"type": "String"
+				},
+				"identifiers": {
+					"name": "identifiers",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Rwe_id_ref",
+						"container_type": "List"
+					},
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2746
+		},
+		"Party_related": {
+			"name": "Party_related",
+			"ancestors": ["Party_identified"],
+			"properties": {
+				"relationship": {
+					"name": "relationship",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2747
+		},
+		"Party_self": {
+			"name": "Party_self",
+			"ancestors": ["Party_proxy"],
+			"source_schema_id": "graphite_base_base_types_0.6.0",
+			"uid": 2748
+		},
+		"Data_value": {
+			"name": "Data_value",
+			"ancestors": ["Any"],
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2756
+		},
+		"Boolean_value": {
+			"name": "Boolean_value",
+			"ancestors": ["Data_value"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Boolean",
+					"is_mandatory": true
+				},
+				"true_term": {
+					"name": "true_term",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"false_term": {
+					"name": "false_term",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2757
+		},
+		"Rwe_id_ref": {
+			"name": "Rwe_id_ref",
+			"ancestors": ["Data_value"],
+			"properties": {
+				"id": {
+					"name": "id",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"issuer": {
+					"name": "issuer",
+					"type": "String"
+				},
+				"assigner": {
+					"name": "assigner",
+					"type": "String"
+				},
+				"type": {
+					"name": "type",
+					"type": "String"
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2758
+		},
+		"Text": {
+			"name": "Text",
+			"ancestors": ["Data_value"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"language": {
+					"name": "language",
+					"type": "Terminology_code",
+					"is_im_infrastructure": true
+				},
+				"encoding": {
+					"name": "encoding",
+					"type": "Terminology_code",
+					"is_im_infrastructure": true
+				},
+				"formatting": {
+					"name": "formatting",
+					"type": "Text_format_types",
+					"is_im_runtime": true
+				},
+				"mappings": {
+					"name": "mappings",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Term_mapping",
+						"container_type": "List"
+					},
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2759
+		},
+		"Text_format_types": {
+			"name": "Text_format_types",
+			"ancestors": ["Integer"],
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"item_names": ["plain", "plain_no_newlines", "markdown"],
+			"uid": 2760
+		},
+		"Term_mapping": {
+			"name": "Term_mapping",
+			"properties": {
+				"match": {
+					"name": "match",
+					"type": "Character",
+					"is_mandatory": true
+				},
+				"purpose": {
+					"name": "purpose",
+					"type": "Terminology_term"
+				},
+				"target": {
+					"name": "target",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2761
+		},
+		"Plain_text": {
+			"name": "Plain_text",
+			"ancestors": ["Text"],
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2762
+		},
+		"Coded_text": {
+			"name": "Coded_text",
+			"ancestors": ["Text"],
+			"properties": {
+				"concept": {
+					"name": "concept",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2763
+		},
+		"Range": {
+			"name": "Range",
+			"generic_parameter_defs": {
+				"V": {
+					"name": "V",
+					"conforms_to_type": "Ordered"
+				}
+			},
+			"ancestors": ["Data_value"],
+			"properties": {
+				"lower": {
+					"name": "lower",
+					"type": "V"
+				},
+				"upper": {
+					"name": "upper",
+					"type": "V"
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2764
+		},
+		"Reference_range": {
+			"name": "Reference_range",
+			"generic_parameter_defs": {
+				"V": {
+					"name": "V",
+					"conforms_to_type": "Quantified"
+				}
+			},
+			"ancestors": ["Any"],
+			"properties": {
+				"range": {
+					"name": "range",
+					"type_def": {
+						"root_type": "Range",
+						"generic_parameters": ["V"]
+					},
+					"is_mandatory": true
+				},
+				"meaning": {
+					"name": "meaning",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2765
+		},
+		"Ordered": {
+			"name": "Ordered",
+			"ancestors": ["Data_value"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Comparable",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2766
+		},
+		"Quantified": {
+			"name": "Quantified",
+			"ancestors": ["Ordered"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Comparable_numeric"
+				},
+				"measured": {
+					"name": "measured",
+					"type_def": {
+						"root_type": "Measured",
+						"generic_parameters": ["Quantified"]
+					}
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2767
+		},
+		"Ordinal": {
+			"name": "Ordinal",
+			"ancestors": ["Ordered"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Real",
+					"is_mandatory": true
+				},
+				"symbol": {
+					"name": "symbol",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2768
+		},
+		"Measured": {
+			"name": "Measured",
+			"generic_parameter_defs": {
+				"V": {
+					"name": "V",
+					"conforms_to_type": "Quantified"
+				}
+			},
+			"ancestors": ["Any"],
+			"properties": {
+				"accuracy": {
+					"name": "accuracy",
+					"type": "V",
+					"is_im_runtime": true
+				},
+				"accuracy_is_percent": {
+					"name": "accuracy_is_percent",
+					"type": "Boolean",
+					"is_im_runtime": true
+				},
+				"precision": {
+					"name": "precision",
+					"type": "Integer",
+					"is_im_runtime": true
+				},
+				"value_status": {
+					"name": "value_status",
+					"type": "Comparison_operator"
+				},
+				"normal_range": {
+					"name": "normal_range",
+					"type_def": {
+						"root_type": "Range",
+						"generic_parameters": ["V"]
+					}
+				},
+				"other_reference_ranges": {
+					"name": "other_reference_ranges",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type_def": {
+							"root_type": "Reference_range",
+							"generic_parameters": ["V"]
+						},
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2769
+		},
+		"Comparison_operator": {
+			"name": "Comparison_operator",
+			"ancestors": ["String"],
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"item_names": ["<", "<=", ">", ">=", "="],
+			"uid": 2770
+		},
+		"Quantity": {
+			"name": "Quantity",
+			"ancestors": ["Quantified"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Real",
+					"is_mandatory": true
+				},
+				"units": {
+					"name": "units",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2771
+		},
+		"Count": {
+			"name": "Count",
+			"ancestors": ["Quantified"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Integer64",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2772
+		},
+		"Ratio": {
+			"name": "Ratio",
+			"ancestors": ["Quantified"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Real",
+					"is_mandatory": true
+				},
+				"numerator": {
+					"name": "numerator",
+					"type": "Quantity",
+					"is_mandatory": true
+				},
+				"denominator": {
+					"name": "denominator",
+					"type": "Quantity",
+					"is_mandatory": true
+				},
+				"type": {
+					"name": "type",
+					"type": "Ratio_kind",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2773
+		},
+		"Ratio_kind": {
+			"name": "Ratio_kind",
+			"ancestors": ["Integer"],
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"item_names": ["rational_fraction", "ratio"],
+			"uid": 2774
+		},
+		"Temporal_value": {
+			"name": "Temporal_value",
+			"generic_parameter_defs": {
+				"T": {
+					"name": "T",
+					"conforms_to_type": "Temporal"
+				}
+			},
+			"ancestors": ["Ordered"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2775
+		},
+		"Date_value": {
+			"name": "Date_value",
+			"ancestor_defs": [
+				{
+					"root_type": "Temporal_value",
+					"generic_parameters": ["Date"]
+				}
+			],
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2776
+		},
+		"Time_value": {
+			"name": "Time_value",
+			"ancestor_defs": [
+				{
+					"root_type": "Temporal_value",
+					"generic_parameters": ["Time"]
+				}
+			],
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2777
+		},
+		"Date_time_value": {
+			"name": "Date_time_value",
+			"ancestor_defs": [
+				{
+					"root_type": "Temporal_value",
+					"generic_parameters": ["Date_time"]
+				}
+			],
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2778
+		},
+		"Duration_value": {
+			"name": "Duration_value",
+			"ancestor_defs": [
+				{
+					"root_type": "Temporal_value",
+					"generic_parameters": ["Duration"]
+				}
+			],
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2779
+		},
+		"Uri_ref": {
+			"name": "Uri_ref",
+			"ancestors": ["Data_value"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2780
+		},
+		"Ehr_uri_ref": {
+			"name": "Ehr_uri_ref",
+			"ancestors": ["Uri_ref"],
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2781
+		},
+		"Timing": {
+			"name": "Timing",
+			"ancestors": ["Data_value"],
+			"properties": {
+				"history": {
+					"name": "history",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Occurrence",
+						"container_type": "List"
+					}
+				},
+				"pattern": {
+					"name": "pattern",
+					"type": "Occurrence_pattern"
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2782
+		},
+		"Occurrence": {
+			"name": "Occurrence",
+			"ancestors": ["Any"],
+			"properties": {
+				"date": {
+					"name": "date",
+					"type": "Date",
+					"is_mandatory": true
+				},
+				"time_of_day": {
+					"name": "time_of_day",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Hour_specifier",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2783
+		},
+		"Occurrence_pattern": {
+			"name": "Occurrence_pattern",
+			"ancestors": ["Any"],
+			"properties": {
+				"times": {
+					"name": "times",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Time_specifier",
+						"container_type": "List"
+					}
+				},
+				"total_count": {
+					"name": "total_count",
+					"type": "Integer"
+				},
+				"bounding_period": {
+					"name": "bounding_period",
+					"type_def": {
+						"root_type": "Interval",
+						"generic_parameters": ["Date"]
+					},
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2784
+		},
+		"Time_specifier": {
+			"name": "Time_specifier",
+			"ancestors": ["Any"],
+			"properties": {
+				"event_count": {
+					"name": "event_count",
+					"type": "Integer",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2785
+		},
+		"Period_specifier": {
+			"name": "Period_specifier",
+			"ancestors": ["Time_specifier"],
+			"properties": {
+				"period": {
+					"name": "period",
+					"type": "Duration",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2786
+		},
+		"Day_specifier": {
+			"name": "Day_specifier",
+			"ancestors": ["Time_specifier"],
+			"properties": {
+				"day": {
+					"name": "day",
+					"type": "Terminology_term"
+				},
+				"time_of_day": {
+					"name": "time_of_day",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Hour_specifier",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2787
+		},
+		"Hour_specifier": {
+			"name": "Hour_specifier",
+			"ancestors": ["Any"],
+			"properties": {
+				"duration": {
+					"name": "duration",
+					"type": "Duration"
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2788
+		},
+		"Customary_time": {
+			"name": "Customary_time",
+			"ancestors": ["Hour_specifier"],
+			"properties": {
+				"reference_event": {
+					"name": "reference_event",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"temporal_relation": {
+					"name": "temporal_relation",
+					"type": "Temporal_relation"
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2789
+		},
+		"Clock_time": {
+			"name": "Clock_time",
+			"ancestors": ["Hour_specifier"],
+			"properties": {
+				"time": {
+					"name": "time",
+					"type": "Time",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2790
+		},
+		"Temporal_relation": {
+			"name": "Temporal_relation",
+			"ancestors": ["Integer"],
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"item_names": ["after", "before", "with"],
+			"uid": 2791
+		},
+		"Encapsulated": {
+			"name": "Encapsulated",
+			"ancestors": ["Data_value"],
+			"properties": {
+				"language": {
+					"name": "language",
+					"type": "Terminology_code",
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"is_abstract": true,
+			"uid": 2792
+		},
+		"Multimedia": {
+			"name": "Multimedia",
+			"ancestors": ["Encapsulated"],
+			"properties": {
+				"alternate_text": {
+					"name": "alternate_text",
+					"type": "String"
+				},
+				"uri": {
+					"name": "uri",
+					"type": "Uri"
+				},
+				"data": {
+					"name": "data",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Byte",
+						"container_type": "Array"
+					}
+				},
+				"media_type": {
+					"name": "media_type",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				},
+				"hash": {
+					"name": "hash",
+					"type": "String"
+				},
+				"thumbnail": {
+					"name": "thumbnail",
+					"type": "Multimedia"
+				},
+				"size": {
+					"name": "size",
+					"type": "Integer",
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2793
+		},
+		"Parsable": {
+			"name": "Parsable",
+			"ancestors": ["Encapsulated"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"formalism": {
+					"name": "formalism",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"encoding": {
+					"name": "encoding",
+					"type": "Terminology_code",
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "graphite_base_data_types_0.6.0",
+			"uid": 2794
+		},
+		"Authored_resource": {
+			"name": "Authored_resource",
+			"ancestors": ["Any"],
+			"properties": {
+				"original_language": {
+					"name": "original_language",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				},
+				"is_controlled": {
+					"name": "is_controlled",
+					"type": "Boolean"
+				},
+				"translations": {
+					"name": "translations",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "Translation_details"]
+					}
+				},
+				"description": {
+					"name": "description",
+					"type": "Resource_description"
+				},
+				"annotations": {
+					"name": "annotations",
+					"type": "Resource_annotations"
+				}
+			},
+			"source_schema_id": "graphite_base_resource_0.6.0",
+			"is_abstract": true,
+			"uid": 2824
+		},
+		"Translation_details": {
+			"name": "Translation_details",
+			"ancestors": ["Any"],
+			"properties": {
+				"language": {
+					"name": "language",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				},
+				"author": {
+					"name": "author",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					},
+					"is_mandatory": true
+				},
+				"accreditation": {
+					"name": "accreditation",
+					"type": "String"
+				},
+				"version_last_translated": {
+					"name": "version_last_translated",
+					"type": "String"
+				},
+				"other_details": {
+					"name": "other_details",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					}
+				},
+				"other_contributors": {
+					"name": "other_contributors",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "String",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "graphite_base_resource_0.6.0",
+			"uid": 2825
+		},
+		"Resource_description": {
+			"name": "Resource_description",
+			"ancestors": ["Any"],
+			"properties": {
+				"original_author": {
+					"name": "original_author",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					},
+					"is_mandatory": true
+				},
+				"original_namespace": {
+					"name": "original_namespace",
+					"type": "String"
+				},
+				"other_contributors": {
+					"name": "other_contributors",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "String",
+						"container_type": "List"
+					}
+				},
+				"custodian_namespace": {
+					"name": "custodian_namespace",
+					"type": "String"
+				},
+				"custodian_organisation": {
+					"name": "custodian_organisation",
+					"type": "String"
+				},
+				"copyright": {
+					"name": "copyright",
+					"type": "String"
+				},
+				"licence": {
+					"name": "licence",
+					"type": "String"
+				},
+				"lifecycle_state": {
+					"name": "lifecycle_state",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"resource_package_uri": {
+					"name": "resource_package_uri",
+					"type": "String"
+				},
+				"ip_acknowledgements": {
+					"name": "ip_acknowledgements",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					}
+				},
+				"references": {
+					"name": "references",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					}
+				},
+				"conversion_details": {
+					"name": "conversion_details",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					}
+				},
+				"other_details": {
+					"name": "other_details",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					}
+				},
+				"parent_resource": {
+					"name": "parent_resource",
+					"type": "Authored_resource",
+					"is_mandatory": true
+				},
+				"details": {
+					"name": "details",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "Resource_description_item"]
+					}
+				}
+			},
+			"source_schema_id": "graphite_base_resource_0.6.0",
+			"uid": 2826
+		},
+		"Resource_description_item": {
+			"name": "Resource_description_item",
+			"ancestors": ["Any"],
+			"properties": {
+				"language": {
+					"name": "language",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				},
+				"purpose": {
+					"name": "purpose",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"keywords": {
+					"name": "keywords",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "String",
+						"container_type": "List"
+					}
+				},
+				"use": {
+					"name": "use",
+					"type": "String"
+				},
+				"misuse": {
+					"name": "misuse",
+					"type": "String"
+				},
+				"original_resource_uri": {
+					"name": "original_resource_uri",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type_def": {
+							"root_type": "Hash",
+							"generic_parameters": ["String", "String"]
+						},
+						"container_type": "List"
+					}
+				},
+				"other_details": {
+					"name": "other_details",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					}
+				}
+			},
+			"source_schema_id": "graphite_base_resource_0.6.0",
+			"uid": 2827
+		},
+		"Resource_annotations": {
+			"name": "Resource_annotations",
+			"ancestors": ["Any"],
+			"properties": {
+				"documentation": {
+					"name": "documentation",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameter_defs": [
+							{
+								"type": "String"
+							},
+							{
+								"root_type": "Hash",
+								"generic_parameter_defs": [
+									{
+										"type": "String"
+									},
+									{
+										"root_type": "Hash",
+										"generic_parameters": ["String", "String"]
+									}
+								]
+							}
+						]
+					},
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_resource_0.6.0",
+			"uid": 2828
+		},
+		"Audit_details": {
+			"name": "Audit_details",
+			"ancestors": ["Any"],
+			"properties": {
+				"system_id": {
+					"name": "system_id",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"time_committed": {
+					"name": "time_committed",
+					"type": "Date_time",
+					"is_mandatory": true
+				},
+				"change_type": {
+					"name": "change_type",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"description": {
+					"name": "description",
+					"type": "Terminology_term"
+				},
+				"committer": {
+					"name": "committer",
+					"type": "Party_proxy",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_change_control_0.6.0",
+			"uid": 2749
+		},
+		"Attestation": {
+			"name": "Attestation",
+			"ancestors": ["Audit_details"],
+			"properties": {
+				"attested_view": {
+					"name": "attested_view",
+					"type": "Multimedia"
+				},
+				"proof": {
+					"name": "proof",
+					"type": "String"
+				},
+				"items": {
+					"name": "items",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Uri",
+						"container_type": "List"
+					}
+				},
+				"reason": {
+					"name": "reason",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"is_pending": {
+					"name": "is_pending",
+					"type": "Boolean",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "graphite_base_change_control_0.6.0",
+			"uid": 2750
+		},
+		"Contribution": {
+			"name": "Contribution",
+			"ancestors": ["Any"],
+			"properties": {
+				"uid": {
+					"name": "uid",
+					"type": "Uuid",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"audit": {
+					"name": "audit",
+					"type": "Audit_details",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"versions": {
+					"name": "versions",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Object_ref",
+						"container_type": "List"
+					},
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				}
+			},
+			"source_schema_id": "graphite_base_change_control_0.6.0",
+			"uid": 2751
+		},
+		"Versioned_object": {
+			"name": "Versioned_object",
+			"generic_parameter_defs": {
+				"T": {
+					"name": "T"
+				}
+			},
+			"ancestors": ["Any"],
+			"properties": {
+				"uid": {
+					"name": "uid",
+					"type": "Uuid",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"owner_id": {
+					"name": "owner_id",
+					"type": "Object_ref",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"time_created": {
+					"name": "time_created",
+					"type": "Date_time",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				}
+			},
+			"source_schema_id": "graphite_base_change_control_0.6.0",
+			"uid": 2752
+		},
+		"Version": {
+			"name": "Version",
+			"generic_parameter_defs": {
+				"T": {
+					"name": "T"
+				}
+			},
+			"ancestors": ["Any"],
+			"properties": {
+				"contribution": {
+					"name": "contribution",
+					"type": "Object_ref",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"commit_audit": {
+					"name": "commit_audit",
+					"type": "Audit_details",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"signature": {
+					"name": "signature",
+					"type": "String",
+					"is_im_infrastructure": true
+				}
+			},
+			"source_schema_id": "graphite_base_change_control_0.6.0",
+			"is_abstract": true,
+			"uid": 2753
+		},
+		"Original_version": {
+			"name": "Original_version",
+			"generic_parameter_defs": {
+				"T": {
+					"name": "T"
+				}
+			},
+			"ancestors": ["Version"],
+			"properties": {
+				"uid": {
+					"name": "uid",
+					"type": "Object_version_id",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"preceding_version_uid": {
+					"name": "preceding_version_uid",
+					"type": "Object_version_id",
+					"is_im_infrastructure": true
+				},
+				"other_input_version_uids": {
+					"name": "other_input_version_uids",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Object_version_id",
+						"container_type": "List"
+					},
+					"is_im_infrastructure": true
+				},
+				"attestations": {
+					"name": "attestations",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Attestation",
+						"container_type": "List"
+					}
+				},
+				"lifecycle_state": {
+					"name": "lifecycle_state",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"data": {
+					"name": "data",
+					"type": "T"
+				}
+			},
+			"source_schema_id": "graphite_base_change_control_0.6.0",
+			"uid": 2754
+		},
+		"Imported_version": {
+			"name": "Imported_version",
+			"generic_parameter_defs": {
+				"T": {
+					"name": "T"
+				}
+			},
+			"ancestors": ["Version"],
+			"properties": {
+				"item": {
+					"name": "item",
+					"type_def": {
+						"root_type": "Original_version",
+						"generic_parameters": ["T"]
+					},
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				}
+			},
+			"source_schema_id": "graphite_base_change_control_0.6.0",
+			"uid": 2755
+		}
+	},
+	"passed": true,
+	"missed_class_count": 0
+}
