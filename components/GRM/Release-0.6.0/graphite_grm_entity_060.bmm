@@ -49,13 +49,14 @@ includes = <
 -- packages
 ------------------------------------------------------
 packages = <
-	["io.graphite.grm.entity"] = <
+	["org.graphite.grm.entity"] = <
+		name = <"org.graphite.grm.entity">
 		classes = <"Entity", "Entity_relationship">
 		packages = <
 			["social_entity"] = <
 				name = <"social_entity">
 				classes = <"Social_entity", "Party", "Persona", "Agent", "Person", "Organisation", "Org_unit", "Org_entity", 
-							"Agent", "Aggregate_agent", "Individual_agent", "Team", "Party_relationship", "Capability", "Accountability", 
+							"Agent", "Aggregate_agent", "Individual_agent", "Automaton", "Team", "Party_relationship", "Capability", "Accountability", 
 							"Contact", "Address", "Party_identity">
 			>
 		>
@@ -240,7 +241,7 @@ class_definitions = <
 	>
 
 	["Individual_agent"] = <
-		name = <"Individual_aent">
+		name = <"Individual_agent">
 		ancestors = <"Agent">
 		is_abstract = <True>
 	>
