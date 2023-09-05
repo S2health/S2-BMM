@@ -382,10 +382,13 @@ class_definitions = <
 				type = <"String">
 				is_im_runtime = <True>
 			>
-			["other_details"] = (P_BMM_SINGLE_PROPERTY) <
+			["other_details"] = (P_BMM_GENERIC_PROPERTY) <
 				name = <"other_details">
-				type = <"Cluster">
-			>
+				type_def = <
+					root_type = <"Hash">
+					generic_parameters = <"String", "String">
+				>
+			>			
 		>
 	>
 
