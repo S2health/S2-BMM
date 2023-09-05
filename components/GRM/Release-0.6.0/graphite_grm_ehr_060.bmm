@@ -178,9 +178,12 @@ class_definitions = <
 				type = <"Boolean">
 				is_mandatory = <True>
 			>
-			["other_details"] = (P_BMM_SINGLE_PROPERTY) <
+			["other_details"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"other_details">
-				type = <"Cluster">
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
 			>
 		>
 	>
@@ -265,9 +268,12 @@ class_definitions = <
 				type = <"Terminology_term">
 				is_mandatory = <True>
 			>
-			["other_context"] = (P_BMM_SINGLE_PROPERTY) <
+			["other_context"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"other_context">
-				type = <"Cluster">
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
 			>
 		>
 	>
@@ -286,7 +292,6 @@ class_definitions = <
 					container_type = <"List">
 					type = <"Folder">
 				>
-				cardinality = <|>=1|>
 			>
 			["items"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"items">
@@ -294,11 +299,13 @@ class_definitions = <
 					container_type = <"List">
 					type = <"Object_ref">
 				>
-				cardinality = <|>=0|>
 			>
-			["details"] = (P_BMM_SINGLE_PROPERTY) <
+			["details"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"details">
-				type = <"Cluster">
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
 			>
 		>
 	>
@@ -506,9 +513,12 @@ class_definitions = <
 				type = <"String">
 				is_im_runtime = <True>
 			>
-			["details"] = (P_BMM_SINGLE_PROPERTY) <
+			["details"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"details">
-				type = <"Cluster">
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
 			>
 		>
 	>

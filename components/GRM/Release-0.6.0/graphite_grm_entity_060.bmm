@@ -74,9 +74,12 @@ class_definitions = <
 		ancestors = <"Locatable">
 		is_abstract = <True>
 		properties = <
-			["description"] = (P_BMM_SINGLE_PROPERTY) <
+			["description"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"description">
-				type = <"Cluster">
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
 			>
 		>
 	>
@@ -101,9 +104,12 @@ class_definitions = <
 				type = <"Object_ref">
 				is_mandatory = <True>
 			>
-			["description"] = (P_BMM_SINGLE_PROPERTY) <
+			["description"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"description">
-				type = <"Cluster">
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
 			>
 			["time_validity"] = (P_BMM_GENERIC_PROPERTY) <
 				name = <"time_validity">
@@ -169,9 +175,12 @@ class_definitions = <
 		name = <"Party_identity">
 		ancestors = <"Locatable">
 		properties = <
-			["description"] = (P_BMM_SINGLE_PROPERTY) <
+			["description"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"description">
-				type = <"Cluster">
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
 				is_mandatory = <True>
 			>
 		>
@@ -203,10 +212,13 @@ class_definitions = <
 		name = <"Address">
 		ancestors = <"Locatable">
 		properties = <
-			["description"] = (P_BMM_SINGLE_PROPERTY) <
+			["description"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"description">
-				type = <"Cluster">
-				is_mandatory = <True>
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
+				cardinality = <|>=1|>
 			>
 		>
 	>
@@ -301,10 +313,13 @@ class_definitions = <
 		name = <"Capability">
 		ancestors = <"Locatable">
 		properties = <
-			["credentials"] = (P_BMM_SINGLE_PROPERTY) <
+			["credentials"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"credentials">
-				type = <"Cluster">
-				is_mandatory = <True>
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
+				cardinality = <|>=1|>
 			>
 			["time_validity"] = (P_BMM_GENERIC_PROPERTY) <
 				name = <"time_validity">
@@ -332,10 +347,13 @@ class_definitions = <
 		name = <"Accountability">
 		ancestors = <"Locatable">
 		properties = <
-			["description"] = (P_BMM_SINGLE_PROPERTY) <
+			["description"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"description">
-				type = <"Cluster">
-				is_mandatory = <True>
+				type_def = <
+					container_type = <"List">
+					type = <"Item">
+				>
+				cardinality = <|>=1|>
 			>
 		>
 	>
