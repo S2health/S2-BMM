@@ -39,7 +39,7 @@ packages = <
 		packages = <
 			["definitions"] = <
 				name = <"definitions">
-				classes = <"Validity_kind", "Version_status">
+				classes = <"Validity_kind", "Version_status", "Sample_function_kind">
 			>
 			["identification"] = <
 				name = <"identification">
