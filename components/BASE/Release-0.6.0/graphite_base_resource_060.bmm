@@ -31,6 +31,15 @@ schema_description = <"openEHR Release 0.6.0 BASE model resource package">
 schema_author = <"Thomas Beale <thomas.beale@graphite.org>">
 
 ------------------------------------------------------
+-- includes
+------------------------------------------------------
+includes = <
+	["1"] = <
+		id = <"graphite_base_base_types_0.6.0">
+	>
+>
+
+------------------------------------------------------
 -- packages
 ------------------------------------------------------
 packages = <
