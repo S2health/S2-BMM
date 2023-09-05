@@ -208,6 +208,12 @@ class_definitions = <
 		item_names = <"alpha", "beta", "release_candidate", "released", "build">
 	>
 
+	["Sample_function_kind"] = (P_BMM_ENUMERATION_STRING) <
+		name = <"Sample_function_kind">
+		ancestors = <"String">
+		item_names = <"actual", "minimum", "maximum", "mean", "mode", "median",
+						"variation", "total", "decrease", "increase", "change">
+	>
 
 	--
 	--------------------- base.base_types.archetyped ------------------

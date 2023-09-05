@@ -552,7 +552,7 @@ class_definitions = <
 		properties = <
 			["sample_function"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"sample_function">
-				type = <"Terminology_term">
+				type = <"Sample_function_kind">
 			>
 			["total_duration"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"total_duration">
