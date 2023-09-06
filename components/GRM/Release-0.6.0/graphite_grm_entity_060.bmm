@@ -55,7 +55,7 @@ packages = <
 		packages = <
 			["social_entity"] = <
 				name = <"social_entity">
-				classes = <"Social_entity", "Party", "Persona", "Agent", "Person", "Organisation", "Org_unit", "Org_entity", 
+				classes = <"Social_entity", "Party", "Persona", "Person", "Organisation", "Org_unit", "Org_entity", 
 							"Agent", "Aggregate_agent", "Individual_agent", "Automaton", "Team", "Party_relationship", "Capability", "Accountability", 
 							"Contact", "Address", "Party_identity">
 			>

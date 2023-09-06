@@ -39,7 +39,7 @@ schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"graphite_base_base_types_0.6.0">
+		id = <"graphite_base_foundation_types_0.6.0">
 	>
 >
 
@@ -60,7 +60,7 @@ packages = <
 				name = <"quantity">
 				classes = <
 					"Range", "Reference_range", "Ordered", "Quantified", "Quantity", 
-					"Ratio", "Ratio_kind", "Quantified", "Count", "Coded_ordinal", "Measured",
+					"Ratio", "Ratio_kind", "Count", "Coded_ordinal", "Measured",
 					"Comparison_operator", "Temporal_value", "Date_value", "Date_time_value", "Time_value", "Duration_value"
 				>
 			>
