@@ -348,6 +348,11 @@ class_definitions = <
 				type = <"Encapsulated">
 				is_im_runtime = <True>
 			>
+			["original_code"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"original_code">
+				type = <"Terminology_code">
+				is_im_runtime = <True>
+			>
 			["originating_system_audit"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"originating_system_audit">
 				type = <"Feeder_audit_details">
