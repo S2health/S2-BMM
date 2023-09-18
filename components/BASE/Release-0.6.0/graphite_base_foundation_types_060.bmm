@@ -37,8 +37,8 @@ packages = <
 	["org.graphite.base.foundation_types"] = <
 		name = <"org.graphite.base.foundation_types">
 		packages = <
-			["base_types"] = <
-				name = <"base_types">
+			["primitive_types"] = <
+				name = <"primitive_types">
 				classes = <"Any", "Comparable", "Numeric", "Comparable_numeric", "Octet", "Byte", "Boolean", "Integer", 
 					"Integer64", "Real", "Double", "Character", "String", "Uri", "Terminology_code", "Terminology_term"
 				>
