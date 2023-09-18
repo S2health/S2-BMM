@@ -61,8 +61,8 @@ packages = <
 				name = <"archetyped">
 				classes = <"Pathable", "Locatable", "Link", "Archetyped", "Feeder_audit", "Feeder_audit_details">
 			>
-			["reference"] = <
-				name = <"reference">
+			["participation"] = <
+				name = <"participation">
 				classes = <"Participation", "Party_proxy", "Party_identified", "Party_related", "Party_self">
 			>
 
