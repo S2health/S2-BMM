@@ -712,6 +712,12 @@ class_definitions = <
 		name = <"Action">
 		ancestors = <"Care_act_entry">
 		properties = <
+			["activity_id"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"activity_id">
+				type = <"String">
+				is_im_runtime = <True>
+				is_mandatory = <True>
+			>
 			["duration"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"duration">
 				type = <"Duration">
