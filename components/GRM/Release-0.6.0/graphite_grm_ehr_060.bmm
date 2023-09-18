@@ -197,6 +197,12 @@ class_definitions = <
 		name = <"Composition">
 		ancestors = <"Locatable">
 		properties = <
+			["uid"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"uid">
+				type = <"Uuid">
+				is_mandatory = <True>
+				is_im_infrastructure = <True>
+			>
 			["language"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"language">
 				type = <"Terminology_code">
@@ -392,6 +398,12 @@ class_definitions = <
 		is_abstract = <True>
 		ancestors = <"Content_item">
 		properties = <
+			["uid"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"uid">
+				type = <"Uuid">
+				is_mandatory = <True>
+				is_im_infrastructure = <True>
+			>
 			["time"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"time">
 				type = <"Date_time">
