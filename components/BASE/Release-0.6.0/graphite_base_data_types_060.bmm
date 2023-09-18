@@ -60,8 +60,9 @@ packages = <
 				name = <"quantity">
 				classes = <
 					"Range", "Reference_range", "Ordered", "Quantified", "Quantity", 
-					"Ratio", "Ratio_kind", "Count", "Coded_ordinal", "Measured",
-					"Comparison_operator", "Temporal_value", "Date_value", "Date_time_value", "Time_value", "Duration_value"
+					"Proportion", "Ratio", "Ratio_kind", "Count", "Coded_ordinal", "Measured", "Comparison_operator",
+					"Money",
+					"Temporal_value", "Date_value", "Date_time_value", "Time_value", "Duration_value"
 				>
 			>
 			["timing"] = <
@@ -327,6 +328,23 @@ class_definitions = <
 		>
 	>
 
+	["Money"] = <
+		name = <"Money">
+		ancestors = <"Ordered">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"Real">
+				is_mandatory = <True>
+			>
+			["currency"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"currency">
+				type = <"Terminology_code">
+				is_mandatory = <True>
+			>
+		>
+	>
+
 	["Measured"] = <
 		name = <"Measured">
 		ancestors = <"Any">
@@ -397,6 +415,13 @@ class_definitions = <
 				type = <"Terminology_term">
 				is_mandatory = <True>
 			>
+			["measured"] = (P_BMM_GENERIC_PROPERTY) <
+				name = <"measured">
+				type_def = <
+					root_type = <"Measured">
+					generic_parameters = <"Quantity">
+				>
+			>
 		>
 	>
 
@@ -409,11 +434,18 @@ class_definitions = <
 				type = <"Integer64">
 				is_mandatory = <True>
 			>
+			["measured"] = (P_BMM_GENERIC_PROPERTY) <
+				name = <"measured">
+				type_def = <
+					root_type = <"Measured">
+					generic_parameters = <"Count">
+				>
+			>
 		>
 	>
 
-	["Ratio"] = <
-		name = <"Ratio">
+	["Proportion"] = <
+		name = <"Proportion">
 		ancestors = <"Quantified">
 		properties = <
 			["value"] = (P_BMM_SINGLE_PROPERTY) <
@@ -431,10 +463,46 @@ class_definitions = <
 				type = <"Quantity">
 				is_mandatory = <True>
 			>
+			["measured"] = (P_BMM_GENERIC_PROPERTY) <
+				name = <"measured">
+				type_def = <
+					root_type = <"Measured">
+					generic_parameters = <"Proportion">
+				>
+			>
+		>
+	>
+
+	["Ratio"] = <
+		name = <"Ratio">
+		ancestors = <"Quantified">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"Real">
+				is_mandatory = <True>
+			>
+			["numerator"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"numerator">
+				type = <"Real">
+				is_mandatory = <True>
+			>
+			["denominator"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"denominator">
+				type = <"Real">
+				is_mandatory = <True>
+			>
 			["type"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"type">
 				type = <"Ratio_kind">
 				is_mandatory = <True>
+			>
+			["measured"] = (P_BMM_GENERIC_PROPERTY) <
+				name = <"measured">
+				type_def = <
+					root_type = <"Measured">
+					generic_parameters = <"Ratio">
+				>
 			>
 		>
 	>
