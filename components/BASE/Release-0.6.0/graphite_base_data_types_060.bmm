@@ -263,6 +263,11 @@ class_definitions = <
 			>
 		>
 		properties = <
+			["type"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"type">
+				type = <"Terminology_term">
+				is_mandatory = <True>
+			>
 			["range"] = (P_BMM_GENERIC_PROPERTY) <
 				name = <"range">
 				type_def = <
@@ -271,10 +276,9 @@ class_definitions = <
 				>
 				is_mandatory = <True>
 			>
-			["meaning"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"meaning">
-				type = <"Terminology_term">
-				is_mandatory = <True>
+			["phenotype"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"phenotype">
+				type = <"Text">
 			>
 		>
 	>
@@ -374,15 +378,8 @@ class_definitions = <
 				name = <"value_status">
 				type = <"Comparison_operator">
 			>
-			["normal_range"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"normal_range">
-				type_def = <
-					root_type = <"Range">
-					generic_parameters = <"V">
-				>
-			>
-			["other_reference_ranges"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"other_reference_ranges">
+			["reference_ranges"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"reference_ranges">
 				type_def = <
 					container_type = <"List">
 					type_def = (P_BMM_GENERIC_TYPE) <
@@ -390,7 +387,14 @@ class_definitions = <
 						generic_parameters = <"V">
 					>
 				>
-				cardinality = <|>=1|>
+			>
+			["interpretation"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"interpretation">
+				type = <"Terminology_term">
+			>
+			["interpretation_guide"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"interpretation_guide">
+				type = <"Text">
 			>
 		>
 	>
