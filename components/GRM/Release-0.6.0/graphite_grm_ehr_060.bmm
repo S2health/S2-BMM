@@ -563,9 +563,9 @@ class_definitions = <
 		name = <"Direct_observation">
 		ancestors = <"Observation">
 		properties = <
-			["sample_function"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"sample_function">
-				type = <"Sample_function_kind">
+			["trend"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"trend">
+				type = <"Trend_kind">
 			>
 			["total_duration"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"total_duration">

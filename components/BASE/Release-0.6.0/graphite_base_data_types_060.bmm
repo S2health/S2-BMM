@@ -776,6 +776,10 @@ class_definitions = <
 				-- value_constraint = <"ISO::639-2">
 				is_im_runtime = <True>
 			>
+			["uri"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"uri">
+				type = <"Uri">
+			>
 		>
 	>
 
@@ -786,10 +790,6 @@ class_definitions = <
 			["alternate_text"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"alternate_text">
 				type = <"String">
-			>
-			["uri"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"uri">
-				type = <"Uri">
 			>
 			["data"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"data">
@@ -828,7 +828,10 @@ class_definitions = <
 			["value"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"value">
 				type = <"String">
-				is_mandatory = <True>
+			>
+			["schema"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"schema">
+				type = <"String">
 			>
 			["formalism"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"formalism">
