@@ -48,7 +48,7 @@ packages = <
 		packages = <
 			["definitions"] = <
 				name = <"definitions">
-				classes = <"Validity_kind", "Version_status", "Sample_function_kind">
+				classes = <"Validity_kind", "Version_status", "Sample_function_kind", "Trend_kind">
 			>
 			["identification"] = <
 				name = <"identification">
@@ -220,8 +220,13 @@ class_definitions = <
 	["Sample_function_kind"] = (P_BMM_ENUMERATION_STRING) <
 		name = <"Sample_function_kind">
 		ancestors = <"String">
-		item_names = <"actual", "minimum", "maximum", "mean", "mode", "median",
-						"variation", "total", "decrease", "increase", "change">
+		item_names = <"actual", "minimum", "maximum", "mean", "mode", "median">
+	>
+
+	["Trend_kind"] = (P_BMM_ENUMERATION_STRING) <
+		name = <"Trend_kind">
+		ancestors = <"String">
+		item_names = <"decrease", "increase", "change">
 	>
 
 	--
