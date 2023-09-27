@@ -293,6 +293,10 @@ class_definitions = <
 				type = <"Comparable">
 				is_mandatory = <True>
 			>
+			["precision"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"precision">
+				type = <"Integer">
+			>
 		>
 	>
 
@@ -367,11 +371,6 @@ class_definitions = <
 			["accuracy_is_percent"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"accuracy_is_percent">
 				type = <"Boolean">
-				is_im_runtime = <True>
-			>
-			["precision"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"precision">
-				type = <"Integer">
 				is_im_runtime = <True>
 			>
 			["value_status"] = (P_BMM_SINGLE_PROPERTY) <
@@ -514,7 +513,7 @@ class_definitions = <
 	["Ratio_kind"] = (P_BMM_ENUMERATION_INTEGER) <
 		name = <"Ratio_kind">
 		ancestors = <"Integer">
-		item_names = <"rational_fraction", "ratio">
+		item_names = <"rational_fraction", "fraction", "ratio">
 	>
 
 	--
