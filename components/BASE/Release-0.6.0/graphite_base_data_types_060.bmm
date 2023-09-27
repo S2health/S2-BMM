@@ -59,7 +59,7 @@ packages = <
 			["quantity"] = <
 				name = <"quantity">
 				classes = <
-					"Range", "Reference_range", "Ordered", "Quantified", "Quantity", 
+					"Range", "Reference_range", "Ordered_value", "Quantified", "Quantity", 
 					"Proportion", "Ratio", "Ratio_kind", "Count", "Coded_ordinal", "Measured", "Comparison_operator",
 					"Money",
 					"Temporal_value", "Date_value", "Date_time_value", "Time_value", "Duration_value"
@@ -238,7 +238,7 @@ class_definitions = <
 		generic_parameter_defs = <
 			["V"] = <
 				name = <"V">
-				conforms_to_type = <"Ordered">
+				conforms_to_type = <"Ordered_value">
 			>
 		>
 		properties = <
@@ -283,8 +283,8 @@ class_definitions = <
 		>
 	>
 
-	["Ordered"] = <
-		name = <"Ordered">
+	["Ordered_value"] = <
+		name = <"Ordered_value">
 		is_abstract = <True>
 		ancestors = <"Data_value">
 		properties = <
@@ -303,7 +303,7 @@ class_definitions = <
 	["Quantified"] = <
 		name = <"Quantified">
 		is_abstract = <True>
-		ancestors = <"Ordered">
+		ancestors = <"Ordered_value">
 		properties = <
 			["value"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"value">
@@ -321,7 +321,7 @@ class_definitions = <
 
 	["Coded_ordinal"] = <
 		name = <"Coded_ordinal">
-		ancestors = <"Ordered">
+		ancestors = <"Ordered_value">
 		properties = <
 			["value"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"value">
@@ -338,7 +338,7 @@ class_definitions = <
 
 	["Money"] = <
 		name = <"Money">
-		ancestors = <"Ordered">
+		ancestors = <"Ordered_value">
 		properties = <
 			["value"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"value">
@@ -523,7 +523,7 @@ class_definitions = <
 	["Temporal_value"] = <
 		name = <"Temporal_value">
 		is_abstract = <True>
-		ancestors = <"Ordered">
+		ancestors = <"Ordered_value">
 		generic_parameter_defs = <
 			["T"] = <
 				name = <"T">
