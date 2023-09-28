@@ -19,17 +19,18 @@ bmm_version = <"2.3">
 -- schema identification
 -- (schema_id computed as <rm_publisher>_<schema_name>_<rm_release>)
 ------------------------------------------------------
-rm_publisher = <"graphite">
+rm_publisher = <"s2">
+schema_name = <"rm_ehr">
 rm_release = <"0.6.0">
+
 model_name = <"EHR">
 
 ------------------------------------------------------
 -- schema documentation
 ------------------------------------------------------
-schema_name = <"grm_ehr">
 schema_revision = <"0.6.0.1">
 schema_lifecycle_state = <"stable">
-schema_description = <"openEHR Release 0.6.0 EHR schema">
+schema_description = <"S2 Release 0.6.0 EHR schema">
 schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 
 ------------------------------------------------------
@@ -37,7 +38,7 @@ schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"graphite_grm_structures_0.6.0">
+		id = <"s2_rm_structures_0.6.0">
 	>
 >
 
@@ -46,8 +47,8 @@ includes = <
 ------------------------------------------------------
 
 packages = <
-	["org.graphite.grm"] = <
-		name = <"org.graphite.grm">
+	["org.s2.rm"] = <
+		name = <"org.s2.rm">
 		packages = <
 			["ehr"] = <
 				name = <"ehr">
@@ -81,7 +82,7 @@ packages = <
 class_definitions = <
 
 	--
-	--------------------- grm.ehr ------------------
+	--------------------- rm.ehr ------------------
 	--
 	["Ehr"] = <
 		name = <"Ehr">
@@ -190,7 +191,7 @@ class_definitions = <
 	>
 
 	--
-	--------------------- grm.composition ------------------
+	--------------------- rm.composition ------------------
 	--
 
 	["Composition"] = <
@@ -286,7 +287,7 @@ class_definitions = <
 	>
 
 	------------------------------------------------------------
-	---------------------- grm.ehr.directory -------------------
+	---------------------- rm.ehr.directory -------------------
 	------------------------------------------------------------
 
 	["Folder"] = <
@@ -361,7 +362,7 @@ class_definitions = <
 
 
 	--
-	--------------------- grm.composition.content ------------------
+	--------------------- rm.composition.content ------------------
 	--
 
 	["Content_item"] = <
@@ -371,7 +372,7 @@ class_definitions = <
 	>
 
 	--
-	--------------- grm.composition.content.navigation -------------
+	--------------- rm.composition.content.navigation -------------
 	--
 
 	["Section"] = <
@@ -390,7 +391,7 @@ class_definitions = <
 	>
 
 	--
-	--------------- grm.composition.content.entry -------------
+	--------------- rm.composition.content.entry -------------
 	--
 
 	["Entry"] = <

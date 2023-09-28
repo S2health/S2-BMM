@@ -12,9 +12,6 @@
 
 ------------------------------------------------------
 -- BMM version on which these schemas are based.
--- Current BMM version can be found as the top version in the specification:
---     https://www.graphitehealth.io/releases/LANG/latest/bmm_persistence.html#_amendment_record
---
 ------------------------------------------------------
 bmm_version = <"2.3">
 
@@ -22,8 +19,8 @@ bmm_version = <"2.3">
 -- schema identification
 -- (schema_id computed as <rm_publisher>_<schema_name>_<rm_release>)
 ------------------------------------------------------
-schema_name = <"grm_structures">
-rm_publisher = <"graphite">
+schema_name = <"rm_structures">
+rm_publisher = <"s2">
 rm_release = <"0.6.0">
 
 ------------------------------------------------------
@@ -31,7 +28,7 @@ rm_release = <"0.6.0">
 ------------------------------------------------------
 schema_revision = <"0.6.0.1">
 schema_lifecycle_state = <"stable">
-schema_description = <"openEHR Release 0.6.0 structures schema">
+schema_description = <"S2 Release 0.6.0 structures schema">
 schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 
 ------------------------------------------------------
@@ -39,7 +36,7 @@ schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"graphite_base_0.6.0">
+		id = <"s2_base_0.6.0">
 	>
 >
 
@@ -48,8 +45,8 @@ includes = <
 ------------------------------------------------------
 
 packages = <
-	["org.graphite.grm.data_structures"] = <
-		name = <"org.graphite.grm.data_structures">
+	["org.s2.rm.data_structures"] = <
+		name = <"org.s2.rm.data_structures">
 		classes = <"Item", "Cluster", "Element", "Event", "Point_event", "Interval_event">
 	>
 >
@@ -62,7 +59,7 @@ packages = <
 class_definitions = <
 
 	------------------------------------------------------------
-	---------------------- grm.data_structures ------------------
+	---------------------- rm.data_structures ------------------
 	------------------------------------------------------------
 
 	["Item"] = <

@@ -18,7 +18,7 @@ bmm_version = <"2.3">
 -- schema identification
 -- (schema_id computed as <rm_publisher>_<schema_name>_<rm_release>)
 ------------------------------------------------------
-rm_publisher = <"graphite">
+rm_publisher = <"s2">
 schema_name = <"base_base_types">
 rm_release = <"0.6.0">
 
@@ -27,7 +27,7 @@ rm_release = <"0.6.0">
 ------------------------------------------------------
 schema_revision = <"0.6.0.1">
 schema_lifecycle_state = <"stable">
-schema_description = <"openEHR Release 0.6.0 BASE model base types packages"> 
+schema_description = <"S2 Release 0.6.0 BASE model base types packages">
 schema_author = <"Thomas Beale <thomas.beale@graphite.org>">
 
 ------------------------------------------------------
@@ -35,7 +35,7 @@ schema_author = <"Thomas Beale <thomas.beale@graphite.org>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"graphite_base_data_types_0.6.0">
+		id = <"s2_base_data_types_0.6.0">
 	>
 >
 
@@ -43,8 +43,8 @@ includes = <
 -- packages
 ------------------------------------------------------
 packages = <
-	["org.graphite.base.base_types"] = <
-		name = <"org.graphite.base.base_types">
+	["org.s2.base.base_types"] = <
+		name = <"org.s2.base.base_types">
 		packages = <
 			["definitions"] = <
 				name = <"definitions">

@@ -12,9 +12,6 @@
 
 ------------------------------------------------------
 -- BMM version on which these schemas are based.
--- Current BMM version can be found as the top version in the specification:
---     https://www.graphite.org/releases/LANG/latest/bmm_persistence.html#_amendment_record
---
 ------------------------------------------------------
 bmm_version = <"2.3">
 
@@ -22,7 +19,7 @@ bmm_version = <"2.3">
 -- schema identification
 -- (schema_id computed as <rm_publisher>_<schema_name>_<rm_release>)
 ------------------------------------------------------
-rm_publisher = <"graphite">
+rm_publisher = <"s2">
 schema_name = <"base_data_types">
 rm_release = <"0.6.0">
 
@@ -31,7 +28,7 @@ rm_release = <"0.6.0">
 ------------------------------------------------------
 schema_revision = <"0.6.0.1">
 schema_lifecycle_state = <"stable">
-schema_description = <"Graphite Release 0.6.0 canonical model Data types">
+schema_description = <"S2 Release 0.6.0 canonical model Data types">
 schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 
 ------------------------------------------------------
@@ -39,7 +36,7 @@ schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"graphite_base_foundation_types_0.6.0">
+		id = <"s2_base_foundation_types_0.6.0">
 	>
 >
 
@@ -48,8 +45,8 @@ includes = <
 ------------------------------------------------------
 
 packages = <
-	["org.graphite.base.data_types"] = <
-		name = <"org.graphite.base.data_types">
+	["org.s2.base.data_types"] = <
+		name = <"org.s2.base.data_types">
 		classes = <"Data_value", "Boolean_value", "Rwe_id_ref">
 		packages = <
 			["text"] = <

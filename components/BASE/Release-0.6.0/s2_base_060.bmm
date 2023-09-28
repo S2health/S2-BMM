@@ -18,7 +18,7 @@ bmm_version = <"2.3">
 -- schema identification
 -- (schema_id computed as <rm_publisher>_<schema_name>_<rm_release>)
 ------------------------------------------------------
-rm_publisher = <"graphite">
+rm_publisher = <"s2">
 schema_name = <"base">
 rm_release = <"0.6.0">
 
@@ -27,7 +27,7 @@ rm_release = <"0.6.0">
 ------------------------------------------------------
 schema_revision = <"0.6.0.1">
 schema_lifecycle_state = <"trial">
-schema_description = <"Graphite Release 0.6.0 BASE model foundation and base types packages"> 
+schema_description = <"S2 Release 0.6.0 BASE model foundation and base types packages"> 
 schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 
 ------------------------------------------------------
@@ -35,18 +35,18 @@ schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"graphite_base_foundation_types_0.6.0">
+		id = <"s2_base_foundation_types_0.6.0">
 	>
 	["2"] = <
-		id = <"graphite_base_base_types_0.6.0">
+		id = <"s2_base_base_types_0.6.0">
 	>
 	["3"] = <
-		id = <"graphite_base_data_types_0.6.0">
+		id = <"s2_base_data_types_0.6.0">
 	>
 	["4"] = <
-		id = <"graphite_base_resource_0.6.0">
+		id = <"s2_base_resource_0.6.0">
 	>
 	["5"] = <
-		id = <"graphite_base_change_control_0.6.0">
+		id = <"s2_base_change_control_0.6.0">
 	>
 >
