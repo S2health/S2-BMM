@@ -47,8 +47,8 @@ includes = <
 -- packages
 ------------------------------------------------------
 packages = <
-	["org.s2.rm.entity"] = <
-		name = <"org.s2.rm.entity">
+	["org.s2.entity"] = <
+		name = <"org.s2.entity">
 		classes = <"Entity", "Entity_relationship">
 		packages = <
 			["social_entity"] = <
