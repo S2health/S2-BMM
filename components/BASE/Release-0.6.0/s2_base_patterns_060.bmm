@@ -19,7 +19,7 @@ bmm_version = <"2.3">
 -- schema identification
 -- (schema_id computed as <rm_publisher>_<schema_name>_<rm_release>)
 ------------------------------------------------------
-schema_name = <"rm_structures">
+schema_name = <"base_patterns">
 rm_publisher = <"s2">
 rm_release = <"0.6.0">
 
@@ -36,7 +36,7 @@ schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"s2_base_0.6.0">
+		id = <"s2_base_base_types_0.6.0">
 	>
 >
 
@@ -45,9 +45,18 @@ includes = <
 ------------------------------------------------------
 
 packages = <
-	["org.s2.rm.data_structures"] = <
-		name = <"org.s2.rm.data_structures">
-		classes = <"Item", "Cluster", "Element", "Event", "Point_event", "Interval_event">
+	["org.s2.base.patterns"] = <
+		name = <"org.s2.base.patterns">
+        packages = <
+            ["data_structures"] = <
+                name = <"data_structures">
+		        classes = <"Item", "Cluster", "Element", "Event", "Point_event", "Interval_event">
+		    >
+			["participation"] = <
+				name = <"participation">
+				classes = <"Participation", "Party_proxy", "Party_identified", "Party_related", "Party_self">
+			>
+		>
 	>
 >
 
@@ -58,9 +67,9 @@ packages = <
 
 class_definitions = <
 
-	------------------------------------------------------------
-	---------------------- rm.data_structures ------------------
-	------------------------------------------------------------
+	--
+	--------------------- base.patterns.data_structures ------------------
+	--
 
 	["Item"] = <
 		name = <"Item">
@@ -149,6 +158,91 @@ class_definitions = <
 				type = <"Sample_function_kind">
 			>
 		>
+	>
+
+	--
+	--------------------- base.patterns.participation ------------------
+	--
+
+	["Participation"] = <
+		name = <"Participation">
+		ancestors = <"Any">
+		properties = <
+			["function"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"function">
+				type = <"String">
+				-- value_constraint = <"openEHR::participation_function">
+				is_mandatory = <True>
+			>
+			["time"] = (P_BMM_GENERIC_PROPERTY) <
+				name = <"time">
+				type_def = <
+					root_type = <"Interval">
+					generic_parameters = <"Date_time">
+				>
+				is_im_runtime = <True>
+			>
+			["mode"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"mode">
+				type = <"Terminology_term">
+				-- value_constraint = <"openEHR::participation_mode">
+			>
+			["performer"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"performer">
+				type = <"Party_proxy">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Party_proxy"] = <
+		name = <"Party_proxy">
+		is_abstract = <True>
+		ancestors = <"Any">
+		properties = <
+			["external_ref"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"external_ref">
+				type = <"Object_ref">
+				is_im_infrastructure = <True>
+			>
+		>
+	>
+
+	["Party_identified"] = <
+		name = <"Party_identified">
+		ancestors = <"Party_proxy">
+		properties = <
+			["name"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"name">
+				type = <"String">
+			>
+			["identifiers"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"identifiers">
+				type_def = <
+					container_type = <"List">
+					type = <"Rwe_id_ref">
+				>
+				is_im_runtime = <True>
+			>
+		>
+	>
+
+	["Party_related"] = <
+		name = <"Party_related">
+		ancestors = <"Party_identified">
+		properties = <
+			["relationship"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"relationship">
+				type = <"Terminology_term">
+				-- value_constraint = <"openEHR::subject_relationship">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Party_self"] = <
+		name = <"Party_self">
+		ancestors = <"Party_proxy">
 	>
 
 >

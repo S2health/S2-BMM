@@ -61,10 +61,6 @@ packages = <
 				name = <"archetyped">
 				classes = <"Pathable", "Locatable", "Link", "Archetyped", "Feeder_audit", "Feeder_audit_details">
 			>
-			["participation"] = <
-				name = <"participation">
-				classes = <"Participation", "Party_proxy", "Party_identified", "Party_related", "Party_self">
-			>
 
 		>
 	>
@@ -421,91 +417,5 @@ class_definitions = <
 			>			
 		>
 	>
-
-	--
-	--------------------- base.base_types.reference ------------------
-	--
-
-	["Participation"] = <
-		name = <"Participation">
-		ancestors = <"Any">
-		properties = <
-			["function"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"function">
-				type = <"String">
-				-- value_constraint = <"openEHR::participation_function">
-				is_mandatory = <True>
-			>
-			["time"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"time">
-				type_def = <
-					root_type = <"Interval">
-					generic_parameters = <"Date_time">
-				>
-				is_im_runtime = <True>
-			>
-			["mode"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"mode">
-				type = <"Terminology_term">
-				-- value_constraint = <"openEHR::participation_mode">
-			>
-			["performer"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"performer">
-				type = <"Party_proxy">
-				is_mandatory = <True>
-			>
-		>
-	>
-
-	["Party_proxy"] = <
-		name = <"Party_proxy">
-		is_abstract = <True>
-		ancestors = <"Any">
-		properties = <
-			["external_ref"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"external_ref">
-				type = <"Object_ref">
-				is_im_infrastructure = <True>
-			>
-		>
-	>
-
-	["Party_identified"] = <
-		name = <"Party_identified">
-		ancestors = <"Party_proxy">
-		properties = <
-			["name"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"name">
-				type = <"String">
-			>
-			["identifiers"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"identifiers">
-				type_def = <
-					container_type = <"List">
-					type = <"Rwe_id_ref">
-				>
-				is_im_runtime = <True>
-			>
-		>
-	>
-
-	["Party_related"] = <
-		name = <"Party_related">
-		ancestors = <"Party_identified">
-		properties = <
-			["relationship"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"relationship">
-				type = <"Terminology_term">
-				-- value_constraint = <"openEHR::subject_relationship">
-				is_mandatory = <True>
-			>
-		>
-	>
-
-	["Party_self"] = <
-		name = <"Party_self">
-		ancestors = <"Party_proxy">
-	>
-
 
 >

@@ -20,7 +20,7 @@ bmm_version = <"2.3">
 -- (schema_id computed as <rm_publisher>_<schema_name>_<rm_release>)
 ------------------------------------------------------
 rm_publisher = <"s2">
-schema_name = <"s2rm">
+schema_name = <"rm">
 rm_release = <"0.6.0">
 
 ------------------------------------------------------
@@ -36,7 +36,10 @@ schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"s2_rm_ehr_0.6.0">
+		id = <"s2_entity_0.6.0">
+	>
+	["2"] = <
+		id = <"s2_care_0.6.0">
 	>
 >
 
