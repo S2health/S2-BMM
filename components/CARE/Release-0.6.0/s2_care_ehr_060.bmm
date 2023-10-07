@@ -41,7 +41,7 @@ includes = <
 		id = <"s2_care_entry_0.6.0">
 	>
 	["2"] = <
-		id = <"s2_base_patterns_0.6.0">
+		id = <"s2_base_0.6.0">
 	>
 >
 
