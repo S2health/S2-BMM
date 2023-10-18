@@ -30,7 +30,7 @@ model_name = <"ENTITY">
 -- schema documentation
 ------------------------------------------------------
 schema_revision = <"0.6.0.1">
-schema_lifecycle_state = <"stable">
+schema_lifecycle_state = <"development">
 schema_description = <"S2 Release 0.6.0 Entity model schema"> 
 schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 

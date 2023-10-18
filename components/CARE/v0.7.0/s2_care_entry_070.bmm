@@ -21,14 +21,14 @@ bmm_version = <"2.3">
 ------------------------------------------------------
 rm_publisher = <"s2">
 schema_name = <"care_entry">
-rm_release = <"0.6.0">
+rm_release = <"0.7.0">
 
 ------------------------------------------------------
 -- schema documentation
 ------------------------------------------------------
-schema_revision = <"0.6.0.1">
+schema_revision = <"0.7.0.1">
 schema_lifecycle_state = <"stable">
-schema_description = <"S2 Release 0.6.0 EHR schema">
+schema_description = <"S2 Release 0.7.0 Entry schema">
 schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 
 ------------------------------------------------------
@@ -36,7 +36,7 @@ schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"s2_base_patterns_0.6.0">
+		id = <"s2_base_patterns_0.7.0">
 	>
 >
 
