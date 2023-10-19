@@ -50,7 +50,7 @@ packages = <
         packages = <
             ["data_structures"] = <
                 name = <"data_structures">
-		        classes = <"Item", "Cluster", "Element", "Event", "Point_event", "Interval_event">
+		        classes = <"Item", "Cluster", "Element", "Node", "Event", "Point_event", "Interval_event">
 		    >
 			["participation"] = <
 				name = <"participation">
@@ -108,6 +108,33 @@ class_definitions = <
 			["null_reason"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"null_reason">
 				type = <"Text">
+			>
+		>
+	>
+
+	["Node"] = <
+		name = <"Node">
+		ancestors = <"Item">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
+				type = <"Data_value">
+			>
+			["null_flavour"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"null_flavour">
+				type = <"Terminology_term">
+			>
+			["null_reason"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"null_reason">
+				type = <"Text">
+			>
+			["items"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"items">
+				type_def = <
+					container_type = <"List">
+					type = <"Node">
+				>
+				is_mandatory = <True>
 			>
 		>
 	>
