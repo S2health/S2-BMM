@@ -35,7 +35,7 @@ schema_author = <"Thomas Beale <thomas.beale@graphite.org>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"s2_base_base_types_0.7.0">
+		id = <"s2_base_model_support_0.7.0">
 	>
 >
 
