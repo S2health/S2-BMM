@@ -1,0 +1,2511 @@
+{
+	"rm_publisher": "s2",
+	"rm_release": "0.7.0",
+	"packages": {
+		"ORG.S2.ENTITY": {
+			"packages": {
+				"SOCIAL_ENTITY": {
+					"name": "social_entity",
+					"classes": ["Social_entity", "Party", "Persona", "Person", "Organisation", "Org_unit", "Org_entity", "Agent", "Aggregate_agent", "Individual_agent", "Automaton", "Team", "Party_relationship", "Capability", "Accountability", "Contact", "Address", "Party_identity"]
+				}
+			},
+			"name": "org.s2.entity",
+			"classes": ["Entity", "Entity_relationship"]
+		}
+	},
+	"schema_name": "entity",
+	"schema_revision": "0.7.0.1",
+	"schema_lifecycle_state": "development",
+	"schema_author": "Thomas Beale <thomas.beale@graphitehealth.io>",
+	"schema_description": "S2 Release 0.7.0 Entity model schema",
+	"bmm_version": "2.3",
+	"model_name": "ENTITY",
+	"includes": [
+		{
+			"id": "s2_base_0.7.0"
+		}
+	],
+	"primitive_types": {
+		"Any": {
+			"name": "Any",
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"is_abstract": true,
+			"uid": 3260
+		},
+		"Comparable": {
+			"documentation": "Ancestor of types with total order relation defined, i.e. '<' and '='.",
+			"name": "Comparable",
+			"ancestors": ["Any"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"is_abstract": true,
+			"uid": 3261
+		},
+		"Numeric": {
+			"documentation": "Ancestor of numeric types.",
+			"name": "Numeric",
+			"ancestors": ["Any"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"is_abstract": true,
+			"uid": 3262
+		},
+		"Comparable_numeric": {
+			"documentation": "Ancestor of ordered numeric types.",
+			"name": "Comparable_numeric",
+			"ancestors": ["Numeric", "Comparable"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"is_abstract": true,
+			"uid": 3263
+		},
+		"Byte": {
+			"name": "Byte",
+			"ancestors": ["Comparable"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3264
+		},
+		"Octet": {
+			"name": "Octet",
+			"ancestors": ["Comparable"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3265
+		},
+		"Boolean": {
+			"name": "Boolean",
+			"ancestors": ["Any"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3266
+		},
+		"Integer": {
+			"name": "Integer",
+			"ancestors": ["Comparable_numeric"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3267
+		},
+		"Integer64": {
+			"name": "Integer64",
+			"ancestors": ["Comparable_numeric"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3268
+		},
+		"Real": {
+			"name": "Real",
+			"ancestors": ["Comparable_numeric"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3269
+		},
+		"Double": {
+			"name": "Double",
+			"ancestors": ["Comparable_numeric"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3270
+		},
+		"Character": {
+			"name": "Character",
+			"ancestors": ["Comparable"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3271
+		},
+		"String": {
+			"name": "String",
+			"ancestors": ["Comparable"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3272
+		},
+		"Uri": {
+			"name": "Uri",
+			"ancestors": ["String"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3273
+		},
+		"Temporal": {
+			"documentation": "Parent of ISO8601 types.",
+			"name": "Temporal",
+			"ancestors": ["Comparable"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"is_abstract": true,
+			"uid": 3274
+		},
+		"Date": {
+			"documentation": "Date type based on IS8601 representation.",
+			"name": "Date",
+			"ancestors": ["Temporal"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3275
+		},
+		"Time": {
+			"documentation": "Time type based on IS8601 representation.",
+			"name": "Time",
+			"ancestors": ["Temporal"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3276
+		},
+		"Date_time": {
+			"documentation": "Date Time type based on IS8601 representation.",
+			"name": "Date_time",
+			"ancestors": ["Temporal"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3277
+		},
+		"Duration": {
+			"documentation": "Duration type based on IS8601 representation.",
+			"name": "Duration",
+			"ancestors": ["Temporal"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3278
+		},
+		"Terminology_code": {
+			"name": "Terminology_code",
+			"ancestors": ["Any"],
+			"properties": {
+				"terminology_id": {
+					"name": "terminology_id",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"terminology_version": {
+					"name": "terminology_version",
+					"type": "String"
+				},
+				"code_string": {
+					"name": "code_string",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"uri": {
+					"name": "uri",
+					"type": "Uri"
+				}
+			},
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3279
+		},
+		"Container": {
+			"name": "Container",
+			"generic_parameter_defs": {
+				"V": {
+					"name": "V"
+				}
+			},
+			"ancestors": ["Any"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"is_abstract": true,
+			"uid": 3280
+		},
+		"List": {
+			"name": "List",
+			"generic_parameter_defs": {
+				"V": {
+					"name": "V"
+				}
+			},
+			"ancestors": ["Container"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3281
+		},
+		"Array": {
+			"name": "Array",
+			"generic_parameter_defs": {
+				"V": {
+					"name": "V"
+				}
+			},
+			"ancestors": ["Container"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3282
+		},
+		"Set": {
+			"name": "Set",
+			"generic_parameter_defs": {
+				"V": {
+					"name": "V"
+				}
+			},
+			"ancestors": ["Container"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3283
+		},
+		"Interval": {
+			"documentation": "Type defining an interval of any ordered type.",
+			"name": "Interval",
+			"generic_parameter_defs": {
+				"T": {
+					"name": "T",
+					"conforms_to_type": "Comparable"
+				}
+			},
+			"ancestors": ["Any"],
+			"properties": {
+				"lower": {
+					"name": "lower",
+					"type": "T"
+				},
+				"upper": {
+					"name": "upper",
+					"type": "T"
+				},
+				"lower_unbounded": {
+					"name": "lower_unbounded",
+					"type": "Boolean",
+					"is_mandatory": true
+				},
+				"upper_unbounded": {
+					"name": "upper_unbounded",
+					"type": "Boolean",
+					"is_mandatory": true
+				},
+				"lower_included": {
+					"name": "lower_included",
+					"type": "Boolean",
+					"is_mandatory": true
+				},
+				"upper_included": {
+					"name": "upper_included",
+					"type": "Boolean",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3284
+		},
+		"Cardinality": {
+			"name": "Cardinality",
+			"ancestors": ["Any"],
+			"properties": {
+				"is_ordered": {
+					"name": "is_ordered",
+					"type": "Boolean",
+					"is_mandatory": true
+				},
+				"is_unique": {
+					"name": "is_unique",
+					"type": "Boolean",
+					"is_mandatory": true
+				},
+				"interval": {
+					"name": "interval",
+					"type": "Multiplicity_interval",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3285
+		},
+		"Multiplicity_interval": {
+			"name": "Multiplicity_interval",
+			"ancestor_defs": [
+				{
+					"root_type": "Interval",
+					"generic_parameters": ["Integer"]
+				}
+			],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3286
+		},
+		"Hash": {
+			"documentation": "Type defining Hash table / hash map structure, whose type parameters V and K represent a value type and an Comparable key type respectively.",
+			"name": "Hash",
+			"generic_parameter_defs": {
+				"K": {
+					"name": "K",
+					"conforms_to_type": "Comparable"
+				},
+				"V": {
+					"name": "V"
+				}
+			},
+			"ancestors": ["Container"],
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3287
+		}
+	},
+	"class_definitions": {
+		"Entity": {
+			"name": "Entity",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"description": {
+					"name": "description",
+					"type_def": {
+						"type": "Node",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "s2_entity_0.7.0",
+			"is_abstract": true,
+			"uid": 3435
+		},
+		"Entity_relationship": {
+			"name": "Entity_relationship",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"type": {
+					"name": "type",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"source": {
+					"name": "source",
+					"type": "Object_ref",
+					"is_mandatory": true
+				},
+				"target": {
+					"name": "target",
+					"type": "Object_ref",
+					"is_mandatory": true
+				},
+				"description": {
+					"name": "description",
+					"type_def": {
+						"type": "Node",
+						"container_type": "List"
+					}
+				},
+				"time_validity": {
+					"name": "time_validity",
+					"type_def": {
+						"root_type": "Interval",
+						"generic_parameters": ["Date"]
+					},
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "s2_entity_0.7.0",
+			"is_abstract": true,
+			"uid": 3436
+		},
+		"Social_entity": {
+			"name": "Social_entity",
+			"ancestors": ["Entity"],
+			"source_schema_id": "s2_entity_0.7.0",
+			"is_abstract": true,
+			"uid": 3437
+		},
+		"Party": {
+			"name": "Party",
+			"ancestors": ["Social_entity"],
+			"properties": {
+				"legal_status": {
+					"name": "legal_status",
+					"type": "String"
+				},
+				"identities": {
+					"name": "identities",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Party_identity",
+						"container_type": "List"
+					},
+					"is_mandatory": true
+				},
+				"contacts": {
+					"name": "contacts",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Contact",
+						"container_type": "Set"
+					}
+				},
+				"accountability_types": {
+					"name": "accountability_types",
+					"type_def": {
+						"type": "Accountability",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "s2_entity_0.7.0",
+			"is_abstract": true,
+			"uid": 3438
+		},
+		"Party_identity": {
+			"name": "Party_identity",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"description": {
+					"name": "description",
+					"type_def": {
+						"type": "Node",
+						"container_type": "List"
+					},
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_entity_0.7.0",
+			"uid": 3439
+		},
+		"Contact": {
+			"name": "Contact",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"time_validity": {
+					"name": "time_validity",
+					"type_def": {
+						"root_type": "Interval",
+						"generic_parameters": ["Date"]
+					},
+					"is_im_runtime": true
+				},
+				"addresses": {
+					"name": "addresses",
+					"type_def": {
+						"type": "Address",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "s2_entity_0.7.0",
+			"uid": 3440
+		},
+		"Address": {
+			"name": "Address",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"description": {
+					"name": "description",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Node",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "s2_entity_0.7.0",
+			"uid": 3441
+		},
+		"Agent": {
+			"name": "Agent",
+			"ancestors": ["Party"],
+			"properties": {
+				"personas": {
+					"name": "personas",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Persona",
+						"container_type": "List"
+					}
+				},
+				"languages": {
+					"name": "languages",
+					"type_def": {
+						"type": "Terminology_term",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "s2_entity_0.7.0",
+			"is_abstract": true,
+			"uid": 3442
+		},
+		"Aggregate_agent": {
+			"name": "Aggregate_agent",
+			"ancestors": ["Agent"],
+			"source_schema_id": "s2_entity_0.7.0",
+			"is_abstract": true,
+			"uid": 3443
+		},
+		"Individual_agent": {
+			"name": "Individual_agent",
+			"ancestors": ["Agent"],
+			"source_schema_id": "s2_entity_0.7.0",
+			"is_abstract": true,
+			"uid": 3444
+		},
+		"Org_entity": {
+			"name": "Org_entity",
+			"ancestors": ["Aggregate_agent"],
+			"source_schema_id": "s2_entity_0.7.0",
+			"is_abstract": true,
+			"uid": 3445
+		},
+		"Org_unit": {
+			"name": "Org_unit",
+			"ancestors": ["Org_entity"],
+			"source_schema_id": "s2_entity_0.7.0",
+			"uid": 3446
+		},
+		"Organisation": {
+			"name": "Organisation",
+			"ancestors": ["Org_entity"],
+			"source_schema_id": "s2_entity_0.7.0",
+			"uid": 3447
+		},
+		"Team": {
+			"name": "Team",
+			"ancestors": ["Aggregate_agent"],
+			"source_schema_id": "s2_entity_0.7.0",
+			"uid": 3448
+		},
+		"Person": {
+			"name": "Person",
+			"ancestors": ["Individual_agent"],
+			"source_schema_id": "s2_entity_0.7.0",
+			"uid": 3449
+		},
+		"Automaton": {
+			"name": "Automaton",
+			"ancestors": ["Individual_agent"],
+			"source_schema_id": "s2_entity_0.7.0",
+			"uid": 3450
+		},
+		"Persona": {
+			"name": "Persona",
+			"ancestors": ["Party"],
+			"properties": {
+				"performer": {
+					"name": "performer",
+					"type": "Object_ref",
+					"is_mandatory": true,
+					"is_im_runtime": true
+				},
+				"time_validity": {
+					"name": "time_validity",
+					"type_def": {
+						"root_type": "Interval",
+						"generic_parameters": ["Date"]
+					},
+					"is_im_runtime": true
+				},
+				"capabilities": {
+					"name": "capabilities",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Capability",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "s2_entity_0.7.0",
+			"uid": 3451
+		},
+		"Capability": {
+			"name": "Capability",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"credentials": {
+					"name": "credentials",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Node",
+						"container_type": "List"
+					}
+				},
+				"time_validity": {
+					"name": "time_validity",
+					"type_def": {
+						"root_type": "Interval",
+						"generic_parameters": ["Date"]
+					},
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "s2_entity_0.7.0",
+			"uid": 3452
+		},
+		"Party_relationship": {
+			"name": "Party_relationship",
+			"ancestors": ["Entity_relationship"],
+			"properties": {
+				"scoper": {
+					"name": "scoper",
+					"type": "Accountability"
+				}
+			},
+			"source_schema_id": "s2_entity_0.7.0",
+			"uid": 3453
+		},
+		"Accountability": {
+			"name": "Accountability",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"description": {
+					"name": "description",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Node",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "s2_entity_0.7.0",
+			"uid": 3454
+		},
+		"Authored_resource": {
+			"name": "Authored_resource",
+			"ancestors": ["Any"],
+			"properties": {
+				"original_language": {
+					"name": "original_language",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				},
+				"is_controlled": {
+					"name": "is_controlled",
+					"type": "Boolean"
+				},
+				"translations": {
+					"name": "translations",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "Translation_details"]
+					}
+				},
+				"description": {
+					"name": "description",
+					"type": "Resource_description"
+				},
+				"annotations": {
+					"name": "annotations",
+					"type": "Resource_annotations"
+				}
+			},
+			"source_schema_id": "s2_base_resource_0.7.0",
+			"is_abstract": true,
+			"uid": 3320
+		},
+		"Translation_details": {
+			"name": "Translation_details",
+			"ancestors": ["Any"],
+			"properties": {
+				"language": {
+					"name": "language",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				},
+				"author": {
+					"name": "author",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					},
+					"is_mandatory": true
+				},
+				"accreditation": {
+					"name": "accreditation",
+					"type": "String"
+				},
+				"version_last_translated": {
+					"name": "version_last_translated",
+					"type": "String"
+				},
+				"other_details": {
+					"name": "other_details",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					}
+				},
+				"other_contributors": {
+					"name": "other_contributors",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "String",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "s2_base_resource_0.7.0",
+			"uid": 3321
+		},
+		"Resource_description": {
+			"name": "Resource_description",
+			"ancestors": ["Any"],
+			"properties": {
+				"original_author": {
+					"name": "original_author",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					},
+					"is_mandatory": true
+				},
+				"original_namespace": {
+					"name": "original_namespace",
+					"type": "String"
+				},
+				"other_contributors": {
+					"name": "other_contributors",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "String",
+						"container_type": "List"
+					}
+				},
+				"custodian_namespace": {
+					"name": "custodian_namespace",
+					"type": "String"
+				},
+				"custodian_organisation": {
+					"name": "custodian_organisation",
+					"type": "String"
+				},
+				"copyright": {
+					"name": "copyright",
+					"type": "String"
+				},
+				"licence": {
+					"name": "licence",
+					"type": "String"
+				},
+				"lifecycle_state": {
+					"name": "lifecycle_state",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"resource_package_uri": {
+					"name": "resource_package_uri",
+					"type": "String"
+				},
+				"ip_acknowledgements": {
+					"name": "ip_acknowledgements",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					}
+				},
+				"references": {
+					"name": "references",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					}
+				},
+				"conversion_details": {
+					"name": "conversion_details",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					}
+				},
+				"other_details": {
+					"name": "other_details",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					}
+				},
+				"parent_resource": {
+					"name": "parent_resource",
+					"type": "Authored_resource",
+					"is_mandatory": true
+				},
+				"details": {
+					"name": "details",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "Resource_description_item"]
+					}
+				}
+			},
+			"source_schema_id": "s2_base_resource_0.7.0",
+			"uid": 3322
+		},
+		"Resource_description_item": {
+			"name": "Resource_description_item",
+			"ancestors": ["Any"],
+			"properties": {
+				"language": {
+					"name": "language",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				},
+				"purpose": {
+					"name": "purpose",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"keywords": {
+					"name": "keywords",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "String",
+						"container_type": "List"
+					}
+				},
+				"use": {
+					"name": "use",
+					"type": "String"
+				},
+				"misuse": {
+					"name": "misuse",
+					"type": "String"
+				},
+				"original_resource_uri": {
+					"name": "original_resource_uri",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type_def": {
+							"root_type": "Hash",
+							"generic_parameters": ["String", "String"]
+						},
+						"container_type": "List"
+					}
+				},
+				"other_details": {
+					"name": "other_details",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameters": ["String", "String"]
+					}
+				}
+			},
+			"source_schema_id": "s2_base_resource_0.7.0",
+			"uid": 3323
+		},
+		"Resource_annotations": {
+			"name": "Resource_annotations",
+			"ancestors": ["Any"],
+			"properties": {
+				"documentation": {
+					"name": "documentation",
+					"type_def": {
+						"root_type": "Hash",
+						"generic_parameter_defs": [
+							{
+								"type": "String"
+							},
+							{
+								"root_type": "Hash",
+								"generic_parameter_defs": [
+									{
+										"type": "String"
+									},
+									{
+										"root_type": "Hash",
+										"generic_parameters": ["String", "String"]
+									}
+								]
+							}
+						]
+					},
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_resource_0.7.0",
+			"uid": 3324
+		},
+		"Object_ref": {
+			"name": "Object_ref",
+			"ancestors": ["Any"],
+			"properties": {
+				"id": {
+					"name": "id",
+					"type": "Object_id",
+					"is_mandatory": true
+				},
+				"namespace": {
+					"name": "namespace",
+					"type": "String"
+				},
+				"type": {
+					"name": "type",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"uid": 3289
+		},
+		"Locatable_ref": {
+			"name": "Locatable_ref",
+			"ancestors": ["Object_ref"],
+			"properties": {
+				"id": {
+					"name": "id",
+					"type": "Object_version_id",
+					"is_mandatory": true
+				},
+				"path": {
+					"name": "path",
+					"type": "String",
+					"is_im_infrastructure": true
+				}
+			},
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"uid": 3290
+		},
+		"Object_id": {
+			"name": "Object_id",
+			"ancestors": ["Any"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"is_abstract": true,
+			"uid": 3291
+		},
+		"Artifact_id": {
+			"name": "Artifact_id",
+			"ancestors": ["Any"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"is_abstract": true,
+			"uid": 3292
+		},
+		"Terminology_id": {
+			"name": "Terminology_id",
+			"ancestors": ["Artifact_id"],
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"uid": 3293
+		},
+		"Archetype_id": {
+			"name": "Archetype_id",
+			"ancestors": ["Artifact_id"],
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"uid": 3294
+		},
+		"Object_version_id": {
+			"name": "Object_version_id",
+			"ancestors": ["Object_id"],
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"uid": 3295
+		},
+		"Version_tree_id": {
+			"name": "Version_tree_id",
+			"ancestors": ["Any"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"uid": 3296
+		},
+		"Primitive_id": {
+			"name": "Primitive_id",
+			"ancestors": ["Any"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"is_abstract": true,
+			"uid": 3297
+		},
+		"Internet_id": {
+			"name": "Internet_id",
+			"ancestors": ["Primitive_id"],
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"uid": 3298
+		},
+		"Iso_oid": {
+			"name": "Iso_oid",
+			"ancestors": ["Primitive_id"],
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"uid": 3299
+		},
+		"Uuid": {
+			"name": "Uuid",
+			"ancestors": ["Primitive_id"],
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"uid": 3300
+		},
+		"Validity_kind": {
+			"name": "Validity_kind",
+			"ancestors": ["String"],
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"item_names": ["mandatory", "optional", "prohibited"],
+			"uid": 3301
+		},
+		"Version_status": {
+			"name": "Version_status",
+			"ancestors": ["String"],
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"item_names": ["alpha", "beta", "release_candidate", "released", "build"],
+			"uid": 3302
+		},
+		"Sample_function_kind": {
+			"name": "Sample_function_kind",
+			"ancestors": ["String"],
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"item_names": ["actual", "minimum", "maximum", "mean", "mode", "median"],
+			"uid": 3303
+		},
+		"Trend_kind": {
+			"name": "Trend_kind",
+			"ancestors": ["String"],
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"item_names": ["decrease", "increase", "change"],
+			"uid": 3304
+		},
+		"Pathable": {
+			"name": "Pathable",
+			"ancestors": ["Any"],
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"is_abstract": true,
+			"uid": 3305
+		},
+		"Locatable": {
+			"name": "Locatable",
+			"ancestors": ["Pathable"],
+			"properties": {
+				"uid": {
+					"name": "uid",
+					"type": "Uuid",
+					"is_im_infrastructure": true
+				},
+				"archetype_node_id": {
+					"name": "archetype_node_id",
+					"type": "String",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"name": {
+					"name": "name",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"code": {
+					"name": "code",
+					"type": "Terminology_term",
+					"is_im_infrastructure": true
+				},
+				"original_code": {
+					"name": "original_code",
+					"type": "Terminology_code",
+					"is_im_runtime": true
+				},
+				"archetype_details": {
+					"name": "archetype_details",
+					"type": "Archetyped",
+					"is_im_infrastructure": true
+				},
+				"feeder_audit": {
+					"name": "feeder_audit",
+					"type": "Feeder_audit",
+					"is_im_runtime": true
+				},
+				"links": {
+					"name": "links",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Link",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"is_abstract": true,
+			"uid": 3306
+		},
+		"Link": {
+			"name": "Link",
+			"ancestors": ["Any"],
+			"properties": {
+				"meaning": {
+					"name": "meaning",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"type": {
+					"name": "type",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"target": {
+					"name": "target",
+					"type": "Uri",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"uid": 3307
+		},
+		"Archetyped": {
+			"name": "Archetyped",
+			"ancestors": ["Any"],
+			"properties": {
+				"archetype_id": {
+					"name": "archetype_id",
+					"type": "Archetype_id",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"template_id": {
+					"name": "template_id",
+					"type": "Archetype_id",
+					"is_im_infrastructure": true
+				},
+				"rm_version": {
+					"name": "rm_version",
+					"type": "String",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				}
+			},
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"uid": 3308
+		},
+		"Feeder_audit": {
+			"name": "Feeder_audit",
+			"ancestors": ["Any"],
+			"properties": {
+				"originating_system_item_ids": {
+					"name": "originating_system_item_ids",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Rwe_id_ref",
+						"container_type": "List"
+					},
+					"is_im_runtime": true
+				},
+				"feeder_system_item_ids": {
+					"name": "feeder_system_item_ids",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Rwe_id_ref",
+						"container_type": "List"
+					},
+					"is_im_runtime": true
+				},
+				"original_content": {
+					"name": "original_content",
+					"type": "Encapsulated",
+					"is_im_runtime": true
+				},
+				"originating_system_audit": {
+					"name": "originating_system_audit",
+					"type": "Feeder_audit_details",
+					"is_mandatory": true,
+					"is_im_runtime": true
+				},
+				"feeder_system_audit": {
+					"name": "feeder_system_audit",
+					"type": "Feeder_audit_details",
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"uid": 3309
+		},
+		"Feeder_audit_details": {
+			"name": "Feeder_audit_details",
+			"ancestors": ["Any"],
+			"properties": {
+				"system_id": {
+					"name": "system_id",
+					"type": "String",
+					"is_mandatory": true,
+					"is_im_runtime": true
+				},
+				"location": {
+					"name": "location",
+					"type": "Party_identified",
+					"is_im_runtime": true
+				},
+				"provider": {
+					"name": "provider",
+					"type": "Party_identified",
+					"is_im_runtime": true
+				},
+				"subject": {
+					"name": "subject",
+					"type": "Party_proxy",
+					"is_im_runtime": true
+				},
+				"time": {
+					"name": "time",
+					"type": "Date_time",
+					"is_im_runtime": true
+				},
+				"version_id": {
+					"name": "version_id",
+					"type": "String",
+					"is_im_runtime": true
+				},
+				"other_details": {
+					"name": "other_details",
+					"type_def": {
+						"type": "String",
+						"container_type": "Hash",
+						"index_type": "String"
+					}
+				}
+			},
+			"source_schema_id": "s2_base_model_support_0.7.0",
+			"uid": 3310
+		},
+		"Data_value": {
+			"name": "Data_value",
+			"ancestors": ["Any"],
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"is_abstract": true,
+			"uid": 3219
+		},
+		"Boolean_value": {
+			"name": "Boolean_value",
+			"ancestors": ["Data_value"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Boolean",
+					"is_mandatory": true
+				},
+				"true_term": {
+					"name": "true_term",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"false_term": {
+					"name": "false_term",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3220
+		},
+		"Rwe_id_ref": {
+			"name": "Rwe_id_ref",
+			"ancestors": ["Data_value"],
+			"properties": {
+				"id": {
+					"name": "id",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"issuer": {
+					"name": "issuer",
+					"type": "String"
+				},
+				"assigner": {
+					"name": "assigner",
+					"type": "String"
+				},
+				"type": {
+					"name": "type",
+					"type": "String"
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3221
+		},
+		"Text": {
+			"name": "Text",
+			"ancestors": ["Data_value"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"language": {
+					"name": "language",
+					"type": "Terminology_code",
+					"is_im_infrastructure": true
+				},
+				"encoding": {
+					"name": "encoding",
+					"type": "Terminology_code",
+					"is_im_infrastructure": true
+				},
+				"formatting": {
+					"name": "formatting",
+					"type": "Text_format_types",
+					"is_im_runtime": true
+				},
+				"mappings": {
+					"name": "mappings",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Term_mapping",
+						"container_type": "List"
+					},
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3222
+		},
+		"Text_format_types": {
+			"name": "Text_format_types",
+			"ancestors": ["Integer"],
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"item_names": ["plain", "plain_no_newlines", "markdown"],
+			"uid": 3223
+		},
+		"Term_mapping": {
+			"name": "Term_mapping",
+			"properties": {
+				"match": {
+					"name": "match",
+					"type": "Character",
+					"is_mandatory": true
+				},
+				"purpose": {
+					"name": "purpose",
+					"type": "Terminology_term"
+				},
+				"target": {
+					"name": "target",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3224
+		},
+		"Plain_text": {
+			"name": "Plain_text",
+			"ancestors": ["Text"],
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3225
+		},
+		"Coded_text": {
+			"name": "Coded_text",
+			"ancestors": ["Text"],
+			"properties": {
+				"concept": {
+					"name": "concept",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3226
+		},
+		"Range": {
+			"name": "Range",
+			"generic_parameter_defs": {
+				"V": {
+					"name": "V",
+					"conforms_to_type": "Ordered_value"
+				}
+			},
+			"ancestors": ["Data_value"],
+			"properties": {
+				"lower": {
+					"name": "lower",
+					"type": "V"
+				},
+				"upper": {
+					"name": "upper",
+					"type": "V"
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3227
+		},
+		"Reference_range": {
+			"name": "Reference_range",
+			"generic_parameter_defs": {
+				"V": {
+					"name": "V",
+					"conforms_to_type": "Quantified"
+				}
+			},
+			"ancestors": ["Any"],
+			"properties": {
+				"type": {
+					"name": "type",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"range": {
+					"name": "range",
+					"type_def": {
+						"root_type": "Range",
+						"generic_parameters": ["V"]
+					},
+					"is_mandatory": true
+				},
+				"phenotype": {
+					"name": "phenotype",
+					"type": "Text"
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3228
+		},
+		"Ordered_value": {
+			"name": "Ordered_value",
+			"ancestors": ["Data_value"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Comparable",
+					"is_mandatory": true
+				},
+				"precision": {
+					"name": "precision",
+					"type": "Integer"
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"is_abstract": true,
+			"uid": 3229
+		},
+		"Quantified": {
+			"name": "Quantified",
+			"ancestors": ["Ordered_value"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Comparable_numeric"
+				},
+				"measured": {
+					"name": "measured",
+					"type_def": {
+						"root_type": "Measured",
+						"generic_parameters": ["Quantified"]
+					}
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"is_abstract": true,
+			"uid": 3230
+		},
+		"Coded_ordinal": {
+			"name": "Coded_ordinal",
+			"ancestors": ["Ordered_value"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Real",
+					"is_mandatory": true
+				},
+				"concept": {
+					"name": "concept",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3231
+		},
+		"Money": {
+			"name": "Money",
+			"ancestors": ["Ordered_value"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Real",
+					"is_mandatory": true
+				},
+				"currency": {
+					"name": "currency",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3232
+		},
+		"Measured": {
+			"name": "Measured",
+			"generic_parameter_defs": {
+				"V": {
+					"name": "V",
+					"conforms_to_type": "Quantified"
+				}
+			},
+			"ancestors": ["Any"],
+			"properties": {
+				"accuracy": {
+					"name": "accuracy",
+					"type": "V",
+					"is_im_runtime": true
+				},
+				"accuracy_is_percent": {
+					"name": "accuracy_is_percent",
+					"type": "Boolean",
+					"is_im_runtime": true
+				},
+				"value_status": {
+					"name": "value_status",
+					"type": "Comparison_operator"
+				},
+				"reference_ranges": {
+					"name": "reference_ranges",
+					"type_def": {
+						"type_def": {
+							"root_type": "Reference_range",
+							"generic_parameters": ["V"]
+						},
+						"container_type": "List"
+					}
+				},
+				"interpretation": {
+					"name": "interpretation",
+					"type": "Terminology_term"
+				},
+				"interpretation_guide": {
+					"name": "interpretation_guide",
+					"type": "Text"
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3233
+		},
+		"Comparison_operator": {
+			"name": "Comparison_operator",
+			"ancestors": ["String"],
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"item_names": ["<", "<=", ">", ">=", "="],
+			"uid": 3234
+		},
+		"Quantity": {
+			"name": "Quantity",
+			"ancestors": ["Quantified"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Real",
+					"is_mandatory": true
+				},
+				"units": {
+					"name": "units",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"original_units": {
+					"name": "original_units",
+					"type": "String"
+				},
+				"measured": {
+					"name": "measured",
+					"type_def": {
+						"root_type": "Measured",
+						"generic_parameters": ["Quantity"]
+					}
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3235
+		},
+		"Count": {
+			"name": "Count",
+			"ancestors": ["Quantified"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Integer64",
+					"is_mandatory": true
+				},
+				"measured": {
+					"name": "measured",
+					"type_def": {
+						"root_type": "Measured",
+						"generic_parameters": ["Count"]
+					}
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3236
+		},
+		"Proportion": {
+			"name": "Proportion",
+			"ancestors": ["Quantified"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Real",
+					"is_mandatory": true
+				},
+				"numerator": {
+					"name": "numerator",
+					"type": "Quantity",
+					"is_mandatory": true
+				},
+				"denominator": {
+					"name": "denominator",
+					"type": "Quantity",
+					"is_mandatory": true
+				},
+				"measured": {
+					"name": "measured",
+					"type_def": {
+						"root_type": "Measured",
+						"generic_parameters": ["Proportion"]
+					}
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3237
+		},
+		"Ratio": {
+			"name": "Ratio",
+			"ancestors": ["Quantified"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Real",
+					"is_mandatory": true
+				},
+				"numerator": {
+					"name": "numerator",
+					"type": "Real",
+					"is_mandatory": true
+				},
+				"denominator": {
+					"name": "denominator",
+					"type": "Real",
+					"is_mandatory": true
+				},
+				"type": {
+					"name": "type",
+					"type": "Ratio_kind",
+					"is_mandatory": true
+				},
+				"measured": {
+					"name": "measured",
+					"type_def": {
+						"root_type": "Measured",
+						"generic_parameters": ["Ratio"]
+					}
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3238
+		},
+		"Ratio_kind": {
+			"name": "Ratio_kind",
+			"ancestors": ["Integer"],
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"item_names": ["rational_fraction", "fraction", "ratio"],
+			"uid": 3239
+		},
+		"Temporal_value": {
+			"name": "Temporal_value",
+			"generic_parameter_defs": {
+				"T": {
+					"name": "T",
+					"conforms_to_type": "Temporal"
+				}
+			},
+			"ancestors": ["Ordered_value"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"is_abstract": true,
+			"uid": 3240
+		},
+		"Date_value": {
+			"name": "Date_value",
+			"ancestor_defs": [
+				{
+					"root_type": "Temporal_value",
+					"generic_parameters": ["Date"]
+				}
+			],
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3241
+		},
+		"Time_value": {
+			"name": "Time_value",
+			"ancestor_defs": [
+				{
+					"root_type": "Temporal_value",
+					"generic_parameters": ["Time"]
+				}
+			],
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3242
+		},
+		"Date_time_value": {
+			"name": "Date_time_value",
+			"ancestor_defs": [
+				{
+					"root_type": "Temporal_value",
+					"generic_parameters": ["Date_time"]
+				}
+			],
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3243
+		},
+		"Duration_value": {
+			"name": "Duration_value",
+			"ancestor_defs": [
+				{
+					"root_type": "Temporal_value",
+					"generic_parameters": ["Duration"]
+				}
+			],
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3244
+		},
+		"Uri_ref": {
+			"name": "Uri_ref",
+			"ancestors": ["Data_value"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3245
+		},
+		"Ehr_uri_ref": {
+			"name": "Ehr_uri_ref",
+			"ancestors": ["Uri_ref"],
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3246
+		},
+		"Timing": {
+			"name": "Timing",
+			"ancestors": ["Data_value"],
+			"properties": {
+				"history": {
+					"name": "history",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Occurrence",
+						"container_type": "List"
+					}
+				},
+				"pattern": {
+					"name": "pattern",
+					"type": "Occurrence_pattern"
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3247
+		},
+		"Occurrence": {
+			"name": "Occurrence",
+			"ancestors": ["Any"],
+			"properties": {
+				"date": {
+					"name": "date",
+					"type": "Date",
+					"is_mandatory": true
+				},
+				"time_of_day": {
+					"name": "time_of_day",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Hour_specifier",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3248
+		},
+		"Occurrence_pattern": {
+			"name": "Occurrence_pattern",
+			"ancestors": ["Any"],
+			"properties": {
+				"times": {
+					"name": "times",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Time_specifier",
+						"container_type": "List"
+					}
+				},
+				"total_count": {
+					"name": "total_count",
+					"type": "Integer"
+				},
+				"bounding_period": {
+					"name": "bounding_period",
+					"type_def": {
+						"root_type": "Interval",
+						"generic_parameters": ["Date"]
+					},
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3249
+		},
+		"Time_specifier": {
+			"name": "Time_specifier",
+			"ancestors": ["Any"],
+			"properties": {
+				"event_count": {
+					"name": "event_count",
+					"type": "Integer",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"is_abstract": true,
+			"uid": 3250
+		},
+		"Period_specifier": {
+			"name": "Period_specifier",
+			"ancestors": ["Time_specifier"],
+			"properties": {
+				"period": {
+					"name": "period",
+					"type": "Duration",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3251
+		},
+		"Day_specifier": {
+			"name": "Day_specifier",
+			"ancestors": ["Time_specifier"],
+			"properties": {
+				"day": {
+					"name": "day",
+					"type": "Terminology_term"
+				},
+				"time_of_day": {
+					"name": "time_of_day",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Hour_specifier",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3252
+		},
+		"Hour_specifier": {
+			"name": "Hour_specifier",
+			"ancestors": ["Any"],
+			"properties": {
+				"duration": {
+					"name": "duration",
+					"type": "Duration"
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"is_abstract": true,
+			"uid": 3253
+		},
+		"Customary_time": {
+			"name": "Customary_time",
+			"ancestors": ["Hour_specifier"],
+			"properties": {
+				"reference_event": {
+					"name": "reference_event",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"temporal_relation": {
+					"name": "temporal_relation",
+					"type": "Temporal_relation"
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3254
+		},
+		"Clock_time": {
+			"name": "Clock_time",
+			"ancestors": ["Hour_specifier"],
+			"properties": {
+				"time": {
+					"name": "time",
+					"type": "Time",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3255
+		},
+		"Temporal_relation": {
+			"name": "Temporal_relation",
+			"ancestors": ["Integer"],
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"item_names": ["after", "before", "with"],
+			"uid": 3256
+		},
+		"Encapsulated": {
+			"name": "Encapsulated",
+			"ancestors": ["Data_value"],
+			"properties": {
+				"language": {
+					"name": "language",
+					"type": "Terminology_code",
+					"is_im_runtime": true
+				},
+				"uri": {
+					"name": "uri",
+					"type": "Uri"
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"is_abstract": true,
+			"uid": 3257
+		},
+		"Multimedia": {
+			"name": "Multimedia",
+			"ancestors": ["Encapsulated"],
+			"properties": {
+				"alternate_text": {
+					"name": "alternate_text",
+					"type": "String"
+				},
+				"data": {
+					"name": "data",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Byte",
+						"container_type": "Array"
+					}
+				},
+				"media_type": {
+					"name": "media_type",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				},
+				"hash": {
+					"name": "hash",
+					"type": "String"
+				},
+				"thumbnail": {
+					"name": "thumbnail",
+					"type": "Multimedia"
+				},
+				"size": {
+					"name": "size",
+					"type": "Integer",
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3258
+		},
+		"Parsable": {
+			"name": "Parsable",
+			"ancestors": ["Encapsulated"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "String"
+				},
+				"schema": {
+					"name": "schema",
+					"type": "String"
+				},
+				"formalism": {
+					"name": "formalism",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"encoding": {
+					"name": "encoding",
+					"type": "Terminology_code",
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "s2_base_data_types_0.7.0",
+			"uid": 3259
+		},
+		"Terminology_term": {
+			"name": "Terminology_term",
+			"ancestors": ["Any"],
+			"properties": {
+				"text": {
+					"name": "text",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"concept": {
+					"name": "concept",
+					"type": "Terminology_code",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_foundation_types_0.7.0",
+			"uid": 3288
+		},
+		"Audit_details": {
+			"name": "Audit_details",
+			"ancestors": ["Any"],
+			"properties": {
+				"system_id": {
+					"name": "system_id",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"time_committed": {
+					"name": "time_committed",
+					"type": "Date_time",
+					"is_mandatory": true
+				},
+				"change_type": {
+					"name": "change_type",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"description": {
+					"name": "description",
+					"type": "Terminology_term"
+				},
+				"committer": {
+					"name": "committer",
+					"type": "Party_proxy",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_change_control_0.7.0",
+			"uid": 3212
+		},
+		"Attestation": {
+			"name": "Attestation",
+			"ancestors": ["Audit_details"],
+			"properties": {
+				"attested_view": {
+					"name": "attested_view",
+					"type": "Multimedia"
+				},
+				"proof": {
+					"name": "proof",
+					"type": "String"
+				},
+				"items": {
+					"name": "items",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Uri",
+						"container_type": "List"
+					}
+				},
+				"reason": {
+					"name": "reason",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"is_pending": {
+					"name": "is_pending",
+					"type": "Boolean",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_change_control_0.7.0",
+			"uid": 3213
+		},
+		"Contribution": {
+			"name": "Contribution",
+			"ancestors": ["Any"],
+			"properties": {
+				"uid": {
+					"name": "uid",
+					"type": "Uuid",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"audit": {
+					"name": "audit",
+					"type": "Audit_details",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"versions": {
+					"name": "versions",
+					"cardinality": {
+						"lower": 0,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Object_ref",
+						"container_type": "List"
+					},
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				}
+			},
+			"source_schema_id": "s2_base_change_control_0.7.0",
+			"uid": 3214
+		},
+		"Versioned_object": {
+			"name": "Versioned_object",
+			"generic_parameter_defs": {
+				"T": {
+					"name": "T"
+				}
+			},
+			"ancestors": ["Any"],
+			"properties": {
+				"uid": {
+					"name": "uid",
+					"type": "Uuid",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"owner_id": {
+					"name": "owner_id",
+					"type": "Object_ref",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"time_created": {
+					"name": "time_created",
+					"type": "Date_time",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				}
+			},
+			"source_schema_id": "s2_base_change_control_0.7.0",
+			"uid": 3215
+		},
+		"Version": {
+			"name": "Version",
+			"generic_parameter_defs": {
+				"T": {
+					"name": "T"
+				}
+			},
+			"ancestors": ["Any"],
+			"properties": {
+				"contribution": {
+					"name": "contribution",
+					"type": "Object_ref",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"commit_audit": {
+					"name": "commit_audit",
+					"type": "Audit_details",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"signature": {
+					"name": "signature",
+					"type": "String",
+					"is_im_infrastructure": true
+				}
+			},
+			"source_schema_id": "s2_base_change_control_0.7.0",
+			"is_abstract": true,
+			"uid": 3216
+		},
+		"Original_version": {
+			"name": "Original_version",
+			"generic_parameter_defs": {
+				"T": {
+					"name": "T"
+				}
+			},
+			"ancestors": ["Version"],
+			"properties": {
+				"uid": {
+					"name": "uid",
+					"type": "Object_version_id",
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				},
+				"preceding_version_uid": {
+					"name": "preceding_version_uid",
+					"type": "Object_version_id",
+					"is_im_infrastructure": true
+				},
+				"other_input_version_uids": {
+					"name": "other_input_version_uids",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Object_version_id",
+						"container_type": "List"
+					},
+					"is_im_infrastructure": true
+				},
+				"attestations": {
+					"name": "attestations",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Attestation",
+						"container_type": "List"
+					}
+				},
+				"lifecycle_state": {
+					"name": "lifecycle_state",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				},
+				"data": {
+					"name": "data",
+					"type": "T"
+				}
+			},
+			"source_schema_id": "s2_base_change_control_0.7.0",
+			"uid": 3217
+		},
+		"Imported_version": {
+			"name": "Imported_version",
+			"generic_parameter_defs": {
+				"T": {
+					"name": "T"
+				}
+			},
+			"ancestors": ["Version"],
+			"properties": {
+				"item": {
+					"name": "item",
+					"type_def": {
+						"root_type": "Original_version",
+						"generic_parameters": ["T"]
+					},
+					"is_mandatory": true,
+					"is_im_infrastructure": true
+				}
+			},
+			"source_schema_id": "s2_base_change_control_0.7.0",
+			"uid": 3218
+		},
+		"Node": {
+			"name": "Node",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"value": {
+					"name": "value",
+					"type": "Data_value"
+				},
+				"original_value": {
+					"name": "original_value",
+					"type": "Data_value"
+				},
+				"null_flavour": {
+					"name": "null_flavour",
+					"type": "Terminology_term"
+				},
+				"null_reason": {
+					"name": "null_reason",
+					"type": "Text"
+				},
+				"items": {
+					"name": "items",
+					"type_def": {
+						"type": "Node",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "s2_base_patterns_0.7.0",
+			"uid": 3311
+		},
+		"Event": {
+			"name": "Event",
+			"ancestors": ["Locatable"],
+			"properties": {
+				"time": {
+					"name": "time",
+					"type": "Date_time",
+					"is_mandatory": true,
+					"is_im_runtime": true
+				},
+				"items": {
+					"name": "items",
+					"cardinality": {
+						"lower": 1,
+						"upper_unbounded": true
+					},
+					"type_def": {
+						"type": "Node",
+						"container_type": "List"
+					}
+				}
+			},
+			"source_schema_id": "s2_base_patterns_0.7.0",
+			"is_abstract": true,
+			"uid": 3312
+		},
+		"Point_event": {
+			"name": "Point_event",
+			"ancestors": ["Event"],
+			"source_schema_id": "s2_base_patterns_0.7.0",
+			"uid": 3313
+		},
+		"Interval_event": {
+			"name": "Interval_event",
+			"ancestors": ["Event"],
+			"properties": {
+				"width": {
+					"name": "width",
+					"type": "Duration",
+					"is_mandatory": true
+				},
+				"sample_count": {
+					"name": "sample_count",
+					"type": "Integer",
+					"is_im_runtime": true
+				},
+				"sample_function": {
+					"name": "sample_function",
+					"type": "Sample_function_kind"
+				}
+			},
+			"source_schema_id": "s2_base_patterns_0.7.0",
+			"uid": 3314
+		},
+		"Participation": {
+			"name": "Participation",
+			"ancestors": ["Any"],
+			"properties": {
+				"function": {
+					"name": "function",
+					"type": "String",
+					"is_mandatory": true
+				},
+				"time": {
+					"name": "time",
+					"type_def": {
+						"root_type": "Interval",
+						"generic_parameters": ["Date_time"]
+					},
+					"is_im_runtime": true
+				},
+				"mode": {
+					"name": "mode",
+					"type": "Terminology_term"
+				},
+				"performer": {
+					"name": "performer",
+					"type": "Party_proxy",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_patterns_0.7.0",
+			"uid": 3315
+		},
+		"Party_proxy": {
+			"name": "Party_proxy",
+			"ancestors": ["Any"],
+			"properties": {
+				"external_ref": {
+					"name": "external_ref",
+					"type": "Object_ref",
+					"is_im_infrastructure": true
+				}
+			},
+			"source_schema_id": "s2_base_patterns_0.7.0",
+			"is_abstract": true,
+			"uid": 3316
+		},
+		"Party_identified": {
+			"name": "Party_identified",
+			"ancestors": ["Party_proxy"],
+			"properties": {
+				"name": {
+					"name": "name",
+					"type": "String"
+				},
+				"identifiers": {
+					"name": "identifiers",
+					"type_def": {
+						"type": "Rwe_id_ref",
+						"container_type": "List"
+					},
+					"is_im_runtime": true
+				}
+			},
+			"source_schema_id": "s2_base_patterns_0.7.0",
+			"uid": 3317
+		},
+		"Party_related": {
+			"name": "Party_related",
+			"ancestors": ["Party_identified"],
+			"properties": {
+				"relationship": {
+					"name": "relationship",
+					"type": "Terminology_term",
+					"is_mandatory": true
+				}
+			},
+			"source_schema_id": "s2_base_patterns_0.7.0",
+			"uid": 3318
+		},
+		"Party_self": {
+			"name": "Party_self",
+			"ancestors": ["Party_proxy"],
+			"source_schema_id": "s2_base_patterns_0.7.0",
+			"uid": 3319
+		}
+	},
+	"passed": true,
+	"missed_class_count": 0
+}
