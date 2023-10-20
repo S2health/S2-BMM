@@ -172,7 +172,7 @@ class_definitions = <
 				name = <"other_details">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 			>
 		>
@@ -268,7 +268,7 @@ class_definitions = <
 				name = <"other_context">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 			>
 		>
@@ -300,7 +300,7 @@ class_definitions = <
 				name = <"details">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 			>
 		>

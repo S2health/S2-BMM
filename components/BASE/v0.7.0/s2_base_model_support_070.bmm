@@ -250,14 +250,20 @@ class_definitions = <
 				is_mandatory = <True>
 				is_im_infrastructure = <True>
 			>
-			["code"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"code">
-				type = <"Terminology_term">
-			>
 			["name"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"name">
 				type = <"String">
 				is_mandatory = <True>
+			>
+			["code"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"code">
+				type = <"Terminology_term">
+				is_im_infrastructure = <True>
+			>
+			["original_code"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"original_code">
+				type = <"Terminology_code">
+				is_im_runtime = <True>
 			>
 			["archetype_details"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"archetype_details">
@@ -351,11 +357,6 @@ class_definitions = <
 			["original_content"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"original_content">
 				type = <"Encapsulated">
-				is_im_runtime = <True>
-			>
-			["original_code"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"original_code">
-				type = <"Terminology_code">
 				is_im_runtime = <True>
 			>
 			["originating_system_audit"] = (P_BMM_SINGLE_PROPERTY) <

@@ -142,7 +142,7 @@ class_definitions = <
 				name = <"data">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 				cardinality = <|>=1|>
 			>
@@ -159,7 +159,7 @@ class_definitions = <
 				name = <"qualifiers">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 			>
 			["guideline_ids"] = (P_BMM_CONTAINER_PROPERTY) <
@@ -210,7 +210,7 @@ class_definitions = <
 				name = <"details">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 			>
 		>
@@ -225,7 +225,7 @@ class_definitions = <
 				name = <"data">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 				cardinality = <|>=1|>
 			>
@@ -233,7 +233,7 @@ class_definitions = <
 				name = <"state">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 			>
 		>
@@ -330,7 +330,7 @@ class_definitions = <
 				name = <"data">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 				cardinality = <|>=1|>
 			>
@@ -377,7 +377,7 @@ class_definitions = <
 				name = <"description">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 				cardinality = <|>=1|>
 			>
@@ -407,7 +407,7 @@ class_definitions = <
 				name = <"description">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 				cardinality = <|>=1|>
 			>

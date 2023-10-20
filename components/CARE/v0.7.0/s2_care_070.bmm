@@ -29,7 +29,7 @@ model_name = <"EHR">
 -- schema documentation
 ------------------------------------------------------
 schema_revision = <"0.7.0.1">
-schema_lifecycle_state = <"development">
+schema_lifecycle_state = <"trial">
 schema_description = <"S2 Release 0.7.0 EHR schema">
 schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 
@@ -177,7 +177,7 @@ class_definitions = <
 				name = <"other_details">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 			>
 		>
@@ -273,7 +273,7 @@ class_definitions = <
 				name = <"other_context">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 			>
 		>
@@ -305,7 +305,7 @@ class_definitions = <
 				name = <"details">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 			>
 		>

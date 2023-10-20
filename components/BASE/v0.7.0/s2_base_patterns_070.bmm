@@ -50,7 +50,7 @@ packages = <
         packages = <
             ["data_structures"] = <
                 name = <"data_structures">
-		        classes = <"Item", "Cluster", "Element", "Node", "Event", "Point_event", "Interval_event">
+		        classes = <"Node", "Event", "Point_event", "Interval_event">
 		    >
 			["participation"] = <
 				name = <"participation">
@@ -71,53 +71,16 @@ class_definitions = <
 	--------------------- base.patterns.data_structures ------------------
 	--
 
-	["Item"] = <
-		name = <"Item">
+	["Node"] = <
+		name = <"Node">
 		ancestors = <"Locatable">
-		is_abstract = <True>
-	>
-
-	["Cluster"] = <
-		name = <"Cluster">
-		ancestors = <"Item">
 		properties = <
-			["items"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"items">
-				type_def = <
-					container_type = <"List">
-					type = <"Item">
-				>
-				cardinality = <|>=1|>
-				is_mandatory = <True>
-			>
-		>
-	>
-
-	["Element"] = <
-		name = <"Element">
-		ancestors = <"Item">
-		properties = <
-			["null_flavour"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"null_flavour">
-				type = <"Terminology_term">
-			>
 			["value"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"value">
 				type = <"Data_value">
 			>
-			["null_reason"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"null_reason">
-				type = <"Text">
-			>
-		>
-	>
-
-	["Node"] = <
-		name = <"Node">
-		ancestors = <"Item">
-		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
+			["original_value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"original_value">
 				type = <"Data_value">
 			>
 			["null_flavour"] = (P_BMM_SINGLE_PROPERTY) <
@@ -134,7 +97,6 @@ class_definitions = <
 					container_type = <"List">
 					type = <"Node">
 				>
-				is_mandatory = <True>
 			>
 		>
 	>
@@ -154,7 +116,7 @@ class_definitions = <
 				name = <"items">
 				type_def = <
 					container_type = <"List">
-					type = <"Item">
+					type = <"Node">
 				>
 				cardinality = <|>=1|>
 			>
