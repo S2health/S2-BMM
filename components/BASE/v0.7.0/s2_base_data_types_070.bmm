@@ -56,9 +56,12 @@ packages = <
 			["quantity"] = <
 				name = <"quantity">
 				classes = <
-					"Range", "Reference_range", "Ordered_value", "Quantified", "Quantity", 
-					"Proportion", "Ratio", "Ratio_kind", "Count", "Coded_ordinal", "Measured", "Comparison_operator",
-					"Money",
+					"Range", "Ordered_datum", "Ordered_value",
+					"Money", "Coded_ordinal", "Measurable",
+					"Quantity", "Proportion", "Ratio", "Count", "Ratio_kind",
+				--	"Measured_quantity", 
+					"Measured_proportion", "Measured_ratio", "Measured_count",
+					"Measured", "Comparison_operator", "Reference_range", 
 					"Temporal_value", "Date_value", "Date_time_value", "Time_value", "Duration_value"
 				>
 			>
@@ -235,7 +238,7 @@ class_definitions = <
 		generic_parameter_defs = <
 			["V"] = <
 				name = <"V">
-				conforms_to_type = <"Ordered_value">
+				conforms_to_type = <"Ordered_datum">
 			>
 		>
 		properties = <
@@ -256,7 +259,7 @@ class_definitions = <
 		generic_parameter_defs = <
 			["V"] = <
 				name = <"V">
-				conforms_to_type = <"Quantified">
+				conforms_to_type = <"Measurable">
 			>
 		>
 		properties = <
@@ -280,13 +283,19 @@ class_definitions = <
 		>
 	>
 
+	["Ordered_datum"] = <
+		name = <"Ordered_datum">
+		is_abstract = <True>
+		ancestors = <"Data_value">
+	>
+
 	["Ordered_value"] = <
 		name = <"Ordered_value">
 		is_abstract = <True>
-		ancestors = <"Data_value">
+		ancestors = <"Ordered_datum">
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
 				type = <"Comparable">
 				is_mandatory = <True>
 			>
@@ -297,21 +306,14 @@ class_definitions = <
 		>
 	>
 
-	["Quantified"] = <
-		name = <"Quantified">
+	["Measurable"] = <
+		name = <"Measurable">
 		is_abstract = <True>
 		ancestors = <"Ordered_value">
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
 				type = <"Comparable_numeric">
-			>
-			["measured"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"measured">
-				type_def = <
-					root_type = <"Measured">
-					generic_parameters = <"Quantified">
-				>
 			>
 		>
 	>
@@ -352,14 +354,18 @@ class_definitions = <
 
 	["Measured"] = <
 		name = <"Measured">
-		ancestors = <"Any">
+		ancestors = <"Ordered_datum">
 		generic_parameter_defs = <
 			["V"] = <
 				name = <"V">
-				conforms_to_type = <"Quantified">
+				conforms_to_type = <"Measurable">
 			>
 		>
 		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
+				name = <"value">
+				type = <"V">
+			>
 			["accuracy"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
 				name = <"accuracy">
 				type = <"V">
@@ -373,6 +379,7 @@ class_definitions = <
 			["value_status"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"value_status">
 				type = <"Comparison_operator">
+				is_im_runtime = <True>
 			>
 			["reference_ranges"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"reference_ranges">
@@ -403,10 +410,10 @@ class_definitions = <
 
 	["Quantity"] = <
 		name = <"Quantity">
-		ancestors = <"Quantified">
+		ancestors = <"Measurable">
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
 				type = <"Real">
 				is_mandatory = <True>
 			>
@@ -419,41 +426,27 @@ class_definitions = <
 				name = <"original_units">
 				type = <"String">
 			>
-			["measured"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"measured">
-				type_def = <
-					root_type = <"Measured">
-					generic_parameters = <"Quantity">
-				>
-			>
 		>
 	>
 
 	["Count"] = <
 		name = <"Count">
-		ancestors = <"Quantified">
+		ancestors = <"Measurable">
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
 				type = <"Integer64">
 				is_mandatory = <True>
-			>
-			["measured"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"measured">
-				type_def = <
-					root_type = <"Measured">
-					generic_parameters = <"Count">
-				>
 			>
 		>
 	>
 
 	["Proportion"] = <
 		name = <"Proportion">
-		ancestors = <"Quantified">
+		ancestors = <"Measurable">
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
 				type = <"Real">
 				is_mandatory = <True>
 			>
@@ -467,22 +460,15 @@ class_definitions = <
 				type = <"Quantity">
 				is_mandatory = <True>
 			>
-			["measured"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"measured">
-				type_def = <
-					root_type = <"Measured">
-					generic_parameters = <"Proportion">
-				>
-			>
 		>
 	>
 
 	["Ratio"] = <
 		name = <"Ratio">
-		ancestors = <"Quantified">
+		ancestors = <"Measurable">
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
 				type = <"Real">
 				is_mandatory = <True>
 			>
@@ -501,13 +487,6 @@ class_definitions = <
 				type = <"Ratio_kind">
 				is_mandatory = <True>
 			>
-			["measured"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"measured">
-				type_def = <
-					root_type = <"Measured">
-					generic_parameters = <"Ratio">
-				>
-			>
 		>
 	>
 
@@ -515,6 +494,46 @@ class_definitions = <
 		name = <"Ratio_kind">
 		ancestors = <"Integer">
 		item_names = <"rational_fraction", "fraction", "ratio">
+	>
+
+--	["Measured_quantity"] = <
+--		name = <"Measured_quantity">
+--		ancestor_defs = <
+--			["Measured<Quantity>"] = (P_BMM_GENERIC_TYPE) <
+--				root_type = <"Measured">
+--				generic_parameters = <"Quantity">
+--			>
+--		>
+--	>
+
+	["Measured_count"] = <
+		name = <"Measured_count">
+		ancestor_defs = <
+			["Measured<Count>"] = (P_BMM_GENERIC_TYPE) <
+				root_type = <"Measured">
+				generic_parameters = <"Count">
+			>
+		>
+	>
+
+	["Measured_ratio"] = <
+		name = <"Measured_ratio">
+		ancestor_defs = <
+			["Measured<Ratio>"] = (P_BMM_GENERIC_TYPE) <
+				root_type = <"Measured">
+				generic_parameters = <"Ratio">
+			>
+		>
+	>
+
+	["Measured_proportion"] = <
+		name = <"Measured_proportion">
+		ancestor_defs = <
+			["Measured<Proportion>"] = (P_BMM_GENERIC_TYPE) <
+				root_type = <"Measured">
+				generic_parameters = <"Proportion">
+			>
+		>
 	>
 
 	--
