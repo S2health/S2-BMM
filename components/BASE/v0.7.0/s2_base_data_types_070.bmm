@@ -496,6 +496,9 @@ class_definitions = <
 		item_names = <"rational_fraction", "fraction", "ratio">
 	>
 
+--
+-- Not needed but may help some tools (replicate for Measured_count etc if used)
+--
 --	["Measured_quantity"] = <
 --		name = <"Measured_quantity">
 --		ancestor_defs = <
@@ -505,36 +508,6 @@ class_definitions = <
 --			>
 --		>
 --	>
-
-	["Measured_count"] = <
-		name = <"Measured_count">
-		ancestor_defs = <
-			["Measured<Count>"] = (P_BMM_GENERIC_TYPE) <
-				root_type = <"Measured">
-				generic_parameters = <"Count">
-			>
-		>
-	>
-
-	["Measured_ratio"] = <
-		name = <"Measured_ratio">
-		ancestor_defs = <
-			["Measured<Ratio>"] = (P_BMM_GENERIC_TYPE) <
-				root_type = <"Measured">
-				generic_parameters = <"Ratio">
-			>
-		>
-	>
-
-	["Measured_proportion"] = <
-		name = <"Measured_proportion">
-		ancestor_defs = <
-			["Measured<Proportion>"] = (P_BMM_GENERIC_TYPE) <
-				root_type = <"Measured">
-				generic_parameters = <"Proportion">
-			>
-		>
-	>
 
 	--
 	--------------------- base.data_types.quantity.date_time ------------------
