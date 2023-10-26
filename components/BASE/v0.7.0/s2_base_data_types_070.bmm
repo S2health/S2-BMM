@@ -59,8 +59,6 @@ packages = <
 					"Range", "Ordered_datum", "Ordered_value",
 					"Money", "Coded_ordinal", "Measurable",
 					"Quantity", "Proportion", "Ratio", "Count", "Ratio_kind",
-				--	"Measured_quantity", 
-					"Measured_proportion", "Measured_ratio", "Measured_count",
 					"Measured", "Comparison_operator", "Reference_range", 
 					"Temporal_value", "Date_value", "Date_time_value", "Time_value", "Duration_value"
 				>
