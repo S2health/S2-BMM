@@ -220,7 +220,7 @@ class_definitions = <
 		properties = <
 			["concept"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"concept">
-				type = <"Terminology_code">
+				type = <"Terminology_term">
 				is_mandatory = <True>
 			>
 		>
