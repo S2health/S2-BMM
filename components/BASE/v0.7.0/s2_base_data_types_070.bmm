@@ -420,10 +420,6 @@ class_definitions = <
 				type = <"Terminology_term">
 				is_mandatory = <True>
 			>
-			["original_units"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"original_units">
-				type = <"String">
-			>
 		>
 	>
 
