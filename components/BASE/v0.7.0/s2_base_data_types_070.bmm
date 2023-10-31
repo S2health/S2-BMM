@@ -151,8 +151,8 @@ class_definitions = <
 		name = <"Text">
 		ancestors = <"Data_value">
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
+			["text"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"text">
 				type = <"String">
 				is_mandatory = <True>
 			>
@@ -811,8 +811,8 @@ class_definitions = <
 		name = <"Parsable">
 		ancestors = <"Encapsulated">
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
+			["text"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"text">
 				type = <"String">
 			>
 			["schema"] = (P_BMM_SINGLE_PROPERTY) <
