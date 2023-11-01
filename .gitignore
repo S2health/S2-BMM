@@ -1,1 +1,8 @@
 *~
+
+# IDE - JetBrains
+.idea
+*.iml
+
+# macOS
+**/.DS_Store
