@@ -320,11 +320,12 @@ class_definitions = <
 		name = <"Coded_ordinal">
 		ancestors = <"Ordered_value">
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
-				type = <"Real">
-				is_mandatory = <True>
-			>
+-- 2023-11-01; bj; Coded_ordinal.value should be removed as it is replaced with Ordered_value.magnitude
+--			["value"] = (P_BMM_SINGLE_PROPERTY) <
+--				name = <"value">
+--				type = <"Real">
+--				is_mandatory = <True>
+--			>
 			["concept"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"concept">
 				type = <"Terminology_code">
@@ -337,11 +338,12 @@ class_definitions = <
 		name = <"Money">
 		ancestors = <"Ordered_value">
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
-				type = <"Real">
-				is_mandatory = <True>
-			>
+-- 2023-11-01; bj; Money.value should be removed as it is replaced with Ordered_value.magnitude
+--			["value"] = (P_BMM_SINGLE_PROPERTY) <
+--				name = <"value">
+--				type = <"Real">
+--				is_mandatory = <True>
+--			>
 			["currency"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"currency">
 				type = <"Terminology_code">
@@ -517,13 +519,14 @@ class_definitions = <
 				conforms_to_type = <"Temporal">
 			>
 		>
-		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
-				type = <"String">
-				is_mandatory = <True>
-			>
-		>
+-- 2023-11-01; bj; Temporal_value.value should be removed as it is replaced with Ordered_value.magnitude
+--		properties = <
+--			["value"] = (P_BMM_SINGLE_PROPERTY) <
+--				name = <"value">
+--				type = <"String">
+--				is_mandatory = <True>
+--			>
+--		>
 	>
 
 	["Date_value"] = <
