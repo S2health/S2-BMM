@@ -218,8 +218,8 @@ class_definitions = <
 		name = <"Coded_text">
 		ancestors = <"Text">
 		properties = <
-			["concept"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"concept">
+			["term"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"term">
 				type = <"Terminology_term">
 				is_mandatory = <True>
 			>
