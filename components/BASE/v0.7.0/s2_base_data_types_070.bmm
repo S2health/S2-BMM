@@ -320,6 +320,11 @@ class_definitions = <
 		name = <"Coded_ordinal">
 		ancestors = <"Ordered_value">
 		properties = <
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
+				type = <"Real">
+				is_mandatory = <True>
+			>
 			["concept"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"concept">
 				type = <"Terminology_code">
@@ -332,6 +337,11 @@ class_definitions = <
 		name = <"Money">
 		ancestors = <"Ordered_value">
 		properties = <
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
+				type = <"Real">
+				is_mandatory = <True>
+			>
 			["currency"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"currency">
 				type = <"Terminology_code">
@@ -505,6 +515,13 @@ class_definitions = <
 			["T"] = <
 				name = <"T">
 				conforms_to_type = <"Temporal">
+			>
+		>
+		properties = <
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
+				type = <"String">
+				is_mandatory = <True>
 			>
 		>
 	>
