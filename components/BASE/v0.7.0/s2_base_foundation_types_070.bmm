@@ -39,7 +39,7 @@ packages = <
 		packages = <
 			["primitive_types"] = <
 				name = <"primitive_types">
-				classes = <"Any", "Comparable", "Numeric", "Comparable_numeric", "Octet", "Byte", "Boolean", "Integer", "Integer64", "Real", "Double", "Character", "String", "Uri">
+				classes = <"Any", "Comparable", "Numeric", "Byte", "Boolean", "Integer", "Real", "String", "Uri">
 			>
 			["terminology"] = <
 				name = <"terminology">
@@ -80,20 +80,10 @@ primitive_types = <
 		name = <"Numeric">
 		is_abstract = <True>
 		documentation = <"Ancestor of numeric types.">
-		ancestors = <"Any">
-	>
-	["Comparable_numeric"] = <
-		name = <"Comparable_numeric">
-		is_abstract = <True>
-		documentation = <"Ancestor of ordered numeric types.">
-		ancestors = <"Numeric", "Comparable">
+		ancestors = <"Comparable">
 	>
 	["Byte"] = <
 		name = <"Byte">
-		ancestors = <"Comparable">
-	>
-	["Octet"] = <
-		name = <"Octet">
 		ancestors = <"Comparable">
 	>
 	["Boolean"] = <
@@ -102,23 +92,11 @@ primitive_types = <
 	>
 	["Integer"] = <
 		name = <"Integer">
-		ancestors = <"Comparable_numeric">
-	>
-	["Integer64"] = <
-		name = <"Integer64">
-		ancestors = <"Comparable_numeric">
+		ancestors = <"Numeric">
 	>
 	["Real"] = <
 		name = <"Real">
-		ancestors = <"Comparable_numeric">
-	>
-	["Double"] = <
-		name = <"Double">
-		ancestors = <"Comparable_numeric">
-	>
-	["Character"] = <
-		name = <"Character">
-		ancestors = <"Comparable">
+		ancestors = <"Numeric">
 	>
 	["String"] = <
 		name = <"String">

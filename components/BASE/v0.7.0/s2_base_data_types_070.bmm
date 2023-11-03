@@ -282,7 +282,7 @@ class_definitions = <
 		properties = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
-				type = <"Comparable_numeric">
+				type = <"Numeric">
 			>
 		>
 	>
@@ -400,7 +400,7 @@ class_definitions = <
 		properties = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
-				type = <"Integer64">
+				type = <"Integer">
 				is_mandatory = <True>
 			>
 		>
