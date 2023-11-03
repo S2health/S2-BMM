@@ -391,7 +391,7 @@ class_definitions = <
 			>
 			["interpretation"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"interpretation">
-				type = <"Terminology_term">
+				type = <"Coded_text">
 			>
 			["interpretation_guide"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"interpretation_guide">
