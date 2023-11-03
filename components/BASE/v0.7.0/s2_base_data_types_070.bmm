@@ -320,8 +320,8 @@ class_definitions = <
 		name = <"Coded_ordinal">
 		ancestors = <"Ordered_value">
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
 				type = <"Real">
 				is_mandatory = <True>
 			>
@@ -337,8 +337,8 @@ class_definitions = <
 		name = <"Money">
 		ancestors = <"Ordered_value">
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
 				type = <"Real">
 				is_mandatory = <True>
 			>
@@ -518,8 +518,8 @@ class_definitions = <
 			>
 		>
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
 				type = <"String">
 				is_mandatory = <True>
 			>
