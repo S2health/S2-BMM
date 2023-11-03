@@ -51,7 +51,7 @@ packages = <
 		packages = <
 			["text"] = <
 				name = <"text">
-				classes = <"Text", "Text_format_types", "Term_mapping", "Coded_text", "Plain_text">
+				classes = <"Text", "Text_format_types", "Coded_text", "Plain_text">
 			>
 			["quantity"] = <
 				name = <"quantity">
@@ -171,15 +171,6 @@ class_definitions = <
 				type = <"Text_format_types">
 				is_im_runtime = <True>
 			>
-			["mappings"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"mappings">
-				type_def = <
-					container_type = <"List">
-					type = <"Term_mapping">
-				>
-				cardinality = <|>=1|>
-				is_im_runtime = <True>
-			>
 		>
 	>
 
@@ -187,26 +178,6 @@ class_definitions = <
 		name = <"Text_format_types">
 		ancestors = <"Integer">
 		item_names = <"plain", "plain_no_newlines", "markdown">
-	>
-
-	["Term_mapping"] = <
-		name = <"Term_mapping">
-		properties = <
-			["match"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"match">
-				type = <"Character">
-				is_mandatory = <True>
-			>
-			["purpose"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"purpose">
-				type = <"Terminology_term">
-			>
-			["target"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"target">
-				type = <"Terminology_term">
-				is_mandatory = <True>
-			>
-		>
 	>
 
 	["Plain_text"] = <
