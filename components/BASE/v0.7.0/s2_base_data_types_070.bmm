@@ -482,16 +482,10 @@ class_definitions = <
 		name = <"Temporal_value">
 		is_abstract = <True>
 		ancestors = <"Ordered_value">
-		generic_parameter_defs = <
-			["T"] = <
-				name = <"T">
-				conforms_to_type = <"Temporal">
-			>
-		>
 		properties = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
-				type = <"String">
+				type = <"Temporal">
 				is_mandatory = <True>
 			>
 		>
@@ -499,40 +493,44 @@ class_definitions = <
 
 	["Date_value"] = <
 		name = <"Date_value">
-		ancestor_defs = <
-			["Temporal_value<Date>"] = (P_BMM_GENERIC_TYPE) <
-			    root_type = <"Temporal_value">
-			    generic_parameters = <"Date">
+		ancestors = <"Temporal_value">
+		properties = <
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
+				type = <"Date">
 			>
 		>
 	>
 
 	["Time_value"] = <
 		name = <"Time_value">
-		ancestor_defs = <
-			["Temporal_value<Time>"] = (P_BMM_GENERIC_TYPE) <
-			    root_type = <"Temporal_value">
-			    generic_parameters = <"Time">
+		ancestors = <"Temporal_value">
+		properties = <
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
+				type = <"Time">
 			>
 		>
 	>
 
 	["Date_time_value"] = <
 		name = <"Date_time_value">
-		ancestor_defs = <
-			["Temporal_value<Date_time>"] = (P_BMM_GENERIC_TYPE) <
-			    root_type = <"Temporal_value">
-			    generic_parameters = <"Date_time">
+		ancestors = <"Temporal_value">
+		properties = <
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
+				type = <"Date_time">
 			>
 		>
 	>
 
 	["Duration_value"] = <
 		name = <"Duration_value">
-		ancestor_defs = <
-			["Temporal_value<Duration>"] = (P_BMM_GENERIC_TYPE) <
-			    root_type = <"Temporal_value">
-			    generic_parameters = <"Duration">
+		ancestors = <"Temporal_value">
+		properties = <
+			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"magnitude">
+				type = <"Duration">
 			>
 		>
 	>
