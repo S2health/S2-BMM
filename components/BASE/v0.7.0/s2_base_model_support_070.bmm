@@ -216,7 +216,7 @@ class_definitions = <
 	["Sample_function_kind"] = (P_BMM_ENUMERATION_STRING) <
 		name = <"Sample_function_kind">
 		ancestors = <"String">
-		item_names = <"actual", "minimum", "maximum", "mean", "mode", "median">
+		item_names = <"actual", "minimum", "maximum", "mean", "mode", "median", "increase", "decrease", "change", "total">
 	>
 
 	["Trend_kind"] = (P_BMM_ENUMERATION_STRING) <
