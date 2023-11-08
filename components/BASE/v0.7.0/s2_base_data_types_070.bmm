@@ -298,7 +298,7 @@ class_definitions = <
 			>
 			["concept"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"concept">
-				type = <"Coded_term">
+				type = <"Coded_text">
 				is_mandatory = <True>
 			>
 		>
