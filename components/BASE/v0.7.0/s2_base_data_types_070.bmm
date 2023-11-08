@@ -298,7 +298,7 @@ class_definitions = <
 			>
 			["concept"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"concept">
-				type = <"Coded_term">
+				type = <"Coded_text">
 				is_mandatory = <True>
 			>
 		>
@@ -498,6 +498,7 @@ class_definitions = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
 				type = <"Date">
+				is_mandatory = <True>
 			>
 		>
 	>
@@ -509,6 +510,7 @@ class_definitions = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
 				type = <"Time">
+				is_mandatory = <True>
 			>
 		>
 	>
@@ -520,6 +522,7 @@ class_definitions = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
 				type = <"Date_time">
+				is_mandatory = <True>
 			>
 		>
 	>
@@ -531,6 +534,7 @@ class_definitions = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
 				type = <"Duration">
+				is_mandatory = <True>
 			>
 		>
 	>
