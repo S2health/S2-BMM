@@ -449,7 +449,7 @@ class_definitions = <
 	["Order_execution_state"] = (P_BMM_ENUMERATION_STRING) <
 		name = <"Order_execution_state">
 		ancestors = <"String">
-		item_names = <"planned", "scheduled", "postponed", "cancelled", "active", "suspended", "aborted", "completed", "expired">
+		item_names = <"initial", "planned", "scheduled", "postponed", "cancelled", "active", "suspended", "aborted", "completed", "expired">
 	>
 
 	["Order_execution_transition"] = (P_BMM_ENUMERATION_STRING) <
