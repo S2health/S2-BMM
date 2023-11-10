@@ -335,7 +335,7 @@ class_definitions = <
 				name = <"value">
 				type = <"V">
 			>
-			["accuracy"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
+			["accuracy"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"accuracy">
 				type = <"Quantity">
 				is_im_runtime = <True>
