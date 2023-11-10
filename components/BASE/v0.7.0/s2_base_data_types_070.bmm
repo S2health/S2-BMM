@@ -337,12 +337,7 @@ class_definitions = <
 			>
 			["accuracy"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
 				name = <"accuracy">
-				type = <"V">
-				is_im_runtime = <True>
-			>
-			["accuracy_is_percent"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"accuracy_is_percent">
-				type = <"Boolean">
+				type = <"Quantity">
 				is_im_runtime = <True>
 			>
 			["value_status"] = (P_BMM_SINGLE_PROPERTY) <
