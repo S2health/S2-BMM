@@ -22,16 +22,16 @@ bmm_version = <"2.3">
 ------------------------------------------------------
 rm_publisher = <"s2">
 schema_name = <"entity">
-rm_release = <"0.7.0">
+rm_release = <"0.6.5">
 
 model_name = <"ENTITY">
 
 ------------------------------------------------------
 -- schema documentation
 ------------------------------------------------------
-schema_revision = <"0.7.0.1">
+schema_revision = <"0.6.5.1">
 schema_lifecycle_state = <"development">
-schema_description = <"S2 Release 0.7.0 Entity model schema"> 
+schema_description = <"S2 Release 0.6.5 Entity model schema"> 
 schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 
 ------------------------------------------------------

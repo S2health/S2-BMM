@@ -21,14 +21,14 @@ bmm_version = <"2.3">
 ------------------------------------------------------
 rm_publisher = <"s2">
 schema_name = <"rm">
-rm_release = <"0.7.0">
+rm_release = <"0.6.5">
 
 ------------------------------------------------------
 -- schema documentation
 ------------------------------------------------------
-schema_revision = <"0.7.0.1">
+schema_revision = <"0.6.5.1">
 schema_lifecycle_state = <"development">
-schema_description = <"S2 Release 0.7.0 reference model schema">
+schema_description = <"S2 Release 0.6.5 reference model schema">
 schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 
 ------------------------------------------------------
@@ -36,10 +36,10 @@ schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"s2_entity_0.7.0">
+		id = <"s2_entity_0.6.5">
 	>
 	["2"] = <
-		id = <"s2_care_0.7.0">
+		id = <"s2_care_0.6.5">
 	>
 >
 
