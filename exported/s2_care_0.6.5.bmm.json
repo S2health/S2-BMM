@@ -40,7 +40,7 @@
 			"name": "Any",
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
 			"is_abstract": true,
-			"uid": 1533
+			"uid": 3195
 		},
 		"Comparable": {
 			"documentation": "Ancestor of types with total order relation defined, i.e. '<' and '='.",
@@ -48,7 +48,7 @@
 			"ancestors": ["Any"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
 			"is_abstract": true,
-			"uid": 1534
+			"uid": 3196
 		},
 		"Numeric": {
 			"documentation": "Ancestor of numeric types.",
@@ -56,43 +56,43 @@
 			"ancestors": ["Comparable"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
 			"is_abstract": true,
-			"uid": 1535
+			"uid": 3197
 		},
 		"Byte": {
 			"name": "Byte",
 			"ancestors": ["Comparable"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1536
+			"uid": 3198
 		},
 		"Boolean": {
 			"name": "Boolean",
 			"ancestors": ["Any"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1537
+			"uid": 3199
 		},
 		"Integer": {
 			"name": "Integer",
 			"ancestors": ["Numeric"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1538
+			"uid": 3200
 		},
 		"Real": {
 			"name": "Real",
 			"ancestors": ["Numeric"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1539
+			"uid": 3201
 		},
 		"String": {
 			"name": "String",
 			"ancestors": ["Comparable"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1540
+			"uid": 3202
 		},
 		"Uri": {
 			"name": "Uri",
 			"ancestors": ["String"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1541
+			"uid": 3203
 		},
 		"Temporal": {
 			"documentation": "Parent of ISO8601 types.",
@@ -107,35 +107,35 @@
 			},
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
 			"is_abstract": true,
-			"uid": 1542
+			"uid": 3204
 		},
 		"Date": {
 			"documentation": "Date type based on IS8601 representation.",
 			"name": "Date",
 			"ancestors": ["Temporal"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1543
+			"uid": 3205
 		},
 		"Time": {
 			"documentation": "Time type based on IS8601 representation.",
 			"name": "Time",
 			"ancestors": ["Temporal"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1544
+			"uid": 3206
 		},
 		"Date_time": {
 			"documentation": "Date Time type based on IS8601 representation.",
 			"name": "Date_time",
 			"ancestors": ["Temporal"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1545
+			"uid": 3207
 		},
 		"Duration": {
 			"documentation": "Duration type based on IS8601 representation.",
 			"name": "Duration",
 			"ancestors": ["Temporal"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1546
+			"uid": 3208
 		},
 		"Terminology_code": {
 			"name": "Terminology_code",
@@ -161,7 +161,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1547
+			"uid": 3209
 		},
 		"Container": {
 			"name": "Container",
@@ -173,7 +173,7 @@
 			"ancestors": ["Any"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
 			"is_abstract": true,
-			"uid": 1548
+			"uid": 3210
 		},
 		"List": {
 			"name": "List",
@@ -184,7 +184,7 @@
 			},
 			"ancestors": ["Container"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1549
+			"uid": 3211
 		},
 		"Array": {
 			"name": "Array",
@@ -195,7 +195,7 @@
 			},
 			"ancestors": ["Container"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1550
+			"uid": 3212
 		},
 		"Set": {
 			"name": "Set",
@@ -206,7 +206,7 @@
 			},
 			"ancestors": ["Container"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1551
+			"uid": 3213
 		},
 		"Interval": {
 			"documentation": "Type defining an interval of any ordered type.",
@@ -249,7 +249,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1552
+			"uid": 3214
 		},
 		"Cardinality": {
 			"name": "Cardinality",
@@ -272,7 +272,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1553
+			"uid": 3215
 		},
 		"Multiplicity_interval": {
 			"name": "Multiplicity_interval",
@@ -283,7 +283,7 @@
 				}
 			],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1554
+			"uid": 3216
 		},
 		"Hash": {
 			"documentation": "Type defining Hash table / hash map structure, whose type parameters V and K represent a value type and an Comparable key type respectively.",
@@ -299,7 +299,7 @@
 			},
 			"ancestors": ["Container"],
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1555
+			"uid": 3217
 		}
 	},
 	"class_definitions": {
@@ -372,7 +372,7 @@
 			},
 			"source_schema_id": "s2_care_0.6.5",
 			"is_override": true,
-			"uid": 1638
+			"uid": 3300
 		},
 		"Ehr_access": {
 			"name": "Ehr_access",
@@ -385,7 +385,7 @@
 			},
 			"source_schema_id": "s2_care_0.6.5",
 			"is_override": true,
-			"uid": 1639
+			"uid": 3301
 		},
 		"Access_control_settings": {
 			"name": "Access_control_settings",
@@ -393,7 +393,7 @@
 			"source_schema_id": "s2_care_0.6.5",
 			"is_abstract": true,
 			"is_override": true,
-			"uid": 1640
+			"uid": 3302
 		},
 		"Ehr_status": {
 			"name": "Ehr_status",
@@ -424,7 +424,7 @@
 			},
 			"source_schema_id": "s2_care_0.6.5",
 			"is_override": true,
-			"uid": 1641
+			"uid": 3303
 		},
 		"Composition": {
 			"name": "Composition",
@@ -474,7 +474,7 @@
 			},
 			"source_schema_id": "s2_care_0.6.5",
 			"is_override": true,
-			"uid": 1642
+			"uid": 3304
 		},
 		"Event_context": {
 			"name": "Event_context",
@@ -523,7 +523,7 @@
 			},
 			"source_schema_id": "s2_care_0.6.5",
 			"is_override": true,
-			"uid": 1643
+			"uid": 3305
 		},
 		"Folder": {
 			"name": "Folder",
@@ -553,7 +553,7 @@
 			},
 			"source_schema_id": "s2_care_0.6.5",
 			"is_override": true,
-			"uid": 1644
+			"uid": 3306
 		},
 		"Versioned_ehr_access": {
 			"name": "Versioned_ehr_access",
@@ -565,7 +565,7 @@
 			],
 			"source_schema_id": "s2_care_0.6.5",
 			"is_override": true,
-			"uid": 1645
+			"uid": 3307
 		},
 		"Versioned_ehr_status": {
 			"name": "Versioned_ehr_status",
@@ -577,7 +577,7 @@
 			],
 			"source_schema_id": "s2_care_0.6.5",
 			"is_override": true,
-			"uid": 1646
+			"uid": 3308
 		},
 		"Versioned_composition": {
 			"name": "Versioned_composition",
@@ -589,7 +589,7 @@
 			],
 			"source_schema_id": "s2_care_0.6.5",
 			"is_override": true,
-			"uid": 1647
+			"uid": 3309
 		},
 		"Versioned_folder": {
 			"name": "Versioned_folder",
@@ -601,7 +601,7 @@
 			],
 			"source_schema_id": "s2_care_0.6.5",
 			"is_override": true,
-			"uid": 1648
+			"uid": 3310
 		},
 		"Content_item": {
 			"name": "Content_item",
@@ -609,7 +609,7 @@
 			"source_schema_id": "s2_care_0.6.5",
 			"is_abstract": true,
 			"is_override": true,
-			"uid": 1649
+			"uid": 3311
 		},
 		"Section": {
 			"name": "Section",
@@ -629,7 +629,7 @@
 			},
 			"source_schema_id": "s2_care_0.6.5",
 			"is_override": true,
-			"uid": 1650
+			"uid": 3312
 		},
 		"Entry": {
 			"name": "Entry",
@@ -696,7 +696,7 @@
 			},
 			"source_schema_id": "s2_care_entry_0.6.5",
 			"is_abstract": true,
-			"uid": 1664
+			"uid": 3326
 		},
 		"Admin_entry": {
 			"name": "Admin_entry",
@@ -715,7 +715,7 @@
 				}
 			},
 			"source_schema_id": "s2_care_entry_0.6.5",
-			"uid": 1665
+			"uid": 3327
 		},
 		"Care_entry": {
 			"documentation": "Abstract Entry subtype corresponding to any type of Entry in the clinical care cycle.",
@@ -740,7 +740,7 @@
 			},
 			"source_schema_id": "s2_care_entry_0.6.5",
 			"is_abstract": true,
-			"uid": 1666
+			"uid": 3328
 		},
 		"Care_act_entry": {
 			"documentation": "Entry type for billable and/or ordered acts",
@@ -754,7 +754,7 @@
 			},
 			"source_schema_id": "s2_care_entry_0.6.5",
 			"is_abstract": true,
-			"uid": 1667
+			"uid": 3329
 		},
 		"Order_tracking": {
 			"name": "Order_tracking",
@@ -785,7 +785,7 @@
 				}
 			},
 			"source_schema_id": "s2_care_entry_0.6.5",
-			"uid": 1668
+			"uid": 3330
 		},
 		"Observation": {
 			"documentation": "Entry subtype used to represent single sample observation.",
@@ -812,7 +812,7 @@
 				}
 			},
 			"source_schema_id": "s2_care_entry_0.6.5",
-			"uid": 1669
+			"uid": 3331
 		},
 		"Direct_observation": {
 			"name": "Direct_observation",
@@ -842,7 +842,7 @@
 				}
 			},
 			"source_schema_id": "s2_care_entry_0.6.5",
-			"uid": 1670
+			"uid": 3332
 		},
 		"Indirect_observation": {
 			"name": "Indirect_observation",
@@ -856,25 +856,25 @@
 				}
 			},
 			"source_schema_id": "s2_care_entry_0.6.5",
-			"uid": 1671
+			"uid": 3333
 		},
 		"Lab_result": {
 			"name": "Lab_result",
 			"ancestors": ["Indirect_observation"],
 			"source_schema_id": "s2_care_entry_0.6.5",
-			"uid": 1672
+			"uid": 3334
 		},
 		"Imaging": {
 			"name": "Imaging",
 			"ancestors": ["Indirect_observation"],
 			"source_schema_id": "s2_care_entry_0.6.5",
-			"uid": 1673
+			"uid": 3335
 		},
 		"Score": {
 			"name": "Score",
 			"ancestors": ["Observation"],
 			"source_schema_id": "s2_care_entry_0.6.5",
-			"uid": 1674
+			"uid": 3336
 		},
 		"Questionnaire_response": {
 			"documentation": "Entry subtype used questionnaire responses",
@@ -901,7 +901,7 @@
 				}
 			},
 			"source_schema_id": "s2_care_entry_0.6.5",
-			"uid": 1675
+			"uid": 3337
 		},
 		"Assessment": {
 			"name": "Assessment",
@@ -928,7 +928,7 @@
 				}
 			},
 			"source_schema_id": "s2_care_entry_0.6.5",
-			"uid": 1676
+			"uid": 3338
 		},
 		"Order": {
 			"name": "Order",
@@ -956,7 +956,7 @@
 				}
 			},
 			"source_schema_id": "s2_care_entry_0.6.5",
-			"uid": 1677
+			"uid": 3339
 		},
 		"Activity": {
 			"name": "Activity",
@@ -979,7 +979,7 @@
 				}
 			},
 			"source_schema_id": "s2_care_entry_0.6.5",
-			"uid": 1678
+			"uid": 3340
 		},
 		"Action": {
 			"name": "Action",
@@ -1013,7 +1013,7 @@
 				}
 			},
 			"source_schema_id": "s2_care_entry_0.6.5",
-			"uid": 1679
+			"uid": 3341
 		},
 		"State_transition": {
 			"name": "State_transition",
@@ -1045,21 +1045,21 @@
 				}
 			},
 			"source_schema_id": "s2_care_entry_0.6.5",
-			"uid": 1680
+			"uid": 3342
 		},
 		"Order_execution_state": {
 			"name": "Order_execution_state",
 			"ancestors": ["String"],
 			"source_schema_id": "s2_care_entry_0.6.5",
 			"item_names": ["initial", "planned", "scheduled", "postponed", "cancelled", "active", "suspended", "aborted", "completed", "expired"],
-			"uid": 1681
+			"uid": 3343
 		},
 		"Order_execution_transition": {
 			"name": "Order_execution_transition",
 			"ancestors": ["String"],
 			"source_schema_id": "s2_care_entry_0.6.5",
 			"item_names": ["initiate", "start", "schedule", "plan_step", "cancel", "do", "resume", "suspend", "suspended_step", "active_step", "scheduled_step", "postponed_step", "finish", "abort", "restore", "postpone", "time_out", "notify_completed", "notify_cancelled", "notify_aborted"],
-			"uid": 1682
+			"uid": 3344
 		},
 		"Node": {
 			"name": "Node",
@@ -1090,7 +1090,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_patterns_0.7.0",
-			"uid": 1579
+			"uid": 3241
 		},
 		"Event": {
 			"name": "Event",
@@ -1116,13 +1116,13 @@
 			},
 			"source_schema_id": "s2_base_patterns_0.7.0",
 			"is_abstract": true,
-			"uid": 1580
+			"uid": 3242
 		},
 		"Point_event": {
 			"name": "Point_event",
 			"ancestors": ["Event"],
 			"source_schema_id": "s2_base_patterns_0.7.0",
-			"uid": 1581
+			"uid": 3243
 		},
 		"Interval_event": {
 			"name": "Interval_event",
@@ -1144,7 +1144,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_patterns_0.7.0",
-			"uid": 1582
+			"uid": 3244
 		},
 		"Participation": {
 			"name": "Participation",
@@ -1174,7 +1174,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_patterns_0.7.0",
-			"uid": 1583
+			"uid": 3245
 		},
 		"Party_proxy": {
 			"name": "Party_proxy",
@@ -1188,7 +1188,7 @@
 			},
 			"source_schema_id": "s2_base_patterns_0.7.0",
 			"is_abstract": true,
-			"uid": 1584
+			"uid": 3246
 		},
 		"Party_identified": {
 			"name": "Party_identified",
@@ -1208,7 +1208,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_patterns_0.7.0",
-			"uid": 1585
+			"uid": 3247
 		},
 		"Party_related": {
 			"name": "Party_related",
@@ -1221,13 +1221,13 @@
 				}
 			},
 			"source_schema_id": "s2_base_patterns_0.7.0",
-			"uid": 1586
+			"uid": 3248
 		},
 		"Party_self": {
 			"name": "Party_self",
 			"ancestors": ["Party_proxy"],
 			"source_schema_id": "s2_base_patterns_0.7.0",
-			"uid": 1587
+			"uid": 3249
 		},
 		"Object_ref": {
 			"name": "Object_ref",
@@ -1249,7 +1249,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_model_support_0.7.0",
-			"uid": 1557
+			"uid": 3219
 		},
 		"Locatable_ref": {
 			"name": "Locatable_ref",
@@ -1267,7 +1267,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_model_support_0.7.0",
-			"uid": 1558
+			"uid": 3220
 		},
 		"Object_id": {
 			"name": "Object_id",
@@ -1281,7 +1281,7 @@
 			},
 			"source_schema_id": "s2_base_model_support_0.7.0",
 			"is_abstract": true,
-			"uid": 1559
+			"uid": 3221
 		},
 		"Artifact_id": {
 			"name": "Artifact_id",
@@ -1295,25 +1295,25 @@
 			},
 			"source_schema_id": "s2_base_model_support_0.7.0",
 			"is_abstract": true,
-			"uid": 1560
+			"uid": 3222
 		},
 		"Terminology_id": {
 			"name": "Terminology_id",
 			"ancestors": ["Artifact_id"],
 			"source_schema_id": "s2_base_model_support_0.7.0",
-			"uid": 1561
+			"uid": 3223
 		},
 		"Archetype_id": {
 			"name": "Archetype_id",
 			"ancestors": ["Artifact_id"],
 			"source_schema_id": "s2_base_model_support_0.7.0",
-			"uid": 1562
+			"uid": 3224
 		},
 		"Object_version_id": {
 			"name": "Object_version_id",
 			"ancestors": ["Object_id"],
 			"source_schema_id": "s2_base_model_support_0.7.0",
-			"uid": 1563
+			"uid": 3225
 		},
 		"Version_tree_id": {
 			"name": "Version_tree_id",
@@ -1326,7 +1326,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_model_support_0.7.0",
-			"uid": 1564
+			"uid": 3226
 		},
 		"Primitive_id": {
 			"name": "Primitive_id",
@@ -1340,60 +1340,60 @@
 			},
 			"source_schema_id": "s2_base_model_support_0.7.0",
 			"is_abstract": true,
-			"uid": 1565
+			"uid": 3227
 		},
 		"Internet_id": {
 			"name": "Internet_id",
 			"ancestors": ["Primitive_id"],
 			"source_schema_id": "s2_base_model_support_0.7.0",
-			"uid": 1566
+			"uid": 3228
 		},
 		"Iso_oid": {
 			"name": "Iso_oid",
 			"ancestors": ["Primitive_id"],
 			"source_schema_id": "s2_base_model_support_0.7.0",
-			"uid": 1567
+			"uid": 3229
 		},
 		"Uuid": {
 			"name": "Uuid",
 			"ancestors": ["Primitive_id"],
 			"source_schema_id": "s2_base_model_support_0.7.0",
-			"uid": 1568
+			"uid": 3230
 		},
 		"Validity_kind": {
 			"name": "Validity_kind",
 			"ancestors": ["String"],
 			"source_schema_id": "s2_base_model_support_0.7.0",
 			"item_names": ["mandatory", "optional", "prohibited"],
-			"uid": 1569
+			"uid": 3231
 		},
 		"Version_status": {
 			"name": "Version_status",
 			"ancestors": ["String"],
 			"source_schema_id": "s2_base_model_support_0.7.0",
 			"item_names": ["alpha", "beta", "release_candidate", "released", "build"],
-			"uid": 1570
+			"uid": 3232
 		},
 		"Sample_function_kind": {
 			"name": "Sample_function_kind",
 			"ancestors": ["String"],
 			"source_schema_id": "s2_base_model_support_0.7.0",
 			"item_names": ["actual", "minimum", "maximum", "mean", "mode", "median", "increase", "decrease", "change", "total"],
-			"uid": 1571
+			"uid": 3233
 		},
 		"Trend_kind": {
 			"name": "Trend_kind",
 			"ancestors": ["String"],
 			"source_schema_id": "s2_base_model_support_0.7.0",
 			"item_names": ["decrease", "increase", "change"],
-			"uid": 1572
+			"uid": 3234
 		},
 		"Pathable": {
 			"name": "Pathable",
 			"ancestors": ["Any"],
 			"source_schema_id": "s2_base_model_support_0.7.0",
 			"is_abstract": true,
-			"uid": 1573
+			"uid": 3235
 		},
 		"Locatable": {
 			"name": "Locatable",
@@ -1449,7 +1449,7 @@
 			},
 			"source_schema_id": "s2_base_model_support_0.7.0",
 			"is_abstract": true,
-			"uid": 1574
+			"uid": 3236
 		},
 		"Link": {
 			"name": "Link",
@@ -1472,7 +1472,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_model_support_0.7.0",
-			"uid": 1575
+			"uid": 3237
 		},
 		"Archetyped": {
 			"name": "Archetyped",
@@ -1497,7 +1497,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_model_support_0.7.0",
-			"uid": 1576
+			"uid": 3238
 		},
 		"Feeder_audit": {
 			"name": "Feeder_audit",
@@ -1545,7 +1545,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_model_support_0.7.0",
-			"uid": 1577
+			"uid": 3239
 		},
 		"Feeder_audit_details": {
 			"name": "Feeder_audit_details",
@@ -1592,14 +1592,14 @@
 				}
 			},
 			"source_schema_id": "s2_base_model_support_0.7.0",
-			"uid": 1578
+			"uid": 3240
 		},
 		"Data_value": {
 			"name": "Data_value",
 			"ancestors": ["Any"],
 			"source_schema_id": "s2_base_data_types_0.7.0",
 			"is_abstract": true,
-			"uid": 1492
+			"uid": 3154
 		},
 		"Boolean_value": {
 			"name": "Boolean_value",
@@ -1622,7 +1622,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1493
+			"uid": 3155
 		},
 		"Rwe_id_ref": {
 			"name": "Rwe_id_ref",
@@ -1647,7 +1647,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1494
+			"uid": 3156
 		},
 		"Text": {
 			"name": "Text",
@@ -1675,20 +1675,20 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1495
+			"uid": 3157
 		},
 		"Text_format_types": {
 			"name": "Text_format_types",
 			"ancestors": ["Integer"],
 			"source_schema_id": "s2_base_data_types_0.7.0",
 			"item_names": ["plain", "plain_no_newlines", "markdown"],
-			"uid": 1496
+			"uid": 3158
 		},
 		"Plain_text": {
 			"name": "Plain_text",
 			"ancestors": ["Text"],
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1497
+			"uid": 3159
 		},
 		"Coded_text": {
 			"name": "Coded_text",
@@ -1701,7 +1701,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1498
+			"uid": 3160
 		},
 		"Range": {
 			"name": "Range",
@@ -1723,7 +1723,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1499
+			"uid": 3161
 		},
 		"Reference_range": {
 			"name": "Reference_range",
@@ -1754,14 +1754,14 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1500
+			"uid": 3162
 		},
 		"Ordered_datum": {
 			"name": "Ordered_datum",
 			"ancestors": ["Data_value"],
 			"source_schema_id": "s2_base_data_types_0.7.0",
 			"is_abstract": true,
-			"uid": 1501
+			"uid": 3163
 		},
 		"Ordered_value": {
 			"name": "Ordered_value",
@@ -1779,7 +1779,7 @@
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
 			"is_abstract": true,
-			"uid": 1502
+			"uid": 3164
 		},
 		"Measurable": {
 			"name": "Measurable",
@@ -1792,7 +1792,7 @@
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
 			"is_abstract": true,
-			"uid": 1503
+			"uid": 3165
 		},
 		"Coded_ordinal": {
 			"name": "Coded_ordinal",
@@ -1810,7 +1810,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1504
+			"uid": 3166
 		},
 		"Money": {
 			"name": "Money",
@@ -1828,7 +1828,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1505
+			"uid": 3167
 		},
 		"Measured": {
 			"name": "Measured",
@@ -1874,14 +1874,14 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1506
+			"uid": 3168
 		},
 		"Comparison_operator": {
 			"name": "Comparison_operator",
 			"ancestors": ["String"],
 			"source_schema_id": "s2_base_data_types_0.7.0",
 			"item_names": ["<", "<=", ">", ">=", "="],
-			"uid": 1507
+			"uid": 3169
 		},
 		"Quantity": {
 			"name": "Quantity",
@@ -1894,12 +1894,12 @@
 				},
 				"units": {
 					"name": "units",
-					"type": "Terminology_term",
+					"type": "Coded_text",
 					"is_mandatory": true
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1508
+			"uid": 3170
 		},
 		"Count": {
 			"name": "Count",
@@ -1912,7 +1912,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1509
+			"uid": 3171
 		},
 		"Proportion": {
 			"name": "Proportion",
@@ -1935,7 +1935,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1510
+			"uid": 3172
 		},
 		"Ratio": {
 			"name": "Ratio",
@@ -1963,14 +1963,14 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1511
+			"uid": 3173
 		},
 		"Ratio_kind": {
 			"name": "Ratio_kind",
 			"ancestors": ["Integer"],
 			"source_schema_id": "s2_base_data_types_0.7.0",
 			"item_names": ["rational_fraction", "fraction", "ratio"],
-			"uid": 1512
+			"uid": 3174
 		},
 		"Temporal_value": {
 			"name": "Temporal_value",
@@ -1984,7 +1984,7 @@
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
 			"is_abstract": true,
-			"uid": 1513
+			"uid": 3175
 		},
 		"Date_value": {
 			"name": "Date_value",
@@ -1997,7 +1997,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1514
+			"uid": 3176
 		},
 		"Time_value": {
 			"name": "Time_value",
@@ -2010,7 +2010,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1515
+			"uid": 3177
 		},
 		"Date_time_value": {
 			"name": "Date_time_value",
@@ -2023,7 +2023,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1516
+			"uid": 3178
 		},
 		"Duration_value": {
 			"name": "Duration_value",
@@ -2036,7 +2036,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1517
+			"uid": 3179
 		},
 		"Uri_ref": {
 			"name": "Uri_ref",
@@ -2049,13 +2049,13 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1518
+			"uid": 3180
 		},
 		"Ehr_uri_ref": {
 			"name": "Ehr_uri_ref",
 			"ancestors": ["Uri_ref"],
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1519
+			"uid": 3181
 		},
 		"Timing": {
 			"name": "Timing",
@@ -2078,7 +2078,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1520
+			"uid": 3182
 		},
 		"Occurrence": {
 			"name": "Occurrence",
@@ -2102,7 +2102,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1521
+			"uid": 3183
 		},
 		"Occurrence_pattern": {
 			"name": "Occurrence_pattern",
@@ -2133,7 +2133,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1522
+			"uid": 3184
 		},
 		"Time_specifier": {
 			"name": "Time_specifier",
@@ -2147,7 +2147,7 @@
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
 			"is_abstract": true,
-			"uid": 1523
+			"uid": 3185
 		},
 		"Period_specifier": {
 			"name": "Period_specifier",
@@ -2160,7 +2160,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1524
+			"uid": 3186
 		},
 		"Day_specifier": {
 			"name": "Day_specifier",
@@ -2183,7 +2183,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1525
+			"uid": 3187
 		},
 		"Hour_specifier": {
 			"name": "Hour_specifier",
@@ -2196,7 +2196,7 @@
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
 			"is_abstract": true,
-			"uid": 1526
+			"uid": 3188
 		},
 		"Customary_time": {
 			"name": "Customary_time",
@@ -2213,7 +2213,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1527
+			"uid": 3189
 		},
 		"Clock_time": {
 			"name": "Clock_time",
@@ -2226,14 +2226,14 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1528
+			"uid": 3190
 		},
 		"Temporal_relation": {
 			"name": "Temporal_relation",
 			"ancestors": ["Integer"],
 			"source_schema_id": "s2_base_data_types_0.7.0",
 			"item_names": ["after", "before", "with"],
-			"uid": 1529
+			"uid": 3191
 		},
 		"Encapsulated": {
 			"name": "Encapsulated",
@@ -2251,7 +2251,7 @@
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
 			"is_abstract": true,
-			"uid": 1530
+			"uid": 3192
 		},
 		"Multimedia": {
 			"name": "Multimedia",
@@ -2292,7 +2292,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1531
+			"uid": 3193
 		},
 		"Parsable": {
 			"name": "Parsable",
@@ -2318,7 +2318,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_data_types_0.7.0",
-			"uid": 1532
+			"uid": 3194
 		},
 		"Terminology_term": {
 			"name": "Terminology_term",
@@ -2336,7 +2336,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_foundation_types_0.7.0",
-			"uid": 1556
+			"uid": 3218
 		},
 		"Authored_resource": {
 			"name": "Authored_resource",
@@ -2369,7 +2369,7 @@
 			},
 			"source_schema_id": "s2_base_resource_0.7.0",
 			"is_abstract": true,
-			"uid": 1588
+			"uid": 3250
 		},
 		"Translation_details": {
 			"name": "Translation_details",
@@ -2416,7 +2416,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_resource_0.7.0",
-			"uid": 1589
+			"uid": 3251
 		},
 		"Resource_description": {
 			"name": "Resource_description",
@@ -2516,7 +2516,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_resource_0.7.0",
-			"uid": 1590
+			"uid": 3252
 		},
 		"Resource_description_item": {
 			"name": "Resource_description_item",
@@ -2574,7 +2574,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_resource_0.7.0",
-			"uid": 1591
+			"uid": 3253
 		},
 		"Resource_annotations": {
 			"name": "Resource_annotations",
@@ -2606,7 +2606,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_resource_0.7.0",
-			"uid": 1592
+			"uid": 3254
 		},
 		"Audit_details": {
 			"name": "Audit_details",
@@ -2638,7 +2638,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_change_control_0.7.0",
-			"uid": 1485
+			"uid": 3147
 		},
 		"Attestation": {
 			"name": "Attestation",
@@ -2675,7 +2675,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_change_control_0.7.0",
-			"uid": 1486
+			"uid": 3148
 		},
 		"Contribution": {
 			"name": "Contribution",
@@ -2708,7 +2708,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_change_control_0.7.0",
-			"uid": 1487
+			"uid": 3149
 		},
 		"Versioned_object": {
 			"name": "Versioned_object",
@@ -2739,7 +2739,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_change_control_0.7.0",
-			"uid": 1488
+			"uid": 3150
 		},
 		"Version": {
 			"name": "Version",
@@ -2770,7 +2770,7 @@
 			},
 			"source_schema_id": "s2_base_change_control_0.7.0",
 			"is_abstract": true,
-			"uid": 1489
+			"uid": 3151
 		},
 		"Original_version": {
 			"name": "Original_version",
@@ -2826,7 +2826,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_change_control_0.7.0",
-			"uid": 1490
+			"uid": 3152
 		},
 		"Imported_version": {
 			"name": "Imported_version",
@@ -2848,7 +2848,7 @@
 				}
 			},
 			"source_schema_id": "s2_base_change_control_0.7.0",
-			"uid": 1491
+			"uid": 3153
 		}
 	},
 	"passed": true,
