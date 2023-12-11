@@ -383,7 +383,7 @@ class_definitions = <
 			>
 			["units"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"units">
-				type = <"Terminology_term">
+				type = <"Coded_text">
 				is_mandatory = <True>
 			>
 		>
