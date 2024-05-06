@@ -149,6 +149,7 @@ class_definitions = <
 
 	["Text"] = <
 		name = <"Text">
+		is_abstract = <True>
 		ancestors = <"Data_value">
 		properties = <
 			["text"] = (P_BMM_SINGLE_PROPERTY) <
