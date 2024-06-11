@@ -159,8 +159,10 @@ class_definitions = <
 		properties = <
 			["function"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"function">
-				type = <"String">
-				-- value_constraint = <"openEHR::participation_function">
+				type_ref = <
+					type = <"Terminology_term">
+					value_constraint = <"s2.ParticipationFunction.vset">
+				>
 				is_mandatory = <True>
 			>
 			["time"] = (P_BMM_GENERIC_PROPERTY) <
@@ -173,8 +175,10 @@ class_definitions = <
 			>
 			["mode"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"mode">
-				type = <"Terminology_term">
-				-- value_constraint = <"openEHR::participation_mode">
+				type_ref = <
+					type = <"Terminology_term">
+					value_constraint = <"s2.ParticipationMode.vset">
+				>
 			>
 			["performer"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"performer">
@@ -222,8 +226,10 @@ class_definitions = <
 		properties = <
 			["relationship"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"relationship">
-				type = <"Terminology_term">
-				-- value_constraint = <"openEHR::subject_relationship">
+				type_ref = <
+					type = <"Terminology_term">
+					value_constraint = <"s2.Relationship.vset">
+				>
 				is_mandatory = <True>
 			>
 		>

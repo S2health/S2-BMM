@@ -235,7 +235,10 @@ class_definitions = <
 		properties = <
 			["type"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"type">
-				type = <"Terminology_term">
+				type_ref = <
+					type = <"Terminology_term">
+					value_constraint = <"s2.ReferenceRange.vset">
+				>
 				is_mandatory = <True>
 			>
 			["range"] = (P_BMM_GENERIC_PROPERTY) <
@@ -358,7 +361,10 @@ class_definitions = <
 			>
 			["interpretation"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"interpretation">
-				type = <"Coded_text">
+				type_ref = <
+					type = <"Coded_text">
+					value_constraint = <"s2.MeasuredInterpretation.vset">
+				>
 			>
 			["interpretation_guide"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"interpretation_guide">
@@ -657,7 +663,10 @@ class_definitions = <
 		properties = <
 			["day"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"day">
-				type = <"Terminology_term">
+				type_ref = <
+					type = <"Terminology_term">
+					value_constraint = <"s2.DaySpecifier.vset">
+				>
 			>
 			["time_of_day"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"time_of_day">
@@ -688,7 +697,10 @@ class_definitions = <
 		properties = <
 			["reference_event"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"reference_event">
-				type = <"Terminology_term">
+				type_ref = <
+					type = <"Terminology_term">
+					value_constraint = <"s2.EventTiming.vset">
+				>
 				is_mandatory = <True>
 			>
 			["temporal_relation"] = (P_BMM_SINGLE_PROPERTY) <
@@ -727,8 +739,10 @@ class_definitions = <
 		properties = <
 			["language"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"language">
-				type = <"Terminology_code">
-				-- value_constraint = <"ISO::639-2">
+				type_ref = <
+					type = <"Terminology_code">
+					value_constraint = <"iso_639-2">
+				>
 				is_im_runtime = <True>
 			>
 			["uri"] = (P_BMM_SINGLE_PROPERTY) <
@@ -756,8 +770,10 @@ class_definitions = <
 			>
 			["media_type"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"media_type">
-				type = <"Terminology_code">
-				-- value_constraint = <"IANA::media_types">
+				type_ref = <
+					type = <"Terminology_code">
+					value_constraint = <"iana_media-types">
+				>
 				is_mandatory = <True>
 			>
 			["hash"] = (P_BMM_SINGLE_PROPERTY) <
@@ -795,8 +811,10 @@ class_definitions = <
 			>
 			["encoding"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"encoding">
-				type = <"Terminology_code">
-				-- value_constraint = <"IANA::charsets">
+				type_ref = <
+					type = <"Terminology_code">
+					value_constraint = <"iana_character-sets">
+				>
 				is_im_runtime = <True>
 			>
 		>
