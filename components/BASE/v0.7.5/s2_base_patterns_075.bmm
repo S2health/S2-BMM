@@ -83,9 +83,12 @@ class_definitions = <
 				name = <"original_value">
 				type = <"Data_value">
 			>
-			["null_flavour"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"null_flavour">
-				type = <"Terminology_term">
+			["null_flavor"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"null_flavor">
+				type_ref = <
+					type = <"Terminology_term">
+					value_constraint = <"s2.NullFlavor.vset">
+				>
 			>
 			["null_reason"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"null_reason">
