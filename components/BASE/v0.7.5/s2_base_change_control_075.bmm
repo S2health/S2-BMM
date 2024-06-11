@@ -47,7 +47,9 @@ includes = <
 packages = <
 	["org.s2.base.change_control"] = <
 		name = <"org.s2.base.change_control">
-		classes = <"Versioned_object", "Contribution", "Version", "Original_version", "Imported_version", "Audit_details", "Attestation">
+		classes = <"Versioned_object", "Contribution", "Version", "Original_version", "Imported_version", "Audit_details", "Attestation",
+			"Audit_change_type", "Attestation_reason", "Version_lifecycle_state"
+		>
 	>
 >
 
@@ -74,7 +76,7 @@ class_definitions = <
 			>
 			["change_type"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"change_type">
-				type = <"Terminology_term">
+				type = <"Audit_change_type">
 				is_mandatory = <True>
 			>
 			["description"] = (P_BMM_SINGLE_PROPERTY) <
@@ -111,7 +113,7 @@ class_definitions = <
 			>
 			["reason"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"reason">
-				type = <"String">
+				type = <"Attestation_reason">
 				is_mandatory = <True>
 			>
 			["is_pending"] = (P_BMM_SINGLE_PROPERTY) <
@@ -250,7 +252,7 @@ class_definitions = <
 			>
 			["lifecycle_state"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"lifecycle_state">
-				type = <"Terminology_term">
+				type = <"Version_lifecycle_state">
 				is_mandatory = <True>
 			>
 			["data"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
@@ -258,6 +260,12 @@ class_definitions = <
 				type = <"T">
 			>
 		>
+	>
+
+	["Version_lifecycle_state"] = (P_BMM_ENUMERATION_STRING) <
+		name = <"Version_lifecycle_state">
+		ancestors = <"String">
+		item_names = <"initial", "incomplete", "abandoned", "inactive", "deleted", "complete">
 	>
 
 	["Imported_version"] = <
@@ -279,6 +287,18 @@ class_definitions = <
 				is_im_infrastructure = <True>
 			>
 		>
+	>
+
+	["Audit_change_type"] = (P_BMM_ENUMERATION_STRING) <
+		name = <"Audit_change_type">
+		ancestors = <"String">
+		item_names = <"creation", "amendment", "modification", "synthesis", "deleted", "attestation", "restoration", "format conversion", "other">
+	>
+
+	["Attestation_reason"] = (P_BMM_ENUMERATION_STRING) <
+		name = <"Attestation_reason">
+		ancestors = <"String">
+		item_names = <"signed", "witnessed">
 	>
 
 >
