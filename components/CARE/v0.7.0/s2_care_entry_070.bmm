@@ -342,7 +342,10 @@ class_definitions = <
 			>
 			["certainty"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"certainty">
-				type = <"Terminology_code">
+				type_ref = <	
+					type = <"Terminology_term">
+					value_constraint = <"s2.Certainty.vset">
+				>
 			>
 		>
 	>
