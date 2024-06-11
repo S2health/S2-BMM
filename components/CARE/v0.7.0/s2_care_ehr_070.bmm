@@ -267,7 +267,10 @@ class_definitions = <
 			>
 			["setting"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"setting">
-				type = <"Terminology_term">
+				type_ref = <
+					type = <"Terminology_term">
+					value_constraint = <"s2.Setting.vset">
+				>
 				is_mandatory = <True>
 			>
 			["other_context"] = (P_BMM_CONTAINER_PROPERTY) <
