@@ -194,20 +194,26 @@ class_definitions = <
 			>
 			["language"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"language">
-				type = <"Terminology_code">
-				-- value_constraint = <"ISO::639-2">
+				type_ref = <
+					type = <"Terminology_code">
+					value_constraint = <"iso_639-2">
+				>
 				is_mandatory = <True>
 			>
 			["territory"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"territory">
-				type = <"Terminology_code">
-				-- value_constraint = <"ISO::3166">
+				type_ref = <
+					type = <"Terminology_code">
+					value_constraint = <"iso_3166-1-alpha2">
+				>
 				is_mandatory = <True>
 			>
 			["category"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"category">
-				type = <"Terminology_term">
-				-- value_constraint = <"openehr::Comp-category">
+				type_ref = <
+					type = <"Terminology_term">
+					value_constraint = <"s2.CompositionCategory.vset">
+				>
 				is_mandatory = <True>
 			>
 			["composer"] = (P_BMM_SINGLE_PROPERTY) <
