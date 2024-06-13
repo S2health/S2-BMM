@@ -59,7 +59,7 @@ packages = <
 			>
 			["archetyped"] = <
 				name = <"archetyped">
-				classes = <"Pathable", "Locatable", "Link", "Archetyped", "Feeder_audit", "Feeder_audit_details">
+				classes = <"Pathable", "Locatable", "Info_item", "Link", "Archetyped", "Feeder_audit", "Feeder_audit_details">
 			>
 
 		>
@@ -255,16 +255,6 @@ class_definitions = <
 				type = <"String">
 				is_mandatory = <True>
 			>
-			["code"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"code">
-				type = <"Terminology_term">
-				is_im_infrastructure = <True>
-			>
-			["original_code"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"original_code">
-				type = <"Terminology_term">
-				is_im_runtime = <True>
-			>
 			["archetype_details"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"archetype_details">
 				type = <"Archetyped">
@@ -273,6 +263,24 @@ class_definitions = <
 			["feeder_audit"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"feeder_audit">
 				type = <"Feeder_audit">
+				is_im_runtime = <True>
+			>
+		>
+	>
+
+	["Info_item"] = <
+		name = <"Info_item">
+		is_abstract = <True>
+		ancestors = <"Locatable">
+		properties = <
+			["code"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"code">
+				type = <"Terminology_term">
+				is_im_infrastructure = <True>
+			>
+			["original_code"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"original_code">
+				type = <"Terminology_term">
 				is_im_runtime = <True>
 			>
 			["links"] = (P_BMM_CONTAINER_PROPERTY) <

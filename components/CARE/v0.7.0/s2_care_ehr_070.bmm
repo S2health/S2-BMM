@@ -184,7 +184,7 @@ class_definitions = <
 
 	["Composition"] = <
 		name = <"Composition">
-		ancestors = <"Locatable">
+		ancestors = <"Info_item">
 		properties = <
 			["uid"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"uid">
@@ -364,7 +364,7 @@ class_definitions = <
 
 	["Content_item"] = <
 		name = <"Content_item">
-		ancestors = <"Locatable">
+		ancestors = <"Info_item">
 		is_abstract = <True>
 	>
 

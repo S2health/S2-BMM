@@ -73,7 +73,7 @@ class_definitions = <
 
 	["Node"] = <
 		name = <"Node">
-		ancestors = <"Locatable">
+		ancestors = <"Info_item">
 		properties = <
 			["value"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"value">
