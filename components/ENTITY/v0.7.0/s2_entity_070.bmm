@@ -434,7 +434,7 @@ class_definitions = <
 
 	["Independent_object"] = <
 		name = <"Independent_object">
-		ancestors = <"Independent_object">
+		ancestors = <"Object_extension_part">
 	>
 
 	["Space"] = <
