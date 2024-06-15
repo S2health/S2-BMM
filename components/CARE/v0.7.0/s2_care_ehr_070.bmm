@@ -216,8 +216,8 @@ class_definitions = <
 				>
 				is_mandatory = <True>
 			>
-			["composer"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"composer">
+			["author"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"author">
 				type = <"Party_proxy">
 				is_mandatory = <True>
 			>
