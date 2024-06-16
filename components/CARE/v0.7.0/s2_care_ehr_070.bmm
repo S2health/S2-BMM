@@ -271,7 +271,6 @@ class_definitions = <
 					type = <"Terminology_term">
 					value_constraint = <"s2.Setting.vset">
 				>
-				is_mandatory = <True>
 			>
 			["other_context"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"other_context">
