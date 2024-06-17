@@ -297,7 +297,7 @@ class_definitions = <
 		properties = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
-				type = <"Real">
+				type = <"Integer">
 				is_mandatory = <True>
 			>
 			["concept"] = (P_BMM_SINGLE_PROPERTY) <
