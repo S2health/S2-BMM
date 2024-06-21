@@ -237,7 +237,7 @@ class_definitions = <
 				name = <"type">
 				type_ref = <
 					type = <"Terminology_term">
-					value_constraint = <"s2.ReferenceRange.vset">
+					value_constraint = <"s2.ReferenceRange">
 				>
 				is_mandatory = <True>
 			>
@@ -363,7 +363,7 @@ class_definitions = <
 				name = <"interpretation">
 				type_ref = <
 					type = <"Coded_text">
-					value_constraint = <"s2.MeasuredInterpretation.vset">
+					value_constraint = <"s2.MeasuredInterpretation">
 				>
 			>
 			["interpretation_guide"] = (P_BMM_SINGLE_PROPERTY) <
@@ -665,7 +665,7 @@ class_definitions = <
 				name = <"day">
 				type_ref = <
 					type = <"Terminology_term">
-					value_constraint = <"s2.DaySpecifier.vset">
+					value_constraint = <"s2.DaySpecifier">
 				>
 			>
 			["time_of_day"] = (P_BMM_CONTAINER_PROPERTY) <
@@ -699,7 +699,7 @@ class_definitions = <
 				name = <"reference_event">
 				type_ref = <
 					type = <"Terminology_term">
-					value_constraint = <"s2.EventTiming.vset">
+					value_constraint = <"s2.EventTiming">
 				>
 				is_mandatory = <True>
 			>

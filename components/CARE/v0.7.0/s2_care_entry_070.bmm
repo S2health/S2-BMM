@@ -344,7 +344,7 @@ class_definitions = <
 				name = <"certainty">
 				type_ref = <	
 					type = <"Terminology_term">
-					value_constraint = <"s2.Certainty.vset">
+					value_constraint = <"s2.Certainty">
 				>
 			>
 		>

@@ -87,7 +87,7 @@ class_definitions = <
 				name = <"null_flavor">
 				type_ref = <
 					type = <"Terminology_term">
-					value_constraint = <"s2.NullFlavor.vset">
+					value_constraint = <"s2.NullFlavor">
 				>
 			>
 			["null_reason"] = (P_BMM_SINGLE_PROPERTY) <
@@ -164,7 +164,7 @@ class_definitions = <
 				name = <"function">
 				type_ref = <
 					type = <"Terminology_term">
-					value_constraint = <"s2.ParticipationFunction.vset">
+					value_constraint = <"s2.ParticipationFunction">
 				>
 				is_mandatory = <True>
 			>
@@ -180,7 +180,7 @@ class_definitions = <
 				name = <"mode">
 				type_ref = <
 					type = <"Terminology_term">
-					value_constraint = <"s2.ParticipationMode.vset">
+					value_constraint = <"s2.ParticipationMode">
 				>
 			>
 			["performer"] = (P_BMM_SINGLE_PROPERTY) <
@@ -231,7 +231,7 @@ class_definitions = <
 				name = <"relationship">
 				type_ref = <
 					type = <"Terminology_term">
-					value_constraint = <"s2.Relationship.vset">
+					value_constraint = <"s2.Relationship">
 				>
 				is_mandatory = <True>
 			>
