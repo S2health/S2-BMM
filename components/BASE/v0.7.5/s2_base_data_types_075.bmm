@@ -314,7 +314,7 @@ class_definitions = <
 		properties = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
-				type = <"Real">
+				type = <"Decimal">
 				is_mandatory = <True>
 			>
 			["currency"] = (P_BMM_SINGLE_PROPERTY) <
@@ -385,7 +385,7 @@ class_definitions = <
 		properties = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
-				type = <"Real">
+				type = <"Decimal">
 				is_mandatory = <True>
 			>
 			["units"] = (P_BMM_SINGLE_PROPERTY) <
@@ -414,7 +414,7 @@ class_definitions = <
 		properties = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
-				type = <"Real">
+				type = <"Decimal">
 				is_mandatory = <True>
 			>
 			["numerator"] = (P_BMM_SINGLE_PROPERTY) <
@@ -436,17 +436,17 @@ class_definitions = <
 		properties = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
-				type = <"Real">
+				type = <"Decimal">
 				is_mandatory = <True>
 			>
 			["numerator"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"numerator">
-				type = <"Real">
+				type = <"Decimal">
 				is_mandatory = <True>
 			>
 			["denominator"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"denominator">
-				type = <"Real">
+				type = <"Decimal">
 				is_mandatory = <True>
 			>
 			["type"] = (P_BMM_SINGLE_PROPERTY) <
