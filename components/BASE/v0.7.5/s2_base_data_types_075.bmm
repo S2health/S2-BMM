@@ -237,7 +237,7 @@ class_definitions = <
 				name = <"type">
 				type_ref = <
 					type = <"Terminology_term">
-					value_constraint = <"s2.ReferenceRange">
+					value_constraint = <"s2.ReferenceRangeMeaning">
 				>
 				is_mandatory = <True>
 			>
@@ -754,7 +754,7 @@ class_definitions = <
 				name = <"language">
 				type_ref = <
 					type = <"Terminology_code">
-					value_constraint = <"iso_639-2">
+					value_constraint = <"iso_639-1">
 				>
 				is_im_runtime = <True>
 			>
