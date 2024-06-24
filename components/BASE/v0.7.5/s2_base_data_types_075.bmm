@@ -65,8 +65,8 @@ packages = <
 			>
 			["timing"] = <
 				name = <"timing">
-				classes = <"Timing", "Occurrence", "Occurrence_pattern", "Time_specifier",
-					  "Period_specifier", "Day_specifier", "Hour_specifier", 
+				classes = <"Timing", "Occurrence", "Occurrence_pattern", "Occurrence_times_specifier",
+					  "Period_specifier", "Day_hour_specifier", "Hour_specifier", 
 					  "Customary_time", "Clock_time", "Temporal_relation">
 			>
 			["encapsulated"] = <
@@ -237,7 +237,7 @@ class_definitions = <
 				name = <"type">
 				type_ref = <
 					type = <"Terminology_term">
-					value_constraint = <"s2.ReferenceRange.vset">
+					value_constraint = <"s2.ReferenceRangeMeaning">
 				>
 				is_mandatory = <True>
 			>
@@ -314,7 +314,7 @@ class_definitions = <
 		properties = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
-				type = <"Real">
+				type = <"Decimal">
 				is_mandatory = <True>
 			>
 			["currency"] = (P_BMM_SINGLE_PROPERTY) <
@@ -363,7 +363,7 @@ class_definitions = <
 				name = <"interpretation">
 				type_ref = <
 					type = <"Coded_text">
-					value_constraint = <"s2.MeasuredInterpretation.vset">
+					value_constraint = <"s2.MeasuredInterpretation">
 				>
 			>
 			["interpretation_guide"] = (P_BMM_SINGLE_PROPERTY) <
@@ -385,7 +385,7 @@ class_definitions = <
 		properties = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
-				type = <"Real">
+				type = <"Decimal">
 				is_mandatory = <True>
 			>
 			["units"] = (P_BMM_SINGLE_PROPERTY) <
@@ -414,7 +414,7 @@ class_definitions = <
 		properties = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
-				type = <"Real">
+				type = <"Decimal">
 				is_mandatory = <True>
 			>
 			["numerator"] = (P_BMM_SINGLE_PROPERTY) <
@@ -436,17 +436,17 @@ class_definitions = <
 		properties = <
 			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"magnitude">
-				type = <"Real">
+				type = <"Decimal">
 				is_mandatory = <True>
 			>
 			["numerator"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"numerator">
-				type = <"Real">
+				type = <"Decimal">
 				is_mandatory = <True>
 			>
 			["denominator"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"denominator">
-				type = <"Real">
+				type = <"Decimal">
 				is_mandatory = <True>
 			>
 			["type"] = (P_BMM_SINGLE_PROPERTY) <
@@ -582,6 +582,14 @@ class_definitions = <
 				name = <"pattern">
 				type = <"Occurrence_pattern">
 			>
+			["event_duration"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"event_duration">
+				type = <"Duration">
+			>
+			["duration_upper"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"duration_upper">
+				type = <"Duration">
+			>
 		>
 	>
 
@@ -594,8 +602,8 @@ class_definitions = <
 				type = <"Date">
 				is_mandatory = <True>
 			>
-			["time_of_day"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"time_of_day">
+			["times_of_day"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"times_of_day">
 				type_def = <
 					container_type = <"List">
 					type = <"Hour_specifier">
@@ -609,16 +617,16 @@ class_definitions = <
 		name = <"Occurrence_pattern">
 		ancestors = <"Any">
 		properties = <
-			["times"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"times">
+			["occurrence_times"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"occurrence_times">
 				type_def = <
 					container_type = <"List">
-					type = <"Time_specifier">
+					type = <"Occurrence_times_specifier">
 				>
 				cardinality = <|>=0|>
 			>
-			["total_count"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"total_count">
+			["total_event_count"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"total_event_count">
 				type = <"Integer">
 			>
 			["bounding_period"] = (P_BMM_GENERIC_PROPERTY) <
@@ -632,44 +640,51 @@ class_definitions = <
 		>
 	>
  
- 	["Time_specifier"] = <
-		name = <"Time_specifier">
+ 	["Occurrence_times_specifier"] = <
+		name = <"Occurrence_times_specifier">
 		ancestors = <"Any">
 		is_abstract = <True>
 		properties = <
 			["event_count"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"event_count">
 				type = <"Integer">
-				is_mandatory = <True>
+			>
+			["event_count_upper"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"event_count_upper">
+				type = <"Integer">
 			>
 		>
 	>
 					  
 	["Period_specifier"] = <
 		name = <"Period_specifier">
-		ancestors = <"Time_specifier">
+		ancestors = <"Occurrence_times_specifier">
 		properties = <
 			["period"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"period">
 				type = <"Duration">
 				is_mandatory = <True>
 			>
+			["period_upper"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"period_upper">
+				type = <"Duration">
+			>
 		>
 	>
 
- 	["Day_specifier"] = <
-		name = <"Day_specifier">
-		ancestors = <"Time_specifier">
+ 	["Day_hour_specifier"] = <
+		name = <"Day_hour_specifier">
+		ancestors = <"Occurrence_times_specifier">
 		properties = <
 			["day"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"day">
 				type_ref = <
 					type = <"Terminology_term">
-					value_constraint = <"s2.DaySpecifier.vset">
+					value_constraint = <"s2.DaySpecifier">
 				>
 			>
-			["time_of_day"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"time_of_day">
+			["times_of_day"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"times_of_day">
 				type_def = <
 					container_type = <"List">
 					type = <"Hour_specifier">
@@ -683,12 +698,6 @@ class_definitions = <
 		name = <"Hour_specifier">
 		ancestors = <"Any">
 		is_abstract = <True>
-		properties = <
-			["duration"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"duration">
-				type = <"Duration">
-			>
-		>
 	>
 
 	["Customary_time"] = <
@@ -699,9 +708,13 @@ class_definitions = <
 				name = <"reference_event">
 				type_ref = <
 					type = <"Terminology_term">
-					value_constraint = <"s2.EventTiming.vset">
+					value_constraint = <"s2.EventTiming">
 				>
 				is_mandatory = <True>
+			>
+			["offset"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"offset">
+				type = <"Duration">
 			>
 			["temporal_relation"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"temporal_relation">
@@ -741,7 +754,7 @@ class_definitions = <
 				name = <"language">
 				type_ref = <
 					type = <"Terminology_code">
-					value_constraint = <"iso_639-2">
+					value_constraint = <"iso_639-1">
 				>
 				is_im_runtime = <True>
 			>

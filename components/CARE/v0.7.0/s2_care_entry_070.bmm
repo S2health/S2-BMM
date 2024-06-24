@@ -94,7 +94,7 @@ class_definitions = <
 				name = <"language">
 				type_ref = <	
 					type = <"Terminology_code">
-					value_constraint = <"iso_639-2">
+					value_constraint = <"iso_639-1">
 				>
 				is_mandatory = <True>
 				is_im_infrastructure = <True>
@@ -338,13 +338,13 @@ class_definitions = <
 			>
 			["probability"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"probability">
-				type = <"Real">
+				type = <"Decimal">
 			>
 			["certainty"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"certainty">
 				type_ref = <	
 					type = <"Terminology_term">
-					value_constraint = <"s2.Certainty.vset">
+					value_constraint = <"s2.Certainty">
 				>
 			>
 		>

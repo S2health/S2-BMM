@@ -196,7 +196,7 @@ class_definitions = <
 				name = <"language">
 				type_ref = <
 					type = <"Terminology_code">
-					value_constraint = <"iso_639-2">
+					value_constraint = <"iso_639-1">
 				>
 				is_mandatory = <True>
 			>
@@ -212,7 +212,7 @@ class_definitions = <
 				name = <"category">
 				type_ref = <
 					type = <"Terminology_term">
-					value_constraint = <"s2.CompositionCategory.vset">
+					value_constraint = <"s2.CompositionCategory">
 				>
 				is_mandatory = <True>
 			>
@@ -269,7 +269,7 @@ class_definitions = <
 				name = <"setting">
 				type_ref = <
 					type = <"Terminology_term">
-					value_constraint = <"s2.Setting.vset">
+					value_constraint = <"s2.Setting">
 				>
 			>
 			["other_context"] = (P_BMM_CONTAINER_PROPERTY) <

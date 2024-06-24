@@ -544,7 +544,7 @@ class_definitions = <
 		properties = <
 			["amount"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"amount">
-				type = <"Real">
+				type = <"Decimal">
 			>
 		>
 	>

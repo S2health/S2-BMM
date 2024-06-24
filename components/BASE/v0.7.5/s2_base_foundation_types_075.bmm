@@ -39,7 +39,7 @@ packages = <
 		packages = <
 			["primitive_types"] = <
 				name = <"primitive_types">
-				classes = <"Any", "Comparable", "Numeric", "Byte", "Boolean", "Integer", "Real", "String", "Uri">
+				classes = <"Any", "Comparable", "Numeric", "Byte", "Boolean", "Integer", "Decimal", "Real", "String", "Uri">
 			>
 			["terminology"] = <
 				name = <"terminology">
@@ -92,6 +92,10 @@ primitive_types = <
 	>
 	["Integer"] = <
 		name = <"Integer">
+		ancestors = <"Numeric">
+	>
+	["Decimal"] = <
+		name = <"Decimal">
 		ancestors = <"Numeric">
 	>
 	["Real"] = <
