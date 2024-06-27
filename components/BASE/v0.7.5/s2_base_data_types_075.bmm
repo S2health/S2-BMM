@@ -586,8 +586,8 @@ class_definitions = <
 				name = <"event_duration">
 				type = <"Duration">
 			>
-			["duration_upper"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"duration_upper">
+			["event_duration_upper"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"event_duration_upper">
 				type = <"Duration">
 			>
 		>
@@ -682,6 +682,10 @@ class_definitions = <
 					type = <"Terminology_term">
 					value_constraint = <"s2.DaySpecifier">
 				>
+			>
+			["day_period"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"day_period">
+				type = <"Integer">
 			>
 			["times_of_day"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"times_of_day">
