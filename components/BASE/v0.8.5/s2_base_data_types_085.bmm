@@ -498,9 +498,9 @@ class_definitions = <
 				name = <"value">
 				type = <"V">
 			>
-			["stratification_range"] = (P_BMM_SINGLE_PROPERTY) <
+			["stratification_range"] = (P_BMM_GENERIC_PROPERTY) <
 				name = <"stratification_range">
-				type_ref = (P_BMM_GENERIC_TYPE) <
+				type_def = <
 					root_type = <"Interval">
 					generic_parameters = <"Decimal">
 				>
