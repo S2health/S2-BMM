@@ -54,17 +54,36 @@ packages = <
 				name = <"entity">
 				classes = <"Entity", "Entity_relationship">
 			>
+			["entity_kind"] = <
+				name = <"entity_kind">
+				classes = <"Entity_kind">
+				packages = <
+					["continuant"] = <
+						name = <"coninuant">
+						classes = <"Physical_entity_kind", "Materially_dependent_entity_kind", "Material_entity_kind", 
+							"Object_extension_part", "Object_aggregate", "Independent_object", "Space", "Artifact_kind", "Substance_kind", 
+							"Biological_entity_kind", "Facility_kind", "Material_location", "Spatial_region", "Fiat_point", "Fiat_line", 
+							"Fiat_surface", "Geographical_site">
+					>
+					["occurrent"] = <
+						name = <"occurrent">
+						classes = <"Occurrent_kind", "Process_kind">
+					>
+				>
+			>
 			["physical_entity"] = <
 				name = <"physical_entity">
-				classes = <"Physical_entity", "Materially_dependent_entity", "Material_entity", "Object_extension_part", "Object_aggregate", 
-					"Independent_object", "Space", "Artefact", "Substance", "Biological_entity", "Facility", "Material_location", 
-					"Spatial_region", "Fiat_point", "Fiat_line", "Fiat_surface", "Geographical_site">
+				classes = <"Physical_entity", "Material_entity">
 			>
 			["social_entity"] = <
 				name = <"social_entity">
 				classes = <"Social_entity", "Party", "Persona", "Person", "Organization", "Org_unit", "Org_entity", 
 					"Agent", "Aggregate_agent", "Individual_agent", "Automaton", "Team", "Party_relationship", "Capability", 
-					"Accountability", "Contact", "Address", "Party_identity">
+					"Accountability", "Id_use", "Address_use", "Location_address_use", "Comms_address_use", "Address", "Party_identity">
+			>
+			["occurrent"] = <
+				name = <"occurrent">
+				classes = <"Process">
 			>
 			["resource"] = <
 				name = <"resource">
@@ -89,8 +108,8 @@ class_definitions = <
 		ancestors = <"Locatable">
 		is_abstract = <True>
 		properties = <
-			["description"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"description">
+			["other_details"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"other_details">
 				type_def = <
 					container_type = <"List">
 					type = <"Node">
@@ -152,9 +171,16 @@ class_definitions = <
 		is_abstract = <True>
 		ancestors = <"Social_entity">
 		properties = <
+			["identifiers"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"identifiers">
+				type_def = <
+					container_type = <"List">
+					type = <"Id_use">
+				>
+			>
 			["legal_status"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"legal_status">
-				type = <"String">
+				type = <"Terminology_term">
 			>
 			["identities"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"identities">
@@ -165,13 +191,19 @@ class_definitions = <
 				is_mandatory = <True>
 				cardinality = <|>=1|>
 			>
-			["contacts"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"contacts">
+			["location_addresses"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"location_addresses">
 				type_def = <
-					container_type = <"Set">
-					type = <"Contact">
+					container_type = <"List">
+					type = <"Location_address_use">
 				>
-				cardinality = <|>=1|>
+			>
+			["comms_addresses"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"comms_addresses">
+				type_def = <
+					container_type = <"List">
+					type = <"Comms_address_use">
+				>
 			>
 			["accountability_types"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"accountability_types">
@@ -187,6 +219,18 @@ class_definitions = <
 		name = <"Party_identity">
 		ancestors = <"Locatable">
 		properties = <
+			["simple_name"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"simple_name">
+				type = <"String">
+			>
+			["identity_type"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"identity_type">
+				type = <"Terminology_term">
+			>
+			["use"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"use">
+				type = <"Terminology_term">
+			>
 			["description"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"description">
 				type_def = <
@@ -198,24 +242,56 @@ class_definitions = <
 		>
 	>
 	
-	["Contact"] = <
-		name = <"Contact">
+	["Address_use"] = <
+		name = <"Address_use">
 		ancestors = <"Locatable">
 		properties = <
-			["time_validity"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"time_validity">
-				type_def = <
-					root_type = <"Interval">
-					generic_parameters = <"Date">
-				>
-				is_im_runtime = <True>
+			["address_type"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"address_type">
+				type = <"Terminology_term">
 			>
-			["addresses"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"addresses">
+			["purposes"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"purposes">
 				type_def = <
 					container_type = <"List">
-					type = <"Address">
+					type = <"Terminology_term">
 				>
+			>
+			["time_validity"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"time_validity">
+				type = <"Timing">
+				is_im_runtime = <True>
+			>
+		>
+	>
+	
+	["Location_address_use"] = <
+		name = <"Location_address_use">
+		ancestors = <"Address_use">
+		properties = <
+			["description"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"description">
+				type_def = <
+					container_type = <"List">
+					type = <"Node">
+				>
+			>
+		>
+	>
+	
+	["Comms_address_use"] = <
+		name = <"Comms_address_use">
+		ancestors = <"Address_use">
+		properties = <
+			["address"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"address">
+				type = <"String">
+				is_mandatory = <True>
+			>
+			["address_platform"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"address_platform">
+				type = <"Terminology_term">
+				is_im_runtime = <True>
 			>
 		>
 	>
@@ -334,13 +410,17 @@ class_definitions = <
 		name = <"Capability">
 		ancestors = <"Locatable">
 		properties = <
+			["description"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"description">
+				type = <"Text">
+				is_mandatory = <True>
+			>
 			["credentials"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"credentials">
 				type_def = <
 					container_type = <"List">
 					type = <"Node">
 				>
-				cardinality = <|>=1|>
 			>
 			["time_validity"] = (P_BMM_GENERIC_PROPERTY) <
 				name = <"time_validity">
@@ -379,47 +459,79 @@ class_definitions = <
 		>
 	>
 
+	["Id_use"] = <
+		name = <"Id_use">
+		ancestors = <"Locatable">
+		properties = <
+			["original_id"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"original_id">
+				type = <"Rwe_id_ref">
+			>
+			["description"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"description">
+				type_def = <
+					container_type = <"List">
+					type = <"Node">
+				>
+			>
+		>
+	>
+
 	------------------------------------------------------
-	-- Physical_entity
+	-- Entity kind
 	------------------------------------------------------
 
-	["Physical_entity"] = <
-		name = <"Physical_entity">
-		ancestors = <"Entity">
+	["Entity_kind"] = <
+		name = <"Entity_kind">
+		ancestors = <"Locatable">
+		is_abstract = <True>
+		properties = <
+			["items"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"items">
+				type_def = <
+					container_type = <"List">
+					type = <"Node">
+				>
+			>
+		>
+	>
+	["Physical_entity_kind"] = <
+		name = <"Physical_entity_kind">
+		ancestors = <"Entity_kind">
 		is_abstract = <True>
 	>
 
-	["Materially_dependent_entity"] = <
-		name = <"Materially_dependent_entity">
-		ancestors = <"Physical_entity">
+	["Materially_dependent_entity_kind"] = <
+		name = <"Materially_dependent_entity_kind">
+		ancestors = <"Physical_entity_kind">
 		is_abstract = <True>
 	>
 
 	["Spatial_region"] = <
 		name = <"Spatial_region">
-		ancestors = <"Physical_entity">
+		ancestors = <"Physical_entity_kind">
 		is_abstract = <True>
 	>
 
-	["Material_entity"] = <
-		name = <"Material_entity">
-		ancestors = <"Materially_dependent_entity">
+	["Material_entity_kind"] = <
+		name = <"Material_entity_kind">
+		ancestors = <"Materially_dependent_entity_kind">
 		is_abstract = <True>
 	>
 
 	["Object_aggregate"] = <
 		name = <"Object_aggregate">
-		ancestors = <"Material_entity">
+		ancestors = <"Material_entity_kind">
 	>
 
-	["Facility"] = <
-		name = <"Facility">
+	["Facility_kind"] = <
+		name = <"Facility_kind">
 		ancestors = <"Object_aggregate">
 	>
 
 	["Object_extension_part"] = <
 		name = <"Object_extension_part">
-		ancestors = <"Material_entity">
+		ancestors = <"Material_entity_kind">
 		is_abstract = <True>
 		properties = <
 			["parts"] = (P_BMM_CONTAINER_PROPERTY) <
@@ -451,24 +563,24 @@ class_definitions = <
 		>
 	>
 
-	["Artefact"] = <
-		name = <"Artefact">
+	["Artifact_kind"] = <
+		name = <"Artifact_kind">
 		ancestors = <"Independent_object">
 	>
 
-	["Substance"] = <
-		name = <"Substance">
+	["Substance_kind"] = <
+		name = <"Substance_kind">
 		ancestors = <"Independent_object">
 	>
 
-	["Biological_entity"] = <
-		name = <"Biological_entity">
+	["Biological_entity_kind"] = <
+		name = <"Biological_entity_kind">
 		ancestors = <"Independent_object">
 	>
 
 	["Material_location"] = <
 		name = <"Material_location">
-		ancestors = <"Materially_dependent_entity">
+		ancestors = <"Materially_dependent_entity_kind">
 		is_abstract = <True>
 	>
 
@@ -505,6 +617,115 @@ class_definitions = <
 	>
 
 	------------------------------------------------------
+	-- Physical entity
+	------------------------------------------------------
+
+	["Physical_entity"] = <
+		name = <"Physical_entity">
+		ancestors = <"Entity">
+		generic_parameter_defs = <
+			["K"] = <
+				name = <"K">
+				conforms_to_type = <"Physical_entity_kind">
+			>
+		>
+		properties = <
+			["kind"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
+				name = <"kind">
+				type = <"K">
+			>
+			["kind_descriptor_id"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"kind_descriptor_id">
+				type = <"String">
+			>
+		>
+	>
+
+	["Material_entity"] = <
+		name = <"Material_entity">
+		ancestors = <"Physical_entity">
+		generic_parameter_defs = <
+			["K"] = <
+				name = <"K">
+				conforms_to_type = <"Material_entity_kind">
+			>
+		>
+		properties = <
+			["identifiers"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"identifiers">
+				type_def = <
+					container_type = <"List">
+					type = <"Id_use">
+				>
+			>
+			["individual_attributes"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"individual_attributes">
+				type_def = <
+					container_type = <"List">
+					type = <"Node">
+				>
+			>
+			["lot_information"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"lot_information">
+				type_def = <
+					container_type = <"List">
+					type = <"Node">
+				>
+			>
+			["use_details"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"use_details">
+				type_def = <
+					container_type = <"List">
+					type = <"Node">
+				>
+			>
+		>
+	>
+
+	------------------------------------------------------
+	-- Entity_kind.occurrent
+	------------------------------------------------------
+
+	["Occurrent_kind"] = <
+		name = <"Occurrent_kind">
+		ancestors = <"Entity_kind">
+		is_abstract = <True>
+	>
+
+	["Process_kind"] = <
+		name = <"Process_kind">
+		ancestors = <"Entity_kind">
+		is_abstract = <True>
+	>
+
+	------------------------------------------------------
+	-- Entity.occurrent
+	------------------------------------------------------
+
+	["Process"] = <
+		name = <"Process">
+		ancestors = <"Entity">
+		properties = <
+			["start_time"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"start_time">
+				type = <"Date_time">
+			>
+			["end_time"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"end_time">
+				type = <"Date_time">
+			>
+			["participations"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"participations">
+				type_def = <
+					container_type = <"List">
+					type = <"Participation">
+				>
+				cardinality = <|>=1|>
+			>
+		>
+	>
+
+	------------------------------------------------------
 	-- resource
 	------------------------------------------------------
 
@@ -522,13 +743,19 @@ class_definitions = <
 				name = <"duration">
 				type = <"Duration">
 			>
-			["cost_data"] = (P_BMM_SINGLE_PROPERTY) <
+			["cost_data"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"cost_data">
-				type = <"Node">
+				type_def = <
+					container_type = <"List">
+					type = <"Node">
+				>
 			>
-			["description"] = (P_BMM_SINGLE_PROPERTY) <
+			["description"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"description">
-				type = <"Node">
+				type_def = <
+					container_type = <"List">
+					type = <"Node">
+				>
 			>
 		>
 	>
