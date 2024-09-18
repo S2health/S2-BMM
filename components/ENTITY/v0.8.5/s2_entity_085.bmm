@@ -52,11 +52,11 @@ packages = <
 		packages = <
 			["entity"] = <
 				name = <"entity">
-				classes = <"Entity", "Entity_relationship">
+				classes = <"Entity", "Entity_relationship", "Entity_relationship_group">
 			>
 			["entity_kind"] = <
 				name = <"entity_kind">
-				classes = <"Entity_kind">
+				classes = <"Entity_kind", "Entity_kind_relationship", "Entity_kind_relationship_group">
 				packages = <
 					["continuant"] = <
 						name = <"coninuant">
@@ -78,12 +78,12 @@ packages = <
 			["social_entity"] = <
 				name = <"social_entity">
 				classes = <"Social_entity", "Party", "Persona", "Person", "Organization", "Org_unit", "Org_entity", 
-					"Agent", "Aggregate_agent", "Individual_agent", "Automaton", "Team", "Party_relationship", "Capability", 
+					"Agent", "Aggregate_agent", "Individual_agent", "Automaton", "Team", "Party_relationship", "Capability", "Language_capability",
 					"Accountability", "Id_use", "Address_use", "Location_address_use", "Comms_address_use", "Address", "Party_identity">
 			>
 			["occurrent"] = <
 				name = <"occurrent">
-				classes = <"Process">
+				classes = <"Process", "Care_process">
 			>
 			["resource"] = <
 				name = <"resource">
@@ -108,6 +108,18 @@ class_definitions = <
 		ancestors = <"Locatable">
 		is_abstract = <True>
 		properties = <
+			["domain_type"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"domain_type">
+				type = <"Terminology_term">
+				is_mandatory = <True>
+			>
+			["relationships"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"relationships">
+				type_def = <
+					container_type = <"List">
+					type = <"Entity_relationship_group">
+				>
+			>
 			["other_details"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"other_details">
 				type_def = <
@@ -123,8 +135,8 @@ class_definitions = <
 		ancestors = <"Locatable">
 		is_abstract = <True>
 		properties = <
-			["type"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"type">
+			["domain_type"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"domain_type">
 				type = <"Terminology_term">
 				is_mandatory = <True>
 			>
@@ -156,6 +168,26 @@ class_definitions = <
 		>
 	>
 
+	["Entity_relationship_group"] = <
+		name = <"Entity_relationship_group">
+		ancestors = <"Locatable">
+		is_abstract = <True>
+		properties = <
+			["domain_type"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"domain_type">
+				type = <"Terminology_term">
+				is_mandatory = <True>
+			>
+			["members"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"members">
+				type_def = <
+					container_type = <"List">
+					type = <"Object_ref">
+				>
+			>
+		>
+	>
+
 	------------------------------------------------------
 	-- social_entity
 	------------------------------------------------------
@@ -177,10 +209,6 @@ class_definitions = <
 					container_type = <"List">
 					type = <"Id_use">
 				>
-			>
-			["legal_status"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"legal_status">
-				type = <"Terminology_term">
 			>
 			["identities"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"identities">
@@ -330,6 +358,25 @@ class_definitions = <
 					container_type = <"List">
 					type = <"Terminology_term">
 				>
+			>
+		>
+	>
+
+	["Language_capability"] = <
+		name = <"Language_capability">
+		ancestors = <"Locatable">
+		properties = <
+			["language"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"language">
+				type_ref = <	
+					type = <"Terminology_code">
+					value_constraint = <"iso_639-1">
+				>
+				is_mandatory = <True>
+			>
+			["preferred"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"preferred">
+				type = <"Boolean">
 			>
 		>
 	>
@@ -495,6 +542,48 @@ class_definitions = <
 			>
 		>
 	>
+
+	["Entity_kind_relationship"] = <
+		name = <"Entity_kind_relationship">
+		ancestors = <"Locatable">
+		properties = <
+			["domain_type"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"domain_type">
+				type = <"Terminology_term">
+				is_mandatory = <True>
+			>
+			["source"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"source">
+				type = <"Object_ref">
+				is_mandatory = <True>
+			>
+			["target"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"target">
+				type = <"Object_ref">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Entity_kind_relationship_group"] = <
+		name = <"Entity_kind_relationship_group">
+		ancestors = <"Locatable">
+		properties = <
+			["type"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"type">
+				type = <"Terminology_term">
+				is_mandatory = <True>
+			>
+			["members"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"members">
+				type_def = <
+					container_type = <"List">
+					type = <"Object_ref">
+				>
+			>
+		>
+	>
+
 	["Physical_entity_kind"] = <
 		name = <"Physical_entity_kind">
 		ancestors = <"Entity_kind">
@@ -724,6 +813,17 @@ class_definitions = <
 					type = <"Participation">
 				>
 				cardinality = <|>=1|>
+			>
+		>
+	>
+
+	["Care_process"] = <
+		name = <"Care_process">
+		ancestors = <"Process">
+		properties = <
+			["subject"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"subject">
+				type = <"Entity_ref_node">
 			>
 		>
 	>

@@ -65,12 +65,8 @@ class_definitions = <
 
 	["Billing_encounter"] = <
 		name = <"Billing_encounter">
-		ancestors = <"Process">
+		ancestors = <"Care_process">
 		properties = <
-			["subject"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"subject">
-				type = <"Entity_ref_node">
-			>
 			["identifier"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"identifier">
 				type = <"Rwe_id_ref">
@@ -103,7 +99,7 @@ class_definitions = <
 
 	["Service_event"] = <
 		name = <"Service_event">
-		ancestors = <"Process">
+		ancestors = <"Care_process">
 		properties = <
 			["lifecycle_state"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"lifecycle_state">
