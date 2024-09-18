@@ -105,6 +105,13 @@ class_definitions = <
 					type = <"Node">
 				>
 			>
+		>
+	>
+
+	["Info_node"] = <
+		name = <"Info_node">
+		ancestors = <"Node">
+		properties = <
 			["original_value"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"original_value">
 				type = <"Data_value">
@@ -112,15 +119,15 @@ class_definitions = <
 		>
 	>
 
-	["Info_node"] = <
-		name = <"Info_node">
-		ancestors = <"Node">
-	>
-
 	["Entity_ref_node"] = <
 		name = <"Entity_ref_node">
 		ancestors = <"Node">
 		properties = <
+			["is_self"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"is_self">
+				type = <"Boolean">
+				is_mandatory = <True>
+			>
 			["entity_ref"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"entity_ref">
 				type = <"Object_ref">
