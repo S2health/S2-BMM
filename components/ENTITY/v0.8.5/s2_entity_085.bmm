@@ -356,7 +356,7 @@ class_definitions = <
 				name = <"languages">
 				type_def = <
 					container_type = <"List">
-					type = <"Terminology_term">
+					type = <"Language_capability">
 				>
 			>
 		>
