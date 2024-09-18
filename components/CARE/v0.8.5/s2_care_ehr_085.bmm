@@ -272,6 +272,10 @@ class_definitions = <
 					value_constraint = <"s2.Setting">
 				>
 			>
+			["encounter"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"encounter">
+				type = <"Rwe_id_ref">
+			>
 			["other_context"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"other_context">
 				type_def = <
