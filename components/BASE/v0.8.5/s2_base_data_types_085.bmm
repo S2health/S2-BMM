@@ -377,7 +377,7 @@ class_definitions = <
 				name = <"interpretation">
 				type_ref = <
 					type = <"Coded_text">
-					value_constraint = <"s2.MeasuredInterpretation">
+					value_constraint = <"s2.QuantitativeInterpretation">
 				>
 			>
 			["interpretation_guide"] = (P_BMM_SINGLE_PROPERTY) <

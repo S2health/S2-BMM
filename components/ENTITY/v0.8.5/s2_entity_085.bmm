@@ -138,8 +138,8 @@ class_definitions = <
 				type = <"Object_ref">
 				is_mandatory = <True>
 			>
-			["description"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"description">
+			["other_details"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"other_details">
 				type_def = <
 					container_type = <"List">
 					type = <"Node">
@@ -439,7 +439,7 @@ class_definitions = <
 		properties = <
 			["scoper"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"scoper">
-				type = <"Accountability">
+				type = <"String">
 			>
 		>
 	>
@@ -634,9 +634,9 @@ class_definitions = <
 				name = <"kind">
 				type = <"K">
 			>
-			["kind_descriptor_id"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"kind_descriptor_id">
-				type = <"String">
+			["kind_ref"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"kind_ref">
+				type = <"Object_ref">
 			>
 		>
 	>
@@ -651,7 +651,11 @@ class_definitions = <
 			>
 		>
 		properties = <
-			["identifiers"] = (P_BMM_CONTAINER_PROPERTY) <
+			["identifier"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"identifier">
+				type = <"Object_ref">
+			>
+			["other_identifiers"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"identifiers">
 				type_def = <
 					container_type = <"List">
@@ -695,7 +699,6 @@ class_definitions = <
 	["Process_kind"] = <
 		name = <"Process_kind">
 		ancestors = <"Entity_kind">
-		is_abstract = <True>
 	>
 
 	------------------------------------------------------
