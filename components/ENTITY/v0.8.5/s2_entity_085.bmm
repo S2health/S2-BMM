@@ -210,10 +210,6 @@ class_definitions = <
 					type = <"Id_use">
 				>
 			>
-			["legal_status"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"legal_status">
-				type = <"Terminology_term">
-			>
 			["identities"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"identities">
 				type_def = <
