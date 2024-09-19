@@ -61,7 +61,7 @@ packages = <
 					["continuant"] = <
 						name = <"coninuant">
 						classes = <"Physical_entity_kind", "Materially_dependent_entity_kind", "Material_entity_kind", 
-							"Object_extension_part", "Object_aggregate", "Independent_object", "Space", "Artifact_kind", "Substance_kind", 
+							"Object_extension_kind", "Object_aggregate_kind", "Independent_object_kind", "Space", "Artifact_kind", "Substance_kind", 
 							"Biological_entity_kind", "Facility_kind", "Material_location", "Spatial_region", "Fiat_point", "Fiat_line", 
 							"Fiat_surface", "Geographical_site">
 					>
@@ -608,18 +608,18 @@ class_definitions = <
 		is_abstract = <True>
 	>
 
-	["Object_aggregate"] = <
-		name = <"Object_aggregate">
+	["Object_aggregate_kind"] = <
+		name = <"Object_aggregate_kind">
 		ancestors = <"Material_entity_kind">
 	>
 
 	["Facility_kind"] = <
 		name = <"Facility_kind">
-		ancestors = <"Object_aggregate">
+		ancestors = <"Object_aggregate_kind">
 	>
 
-	["Object_extension_part"] = <
-		name = <"Object_extension_part">
+	["Object_extension_kind"] = <
+		name = <"Object_extension_kind">
 		ancestors = <"Material_entity_kind">
 		is_abstract = <True>
 		properties = <
@@ -627,20 +627,20 @@ class_definitions = <
 				name = <"parts">
 				type_def = <
 					container_type = <"List">
-					type = <"Object_extension_part">
+					type = <"Object_extension_kind">
 				>
 			>
 		>
 	>
 
-	["Independent_object"] = <
-		name = <"Independent_object">
-		ancestors = <"Object_extension_part">
+	["Independent_object_kind"] = <
+		name = <"Independent_object_kind">
+		ancestors = <"Object_extension_kind">
 	>
 
 	["Space"] = <
 		name = <"Space">
-		ancestors = <"Object_extension_part">
+		ancestors = <"Object_extension_kind">
 		properties = <
 			["parts"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"parts">
@@ -654,17 +654,17 @@ class_definitions = <
 
 	["Artifact_kind"] = <
 		name = <"Artifact_kind">
-		ancestors = <"Independent_object">
+		ancestors = <"Independent_object_kind">
 	>
 
 	["Substance_kind"] = <
 		name = <"Substance_kind">
-		ancestors = <"Independent_object">
+		ancestors = <"Independent_object_kind">
 	>
 
 	["Biological_entity_kind"] = <
 		name = <"Biological_entity_kind">
-		ancestors = <"Independent_object">
+		ancestors = <"Independent_object_kind">
 	>
 
 	["Material_location"] = <
