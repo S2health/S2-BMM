@@ -825,6 +825,10 @@ class_definitions = <
 				name = <"subject">
 				type = <"Entity_ref_node">
 			>
+			["responsible_organization"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"responsible_organization">
+				type = <"Entity_ref_node">
+			>
 		>
 	>
 

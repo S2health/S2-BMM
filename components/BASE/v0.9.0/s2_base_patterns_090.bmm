@@ -189,7 +189,7 @@ class_definitions = <
 
 	["Participation"] = <
 		name = <"Participation">
-		ancestors = <"Any">
+		ancestors = <"Locatable">
 		properties = <
 			["function"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"function">
