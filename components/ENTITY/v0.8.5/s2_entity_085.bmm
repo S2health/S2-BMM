@@ -60,8 +60,8 @@ packages = <
 				packages = <
 					["continuant"] = <
 						name = <"continuant">
-						classes = <"Physical_entity_kind", "Materially_dependent_entity_kind", "Material_entity_kind", 
-							"Object_extension_kind", "Object_aggregate_kind", "Independent_object_kind", "Space", "Artifact_kind", "Substance_kind", 
+						classes = <"Physical_entity_kind", "Materially_dependent_entity_kind", "Material_entity_kind", "Object_extension_kind", 
+							"Object_aggregate_kind", "Independent_object_kind", "Space", "Artifact_kind", "Substance_kind", 
 							"Biological_entity_kind", "Facility_kind", "Material_location", "Spatial_region", "Fiat_point", "Fiat_line", 
 							"Fiat_surface", "Geographical_site">
 					>
