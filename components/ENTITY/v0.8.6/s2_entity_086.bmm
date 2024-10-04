@@ -243,66 +243,6 @@ class_definitions = <
 		>
 	>
     
-	["Party_identity"] = <
-		name = <"Party_identity">
-		ancestors = <"Info_node">
-		properties = <
-			["identity_type"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"identity_type">
-				type = <"Terminology_term">
-			>
-			["use"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"use">
-				type = <"Terminology_term">
-			>
-		>
-	>
-	
-	["Address_use"] = <
-		name = <"Address_use">
-		ancestors = <"Info_node">
-		properties = <
-			["address_type"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"address_type">
-				type = <"Terminology_term">
-			>
-			["purposes"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"purposes">
-				type_def = <
-					container_type = <"List">
-					type = <"Terminology_term">
-				>
-			>
-			["time_validity"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"time_validity">
-				type = <"Timing">
-				is_im_runtime = <True>
-			>
-		>
-	>
-	
-	["Location_address_use"] = <
-		name = <"Location_address_use">
-		ancestors = <"Address_use">
-	>
-	
-	["Comms_address_use"] = <
-		name = <"Comms_address_use">
-		ancestors = <"Address_use">
-		properties = <
-			["address"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"address">
-				type = <"String">
-				is_mandatory = <True>
-			>
-			["address_platform"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"address_platform">
-				type = <"Terminology_term">
-				is_im_runtime = <True>
-			>
-		>
-	>
-	
 	["Agent"] = <
 		name = <"Agent">
 		is_abstract = <True>
