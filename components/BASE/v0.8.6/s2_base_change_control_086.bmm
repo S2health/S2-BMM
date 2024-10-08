@@ -21,14 +21,14 @@ bmm_version = <"2.3">
 ------------------------------------------------------
 rm_publisher = <"s2">
 schema_name = <"base_change_control">
-rm_release = <"0.9.0">
+rm_release = <"0.8.6">
 
 ------------------------------------------------------
 -- schema documentation
 ------------------------------------------------------
-schema_revision = <"0.9.0.1">
+schema_revision = <"0.8.6.1">
 schema_lifecycle_state = <"trial">
-schema_description = <"S2 Release 0.9.0 change control schema">
+schema_description = <"S2 Release 0.8.6 change control schema">
 schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 
 ------------------------------------------------------
@@ -36,13 +36,7 @@ schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"s2_base_model_support_0.9.0">
-	>
-	["2"] = <
-		id = <"s2_base_data_types_0.9.0">
-	>
-	["3"] = <
-		id = <"s2_base_patterns_0.9.0">
+		id = <"s2_base_patterns_0.8.6">
 	>
 >
 
