@@ -207,14 +207,14 @@ class_definitions = <
 				name = <"identifiers">
 				type_def = <
 					container_type = <"List">
-					type = <"Id_use">
+					type = <"Node">
 				>
 			>
 			["identities"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"identities">
 				type_def = <
 					container_type = <"List">
-					type = <"Party_identity">
+					type = <"Node">
 				>
 				is_mandatory = <True>
 				cardinality = <|>=1|>
@@ -223,14 +223,14 @@ class_definitions = <
 				name = <"location_addresses">
 				type_def = <
 					container_type = <"List">
-					type = <"Location_address_use">
+					type = <"Node">
 				>
 			>
 			["comms_addresses"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"comms_addresses">
 				type_def = <
 					container_type = <"List">
-					type = <"Comms_address_use">
+					type = <"Node">
 				>
 			>
 			["accountability_types"] = (P_BMM_CONTAINER_PROPERTY) <
@@ -260,7 +260,7 @@ class_definitions = <
 				name = <"languages">
 				type_def = <
 					container_type = <"List">
-					type = <"Language_capability">
+					type = <"Node">
 				>
 			>
 		>
@@ -319,19 +319,11 @@ class_definitions = <
 				is_mandatory = <True>
 				is_im_runtime = <True>
 			>
-			["time_validity"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"time_validity">
-				type_def = <
-					root_type = <"Interval">
-					generic_parameters = <"Date">
-				>
-				is_im_runtime = <True>
-			>
 			["capabilities"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"capabilities">
 				type_def = <
 					container_type = <"List">
-					type = <"Capability">
+					type = <"Node">
 				>
 				cardinality = <|>=1|>
 			>
@@ -360,17 +352,6 @@ class_definitions = <
 					type = <"Node">
 				>
 				cardinality = <|>=1|>
-			>
-		>
-	>
-
-	["Id_use"] = <
-		name = <"Id_use">
-		ancestors = <"Info_node">
-		properties = <
-			["original_id"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"original_id">
-				type = <"Rwe_id_ref">
 			>
 		>
 	>
@@ -599,7 +580,7 @@ class_definitions = <
 				name = <"identifiers">
 				type_def = <
 					container_type = <"List">
-					type = <"Id_use">
+					type = <"Node">
 				>
 			>
 			["individual_attributes"] = (P_BMM_CONTAINER_PROPERTY) <

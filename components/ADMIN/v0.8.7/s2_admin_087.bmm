@@ -76,7 +76,7 @@ class_definitions = <
 				name = <"external_identifiers">
 				type_def = <
 					container_type = <"List">
-					type = <"Id_use">
+					type = <"Node">
 				>
 			>
 			["interaction_type"] = (P_BMM_SINGLE_PROPERTY) <
