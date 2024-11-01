@@ -55,11 +55,6 @@ packages = <
                 name = <"data_structures">
 		        classes = <"Node", "Info_node", "Entity_ref_node", "Event", "Point_event", "Interval_event", "Participation">
 		    >
-            ["domain_data_structures"] = <
-                name = <"domain_data_structures">
-		        classes = <"Id_use", "Address_use", "Comms_address_use", "Location_address_use", "Party_identity", "Capability",
-				"Language_capability">
-		    >
 			["archetyped"] = <
 				name = <"archetyped">
 				classes = <"Pathable", "Locatable", "Info_item", "Link", "Archetyped", "Feeder_audit", "Feeder_audit_details">
@@ -420,122 +415,6 @@ class_definitions = <
 					root_type = <"Hash">
 					generic_parameters = <"String", "String">
 				>
-			>
-		>
-	>
-
-
-	--
-	--------------------- base.model_support.domain_data_structures ------------------
-	--
-
-	["Id_use"] = <
-		name = <"Id_use">
-		ancestors = <"Info_node">
-		properties = <
-			["tag"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"tag">
-				type = <"Terminology_term">
-			>
-			["original_id"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"original_id">
-				type = <"Rwe_id_ref">
-			>
-		>
-	>
-
-	["Party_identity"] = <
-		name = <"Party_identity">
-		ancestors = <"Info_node">
-		properties = <
-			["purpose"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"purpose">
-				type = <"Terminology_term">
-			>
-			["simple_name"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"simple_name">
-				type = <"String">
-			>
-		>
-	>
-	
-	["Address_use"] = <
-		name = <"Address_use">
-		ancestors = <"Info_node">
-		properties = <
-			["purposes"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"purposes">
-				type_def = <
-					container_type = <"List">
-					type = <"Terminology_term">
-				>
-			>
-			["time_validity"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"time_validity">
-				type = <"Timing">
-				is_im_runtime = <True>
-			>
-		>
-	>
-	
-	["Location_address_use"] = <
-		name = <"Location_address_use">
-		ancestors = <"Address_use">
-	>
-	
-	["Comms_address_use"] = <
-		name = <"Comms_address_use">
-		ancestors = <"Address_use">
-		properties = <
-			["address"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"address">
-				type = <"String">
-				is_mandatory = <True>
-			>
-			["address_platform"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"address_platform">
-				type = <"Terminology_term">
-				is_im_runtime = <True>
-			>
-		>
-	>
-
-
-	["Language_capability"] = <
-		name = <"Language_capability">
-		ancestors = <"Info_item">
-		properties = <
-			["language"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"language">
-				type_ref = <	
-					type = <"Terminology_code">
-					value_constraint = <"iso_639-1">
-				>
-				is_mandatory = <True>
-			>
-			["preferred"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"preferred">
-				type = <"Boolean">
-			>
-		>
-	>
-
-
-	["Capability"] = <
-		name = <"Capability">
-		ancestors = <"Info_node">
-		properties = <
-			["description"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"description">
-				type = <"Text">
-			>
-			["time_validity"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"time_validity">
-				type_def = <
-					root_type = <"Interval">
-					generic_parameters = <"Date">
-				>
-				is_im_runtime = <True>
 			>
 		>
 	>
