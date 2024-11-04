@@ -105,14 +105,9 @@ class_definitions = <
 
 	["Entity"] = <
 		name = <"Entity">
-		ancestors = <"Locatable">
+		ancestors = <"Info_item">
 		is_abstract = <True>
 		properties = <
-			["domain_type"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"domain_type">
-				type = <"Terminology_term">
-				is_mandatory = <True>
-			>
 			["relationships"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"relationships">
 				type_def = <
@@ -132,14 +127,9 @@ class_definitions = <
 
 	["Entity_relationship"] = <
 		name = <"Entity_relationship">
-		ancestors = <"Locatable">
+		ancestors = <"Info_item">
 		is_abstract = <True>
 		properties = <
-			["domain_type"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"domain_type">
-				type = <"Terminology_term">
-				is_mandatory = <True>
-			>
 			["source"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"source">
 				type = <"Object_ref">
@@ -170,14 +160,9 @@ class_definitions = <
 
 	["Entity_relationship_group"] = <
 		name = <"Entity_relationship_group">
-		ancestors = <"Locatable">
+		ancestors = <"Info_item">
 		is_abstract = <True>
 		properties = <
-			["domain_type"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"domain_type">
-				type = <"Terminology_term">
-				is_mandatory = <True>
-			>
 			["members"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"members">
 				type_def = <
@@ -362,7 +347,7 @@ class_definitions = <
 
 	["Entity_kind"] = <
 		name = <"Entity_kind">
-		ancestors = <"Locatable">
+		ancestors = <"Info_item">
 		is_abstract = <True>
 		properties = <
 			["items"] = (P_BMM_CONTAINER_PROPERTY) <
@@ -377,13 +362,8 @@ class_definitions = <
 
 	["Entity_kind_relationship"] = <
 		name = <"Entity_kind_relationship">
-		ancestors = <"Locatable">
+		ancestors = <"Info_item">
 		properties = <
-			["domain_type"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"domain_type">
-				type = <"Terminology_term">
-				is_mandatory = <True>
-			>
 			["source"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"source">
 				type = <"Object_ref">
@@ -399,7 +379,7 @@ class_definitions = <
 
 	["Entity_kind_relationship_group"] = <
 		name = <"Entity_kind_relationship_group">
-		ancestors = <"Locatable">
+		ancestors = <"Info_item">
 		properties = <
 			["type"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"type">
