@@ -78,8 +78,7 @@ packages = <
 			["social_entity"] = <
 				name = <"social_entity">
 				classes = <"Social_entity", "Party", "Persona", "Person", "Organization", "Org_unit", "Org_entity", 
-					"Agent", "Aggregate_agent", "Individual_agent", "Automaton", "Team", "Party_relationship", 
-					"Accountability">
+					"Agent", "Aggregate_agent", "Individual_agent", "Automaton", "Team", "Party_relationship">
 			>
 			["occurrent"] = <
 				name = <"occurrent">
@@ -222,7 +221,7 @@ class_definitions = <
 				name = <"accountability_types">
 				type_def = <
 					container_type = <"List">
-					type = <"Accountability">
+					type = <"Node">
 				>
 			>
 		>
@@ -321,22 +320,7 @@ class_definitions = <
 		properties = <
 			["scoper"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"scoper">
-				type = <"String">
-			>
-		>
-	>
-
-	["Accountability"] = <
-		name = <"Accountability">
-		ancestors = <"Locatable">
-		properties = <
-			["description"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"description">
-				type_def = <
-					container_type = <"List">
-					type = <"Node">
-				>
-				cardinality = <|>=1|>
+				type = <"Entity_ref_node">
 			>
 		>
 	>
