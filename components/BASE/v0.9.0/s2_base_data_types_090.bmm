@@ -57,8 +57,8 @@ packages = <
 				name = <"quantity">
 				classes = <
 					"Range", "Ordered_datum", "Ordered_value", "Quantified",
-					"Money", "Coded_ordinal", "Measurable", "Compound_measurable", "Simple_measurable",
-					"Quantity", "Proportion", "Ratio", "Titer", "Count", "Ratio_kind", "Stratified",
+					"Money", "Coded_ordinal", "Score", "Measurable", "Compound_measurable", "Simple_measurable",
+					"Quantity", "Proportion", "Ratio", "Titer", "Count", "Ratio_kind", "Semi_quantitative",
 					"Measured", "Comparison_operator", "Reference_range", 
 					"Temporal_value", "Date_value", "Date_time_value", "Time_value", "Duration_value"
 				>
@@ -309,8 +309,25 @@ class_definitions = <
 		name = <"Coded_ordinal">
 		ancestors = <"Ordered_value">
 		properties = <
-			["magnitude"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"magnitude">
+			["rank"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"rank">
+				type = <"Integer">
+				is_mandatory = <True>
+			>
+			["concept"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"concept">
+				type = <"Coded_text">
+				is_mandatory = <True>
+			>
+		>
+	>
+
+	["Score"] = <
+		name = <"Score">
+		ancestors = <"Ordered_value">
+		properties = <
+			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"value">
 				type = <"Integer">
 				is_mandatory = <True>
 			>
@@ -484,8 +501,8 @@ class_definitions = <
 		item_names = <"rational_fraction", "fraction", "ratio">
 	>
 
-	["Stratified"] = <
-		name = <"Stratified">
+	["Semi_quantitative"] = <
+		name = <"Semi_quantitative">
 		ancestors = <"Measurable">
 		generic_parameter_defs = <
 			["V"] = <
@@ -494,29 +511,25 @@ class_definitions = <
 			>
 		>
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
-				name = <"value">
-				type = <"V">
+			["range"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"range">
+				type = <"Text">
 			>
-			["stratification_range"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"stratification_range">
+			["rank"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"rank">
+				type = <"Integer">
+			>
+			["range_computable"] = (P_BMM_GENERIC_PROPERTY) <
+				name = <"range_computable">
 				type_def = <
 					root_type = <"Interval">
-					generic_parameters = <"Decimal">
+					generic_parameters = <"V">
 				>
 				is_im_runtime = <True>
 			>
-			["stratification_system"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"stratification_system">
-				type = <"Terminology_term">
-			>
-			["range_value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"range_value">
-				type = <"Decimal">
-			>
-			["range_description"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"range_description">
-				type = <"Terminology_term">
+			["stratification_definition"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"stratification_definition">
+				type = <"Text">
 			>
 		>
 	>
@@ -661,13 +674,16 @@ class_definitions = <
 				type = <"Date">
 				is_mandatory = <True>
 			>
+			["date_upper"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"date_upper">
+				type = <"Date">
+			>
 			["times_of_day"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"times_of_day">
 				type_def = <
 					container_type = <"List">
 					type = <"Hour_specifier">
 				>
-				cardinality = <|>=0|>
 			>
 		>
 	>
@@ -682,7 +698,6 @@ class_definitions = <
 					container_type = <"List">
 					type = <"Occurrence_times_specifier">
 				>
-				cardinality = <|>=0|>
 			>
 			["total_event_count"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"total_event_count">
@@ -694,7 +709,10 @@ class_definitions = <
 					root_type = <"Interval">
 					generic_parameters = <"Date">
 				>
-				is_mandatory = <True>
+			>
+			["pattern_coded"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"pattern_coded">
+				type = <"Terminology_term">
 			>
 		>
 	>
@@ -735,15 +753,13 @@ class_definitions = <
 		name = <"Day_hour_specifier">
 		ancestors = <"Occurrence_times_specifier">
 		properties = <
-			["day"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"day">
-				type_ref = <
-					type = <"Terminology_term">
-					value_constraint = <"s2.DaySpecifier">
-				>
+			["days_spec"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"days_spec">
+				type = <"String">
+				is_mandatory = <True>
 			>
-			["day_period"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"day_period">
+			["base_periods_in_cycle"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"base_periods_in_cycle">
 				type = <"Integer">
 			>
 			["times_of_day"] = (P_BMM_CONTAINER_PROPERTY) <
@@ -752,7 +768,6 @@ class_definitions = <
 					container_type = <"List">
 					type = <"Hour_specifier">
 				>
-				cardinality = <|>=0|>
 			>
 		>
 	>
@@ -771,7 +786,7 @@ class_definitions = <
 				name = <"reference_event">
 				type_ref = <
 					type = <"Terminology_term">
-					value_constraint = <"s2.EventTiming">
+					value_constraint = <"s2.TimingEvent">
 				>
 				is_mandatory = <True>
 			>
