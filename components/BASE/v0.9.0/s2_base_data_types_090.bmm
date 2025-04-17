@@ -504,28 +504,27 @@ class_definitions = <
 	["Semi_quantitative"] = <
 		name = <"Semi_quantitative">
 		ancestors = <"Measurable">
-		generic_parameter_defs = <
-			["V"] = <
-				name = <"V">
-				conforms_to_type = <"Simple_measurable">
-			>
-		>
 		properties = <
 			["range"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"range">
 				type = <"Text">
+				is_mandatory = <True>
 			>
 			["rank"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"rank">
 				type = <"Integer">
 			>
-			["range_computable"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"range_computable">
-				type_def = <
-					root_type = <"Interval">
-					generic_parameters = <"V">
-				>
-				is_im_runtime = <True>
+			["range_lower"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"range_lower">
+				type = <"Decimal">
+			>
+			["range_upper"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"range_upper">
+				type = <"Decimal">
+			>
+			["units"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"units">
+				type = <"Coded_text">
 			>
 			["stratification_definition"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"stratification_definition">
