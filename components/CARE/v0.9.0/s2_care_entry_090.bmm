@@ -36,10 +36,10 @@ schema_author = <"Thomas Beale <thomas.beale@graphitehealth.io>">
 ------------------------------------------------------
 includes = <
 	["1"] = <
-		id = <"s2_care_ehr_0.8.7">
+		id = <"s2_care_ehr_0.9.0">
 	>
 	["2"] = <
-		id = <"s2_base_patterns_0.8.7">
+		id = <"s2_base_patterns_0.9.0">
 	>
 >
 
