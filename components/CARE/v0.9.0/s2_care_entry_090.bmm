@@ -54,8 +54,9 @@ packages = <
 			["entry"] = <
 				name = <"entry">
 				classes = <"Entry", "Care_entry", "Care_act_entry", "Admin_entry",
-					"Observation", "Direct_observation", 
-					"Indirect_observation", "Lab_result", "Imaging",
+					"Observation", "Measured_observation", 
+					"Interpreted_observation", "Adhoc_observation", "Time_series_observation",
+					"Lab_result", "Imaging",
 					"Questionnaire_response", "Scored_observation",
 					"Assessment",
 					"Order", "Action", "Activity", "State_transition", "Order_tracking",
@@ -226,13 +227,52 @@ class_definitions = <
 		documentation = <"Entry subtype used to represent single sample observation.">
 		ancestors = <"Care_act_entry">
 		properties = <
+			["state"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"state">
+				type_def = <
+					container_type = <"List">
+					type = <"Locatable">
+				>
+			>
+			["result_time"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"result_time">
+				type = <"Date_time">
+				is_im_runtime = <True>
+			>
+		>
+	>
+
+	["Measured_observation"] = <
+		name = <"Measured_observation">
+		documentation = <"Entry subtype used to represent an observation result obtained by direct observation.">
+		ancestors = <"Observation">
+		properties = <
+			["trend"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"trend">
+				type = <"Trend_kind">
+			>
+		>
+	>
+
+	["Interpreted_observation"] = <
+		name = <"Interpreted_observation">
+		documentation = <"Entry subtype used to represent an observation whose result is an interpretation of a direct observation.">
+		ancestors = <"Observation">
+		properties = <
+			["raw_data"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"raw_data">
+				type = <"Entity_ref_node">
+			>
+			["raw_data_thumbnail"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"raw_data_thumbnail">
+				type = <"Multimedia">
+			>
 			["data"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"data">
 				type_def = <
 					container_type = <"List">
 					type = <"Node">
 				>
-				cardinality = <|>=1|>
 			>
 			["state"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"state">
@@ -244,56 +284,60 @@ class_definitions = <
 		>
 	>
 
-	["Direct_observation"] = <
-		name = <"Direct_observation">
-		ancestors = <"Observation">
+	["Adhoc_observation"] = <
+		name = <"Adhoc_observation">
+		ancestors = <"Measured_observation">
 		properties = <
-			["trend"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"trend">
-				type = <"Trend_kind">
-			>
-			["total_duration"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"total_duration">
-				type = <"Duration">
-			>
-			["data_series"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"data_series">
+			["data"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"data">
 				type_def = <
 					container_type = <"List">
-					type = <"Event">
+					type = <"Node">
 				>
 			>
-			["state_series"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"state_series">
+			["state"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"state">
 				type_def = <
 					container_type = <"List">
-					type = <"Event">
+					type = <"Node">
 				>
 			>
 		>
 	>
 
-	["Indirect_observation"] = <
-		name = <"Indirect_observation">
-		ancestors = <"Observation">
+	["Time_series_observation"] = <
+		name = <"Time_series_observation">
+		ancestors = <"Measured_observation">
 		properties = <
-			["result_time"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"result_time">
-				type = <"Date_time">
-				is_im_runtime = <True>
-				is_mandatory = <True>
+			["total_duration"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"total_duration">
+				type = <"Duration">
+			>
+			["data"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"data">
+				type_def = <
+					container_type = <"List">
+					type = <"Event">
+				>
+			>
+			["state"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"state">
+				type_def = <
+					container_type = <"List">
+					type = <"Event">
+				>
 			>
 		>
 	>
 
 	["Lab_result"] = <
 		name = <"Lab_result">
-		ancestors = <"Indirect_observation">
+		ancestors = <"Adhoc_observation">
 	>
 
 	["Imaging"] = <
 		name = <"Imaging">
-		ancestors = <"Indirect_observation">
+		ancestors = <"Interpreted_observation">
 	>
 
 	["Scored_observation"] = <
