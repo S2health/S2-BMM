@@ -53,7 +53,7 @@ packages = <
         packages = <
             ["data_structures"] = <
                 name = <"data_structures">
-		        classes = <"Node", "Info_node", "Entity_ref_node", "Event", "Point_event", "Interval_event", "Participation">
+		        classes = <"Node", "Info_node", "Info_ref_node", "Entity_ref_node", "Event", "Point_event", "Interval_event", "Participation">
 		    >
 			["archetyped"] = <
 				name = <"archetyped">
@@ -124,6 +124,17 @@ class_definitions = <
 				type = <"Boolean">
 				is_mandatory = <True>
 			>
+			["entity_ref"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"entity_ref">
+				type = <"Object_ref">
+			>
+		>
+	>
+
+	["Info_ref_node"] = <
+		name = <"Info_ref_node">
+		ancestors = <"Node">
+		properties = <
 			["entity_ref"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"entity_ref">
 				type = <"Object_ref">
